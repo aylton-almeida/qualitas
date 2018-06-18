@@ -13,6 +13,7 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -20,14 +21,27 @@
     <?php
     session_start();
     $_SESSION['page']="home";
-    include("pageParts/nav.php")
+    include("pageParts/nav.php");
     ?>
 </nav>
     <main>
+      <div class="bg-dark block1 container">
+            <img class="" src="imagens/logo_texto.png" alt="Logo Qualitas Imobiliária e construtora">
+      </div>
+        <div class="block2">
+          <div class="row">
+            <div class="col card">
+                oi
+            </div>
+            <div class="col card">
+                oi
+            </div>
+            <div class="col card">
+                oi
+            </div>
+          </div>
+        </div
     </main>
-    <footer>
-      
-    </footer>
 </body>
 
 </html>
