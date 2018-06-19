@@ -20,6 +20,17 @@
   <link rel="stylesheet" href="css/imoveis.css">
 </head>
 <body>
-
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <?php
+    session_start();
+    $_SESSION['page'] = "imoveis";
+    include("../pageParts/nav.php")
+     ?>
+  </nav>
+  <main>
+    <div class="container-fluid">
+      
+    </div>
+  </main>
 </body>
 </html>

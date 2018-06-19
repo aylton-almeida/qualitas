@@ -4,9 +4,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <!--Pagina com lista de imoveis e opcao para adicionar, dentro de cada imovel opcao para excluir ou alterar-->
+      <!--Pagina com lista de imoveis e opção para adicionar, dentro de cada imóvel opção para excluir ou alterar-->
       <li class="nav-item">
-        <a class="nav-link <?php if($_SESSION['page'] == "imoveis"){echo "active";}?>" href="#">Imóveis</a>
+        <a class="nav-link <?php if($_SESSION['page'] == "imoveis"){echo "active";}?>" href="<?php if($_SESSION['page'] == "home"){echo "pages/imoveis.php";}else{echo "../pages/imoveis.php";}?>">Imóveis</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle <?php if($_SESSION['page'] == "imobiliarias"){echo "active";}?>" href="#" id="navbarDropdownImobiliarias" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Imobiliárias</a>
