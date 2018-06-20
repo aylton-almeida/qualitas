@@ -66,14 +66,30 @@
     </div>
   </main>
   <script type="text/javascript">
-    //Pegar imagem
+    // Pegar imagem
+    let uploadImg = $("#imgUpload").croppie({
+      viewport: {
+        width: "500px",
+        height: "300px"
+      }
+    });
+
     $("#inputImagem").change(() => {
       let reader = new FileReader();
       reader.onload = (img) => {
-        $("#imgUpload").attr("src", img.target.result);
+        uploadImg.croppie('bind',{
+          url: img.target.result
+        })
       }
       reader.readAsDataURL(inputImagem.files[0]);
     })
+    // $("#inputImagem").change(() => {
+    //   let reader = new FileReader();
+    //   reader.onload = (img) => {
+    //     $("#imgUpload").attr("src", img.target.result);
+    //   }
+    //   reader.readAsDataURL(inputImagem.files[0]);
+    // })
   </script>
 </body>
 
