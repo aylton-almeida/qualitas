@@ -4,7 +4,7 @@
 <head>
     <title>Qualitas</title>
     <!--Add icon-->
-    <link rel="icon" type="image/png" href="imagens/logo_pequena.png" sizes="32X32">
+    <link rel="icon" type="image/png" href="imagens/icon.png" sizes="32X32">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" shrink-to-fit=no>
     <!--Add Bootstrap-->

@@ -1,7 +1,9 @@
   <a class="navbar-brand" href="<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>"><img src="<?php if($_SESSION['page'] == "home"){echo "imagens/logo_intermedio.png";}else{echo "../imagens/logo_intermedio.png";}?>" width="50" height="50"> Qualitas</a>
+  <!-- Add hamburguer menu -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <!-- Navbar itens -->
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <!--Pagina com lista de imoveis e opção para adicionar, dentro de cada imóvel opção para excluir ou alterar-->
