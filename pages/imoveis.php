@@ -69,8 +69,13 @@
     // Pegar imagem
     let uploadImg = $("#imgUpload").croppie({
       viewport: {
-        width: "500px",
-        height: "300px"
+        width: 500,
+        height: 300,
+        type: 'square'
+      };
+      boundary: {
+        width: 600,
+        height: 600
       }
     });
 
