@@ -46,23 +46,105 @@
               </div>
               <!-- Modal body -->
               <div class="modal-body" id="modalBody">
-                <form class="" action="" method="post">
+                <form id="cadastrarImovel" action="../php/cadastrarImoveis.php" method="post">
+                  <!-- Form imagem -->
                   <div class="container">
                     <div class="row" id="croppieDiv">
                       <div class="input-group mb-3">
                         <div class="custom-file">
-                          <input type="file" accept="image/*" class="custom-file-input" id="inputImagem">
+                          <input type="file" accept="image/*" class="custom-file-input" id="inputImagem" name="imagemInput">
                           <label class="custom-file-label" for="inputImagem">Escolha uma imagem</label>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <!-- Nome -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="nomeSpan">Nome</span>
+                    </div>
+                    <input id="nomeInput" class="form-control" placeholder="Digite um nome..." type="text" aria-describedby="nomeSpan" name="nomeImovel" required>
+                  </div>
+                  <!-- Rua -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="endereçoSpan">Endereço</span>
+                    </div>
+                    <input id="ruaInput" class="form-control" placeholder="Rua" type="text" aria-describedby="endereçoSpan" name="ruaImovel" required>
+                  </div>
+                  <!-- Número, bairro e complemento -->
+                  <div class="input-group mb-3">
+                    <input id="numeroInput" class="form-control" placeholder="Número" type="number" name="numeroImovel" required>
+                    <input id="bairroInput" class="form-control" placeholder="Bairro" type="text" name="bairroImovel" required>
+                    <input id="complementoInput" class="form-control" placeholder="Complemento" type="text" name="complementoImovel" required>
+                  </div>
+                  <!-- Estado e cidade -->
+                  <div class="input-group mb-3">
+                    <select class="custom-select" id="estadoInput" name="estadoImovel" required>
+                      <option selected>Estado...</option>
+                      <option value="1">AC</option>
+                      <option value="2">AL</option>
+                      <option value="3">AP</option>
+                      <option value="4">AM</option>
+                      <option value="5">BA</option>
+                      <option value="6">CE</option>
+                      <option value="7">DF</option>
+                      <option value="8">ES</option>
+                      <option value="9">GO</option>
+                      <option value="10">MA</option>
+                      <option value="11">MT</option>
+                      <option value="12">MS</option>
+                      <option value="13">MG</option>
+                      <option value="14">PA</option>
+                      <option value="15">PB</option>
+                      <option value="16">PR</option>
+                      <option value="17">PE</option>
+                      <option value="18">PI</option>
+                      <option value="19">RJ</option>
+                      <option value="20">RN</option>
+                      <option value="21">RS</option>
+                      <option value="22">RO</option>
+                      <option value="23">RR</option>
+                      <option value="24">SC</option>
+                      <option value="25">SP</option>
+                      <option value="26">SE</option>
+                      <option value="27">TO</option>
+                    </select>
+                    <input id="cidadeInput" class="form-control" placeholder="Digite uma cidade..." type="text" name="cidadeImovel" required>
+                  </div>
+                  <!-- Valor aluguel -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="precoSpan">R$</span>
+                    </div>
+                    <input id="precoInput" class="form-control" placeholder="Preço aluguel" type="number" aria-describedby="precoSpan" name="precoImovel" required>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="precoSpan">,00</span>
+                    </div>
+                  </div>
+                  <!-- Imobiliária -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="imobiliariaSpan">Imobiliária</span>
+                    </div>
+                    <select class="custom-select" id="imobiliariaInput" aria-describedby="imobiliariaSpan" name="imobiliariaImovel">
+                      <option selected>Escolha uma imobiliária...</option>
+                      <option value="1">Conceito Empreendimentos Imobiliarias LTDA</option>
+                      <option value="2">J. Fróes Imóveis LTDA</option>
+                      <option value="3">Vivar Imóveis LTDA</option>
+                      <option value="4">Invest Administradiora e Corretora de Imóveis LTDA</option>
+                      <option value="5">União Corretora de Imóvel LTDA</option>
+                      <option value="6">Qualitas Imobiliária e Construtora LTDA</option>
+                      <option value="7">Imobiliária Lopes LTDA</option>
+                    </select>
+                  </div>
+                  <!-- <input type="submit" id="jorge"> -->
                 </form>
               </div>
               <!-- Modal footer -->
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal" name="button">Cancelar</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal" name="button">Salvar</button>
+                <button type="button" class="btn btn-danger" id="btnCancelar" data-dismiss="modal">Cancelar</button>
+                <button type="submit" form="cadastrarImovel" class="btn btn-success" >Salvar</button>
               </div>
             </div>
           </div>
@@ -71,9 +153,7 @@
     </div>
   </main>
   <script type="text/javascript">
-
     // Pegar imagem
-    let imgBlob;
     $("#inputImagem").change(() => {
       if(inputImagem.files[0]){
         let uploadImg = $("#croppieDiv").croppie({
@@ -95,13 +175,13 @@
           })
           //Criar button
           let btnResult = document.createElement("button");
-          btnResult.className = "btn btn-dark col-12";
+          btnResult.className = "btn btn-dark col-12 btnresult";
           btnResult.innerHTML = "Concluir";
           $("#croppieDiv").append(btnResult);
           //Função do botão
           $(btnResult).click(()=>{
             uploadImg.croppie('result', 'blob').then((blob)=>{
-              let imgBlob = blob;
+              var imgBlob = blob;
             })
             uploadImg.croppie('result', 'base64').then((base64)=>{
               //Limpar div e mostrar imagem
@@ -118,6 +198,11 @@
         }
         reader.readAsDataURL(inputImagem.files[0]);
       }
+    })
+
+    //Button Cancelar
+    $("#btnCancelar").click(()=>{
+      $("#cadastrarImovel")[0].reset();
     })
   </script>
 </body>
