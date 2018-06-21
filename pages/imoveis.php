@@ -37,24 +37,28 @@
         <div class="modal fade" id="modalCadastrarImovel" tabindex="-1" role="dialog" aria-labelledby="CadastrarImovelLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
+              <!-- Modal header -->
               <div class="modal-header">
                 <h5 class="modal-title" id="CadastrarImovelLabel">Cadastre um imóvel</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                <img id="imgUpload" class="img-fluid rounded" width="500px" height="auto" src="">
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Upload</span>
-                  </div>
-                  <div class="custom-file">
-                    <input type="file" accept="image/*" class="custom-file-input" id="inputImagem">
-                    <label class="custom-file-label" for="inputImagem">Escolha uma imagem</label>
+              <!-- Modal body -->
+              <div class="modal-body" id="modalBody">
+
+                <div class="container">
+                  <div class="row" id="croppieDiv">
+                    <div class="input-group mb-3">
+                      <div class="custom-file">
+                        <input type="file" accept="image/*" class="custom-file-input" id="inputImagem">
+                        <label class="custom-file-label" for="inputImagem">Escolha uma imagem</label>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <!-- Modal footer -->
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal" name="button">Cancelar</button>
                 <button type="button" class="btn btn-success" data-dismiss="modal" name="button">Salvar</button>
@@ -67,34 +71,51 @@
   </main>
   <script type="text/javascript">
     // Pegar imagem
-    let uploadImg = $("#imgUpload").croppie({
-      viewport: {
-        width: 500,
-        height: 300,
-        type: 'square'
-      };
-      boundary: {
-        width: 600,
-        height: 600
-      }
-    });
-
+    let imgBlob;
     $("#inputImagem").change(() => {
-      let reader = new FileReader();
-      reader.onload = (img) => {
-        uploadImg.croppie('bind',{
-          url: img.target.result
-        })
+      if(inputImagem.files[0]){
+        let uploadImg = $("#croppieDiv").croppie({
+          viewport: {
+            width: 400,
+            height: 300,
+            type: 'square'
+          },
+          boundary: {
+            width: 500,
+            height: 500
+          }
+        });
+        //Ler upload
+        let reader = new FileReader();
+        reader.onload = (img) => {
+          uploadImg.croppie('bind',{
+            url: img.target.result
+          })
+          //Criar button
+          let btnResult = document.createElement("button");
+          btnResult.className = "btn btn-dark col-12";
+          btnResult.innerHTML = "Concluir";
+          $("#croppieDiv").append(btnResult);
+          $(btnResult).click(()=>{
+            uploadImg.croppie('result', 'blob').then((blob)=>{
+              let imgBlob = blob;
+            })
+            uploadImg.croppie('result', 'base64').then((base64)=>{
+              //Limpar div
+              let divCroppie = document.getElementById("croppieDiv");
+              while (divCroppie.hasChildNodes()) {
+                  divCroppie.removeChild(divCroppie.lastChild);
+              }
+              let img = document.createElement("img");
+              img.className = "rounded img-fluid"
+              img.src = base64;
+              divCroppie.appendChild(img);
+            })
+          })
+        }
+        reader.readAsDataURL(inputImagem.files[0]);
       }
-      reader.readAsDataURL(inputImagem.files[0]);
     })
-    // $("#inputImagem").change(() => {
-    //   let reader = new FileReader();
-    //   reader.onload = (img) => {
-    //     $("#imgUpload").attr("src", img.target.result);
-    //   }
-    //   reader.readAsDataURL(inputImagem.files[0]);
-    // })
   </script>
 </body>
 
