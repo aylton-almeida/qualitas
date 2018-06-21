@@ -46,17 +46,18 @@
               </div>
               <!-- Modal body -->
               <div class="modal-body" id="modalBody">
-
-                <div class="container">
-                  <div class="row" id="croppieDiv">
-                    <div class="input-group mb-3">
-                      <div class="custom-file">
-                        <input type="file" accept="image/*" class="custom-file-input" id="inputImagem">
-                        <label class="custom-file-label" for="inputImagem">Escolha uma imagem</label>
+                <form class="" action="" method="post">
+                  <div class="container">
+                    <div class="row" id="croppieDiv">
+                      <div class="input-group mb-3">
+                        <div class="custom-file">
+                          <input type="file" accept="image/*" class="custom-file-input" id="inputImagem">
+                          <label class="custom-file-label" for="inputImagem">Escolha uma imagem</label>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
               <!-- Modal footer -->
               <div class="modal-footer">
@@ -70,6 +71,7 @@
     </div>
   </main>
   <script type="text/javascript">
+
     // Pegar imagem
     let imgBlob;
     $("#inputImagem").change(() => {
@@ -77,7 +79,7 @@
         let uploadImg = $("#croppieDiv").croppie({
           viewport: {
             width: 400,
-            height: 300,
+            height: 250,
             type: 'square'
           },
           boundary: {
@@ -96,18 +98,19 @@
           btnResult.className = "btn btn-dark col-12";
           btnResult.innerHTML = "Concluir";
           $("#croppieDiv").append(btnResult);
+          //Função do botão
           $(btnResult).click(()=>{
             uploadImg.croppie('result', 'blob').then((blob)=>{
               let imgBlob = blob;
             })
             uploadImg.croppie('result', 'base64').then((base64)=>{
-              //Limpar div
+              //Limpar div e mostrar imagem
               let divCroppie = document.getElementById("croppieDiv");
               while (divCroppie.hasChildNodes()) {
                   divCroppie.removeChild(divCroppie.lastChild);
               }
               let img = document.createElement("img");
-              img.className = "rounded img-fluid"
+              img.className = "rounded img-fluid mx-auto d-block"
               img.src = base64;
               divCroppie.appendChild(img);
             })
