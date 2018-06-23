@@ -292,34 +292,21 @@
         $('#modalCadastrarImovel').modal('hide');
         //limpar form
         limpaForm();
-        //Criar objeto
-        let data = {
-        nome: $('#nomeInput').val(),
-        rua: $('#ruaInput').val(),
-        numero: $('#numeroInput').val(),
-        bairro: $('#bairroInput').val(),
-        complemento: $('#complementoInput').val(),
-        estado: $('#estadoInput').val(),
-        cidade: $('#cidadeInput').val(),
-        preco: $('#precoInput').val(),
-        imobiliaria: $('#imobiliariaInput').val(),
-        imagem: imgBlob
-      };
-      let json = JSON.stringify(data);
         //Enviar form por ajax
         $.ajax({
           url: '../php/cadastrarImoveis.php',
           type: "POST",
-          data: json,
-          contentType: "application/json; charset=utf-8",
-          dataType: "json",
-          processData: false,
-          contentType: false,
-          success: function (){
-            console.log("Cadastro efetuado com sucesso");
-          },
-          error: function (error){
-            console.log("Erro ao cadastrar imóvel");
+          data: {
+            nome: $('#nomeInput').val(),
+            rua: $('#ruaInput').val(),
+            numero: $('#numeroInput').val(),
+            bairro: $('#bairroInput').val(),
+            complemento: $('#complementoInput').val(),
+            estado: $('#estadoInput').val(),
+            cidade: $('#cidadeInput').val(),
+            preco: $('#precoInput').val(),
+            imobiliaria: $('#imobiliariaInput').val(),
+            imagem: imgBlob
           }
         })
       }else{
