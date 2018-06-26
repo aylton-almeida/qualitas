@@ -1,4 +1,5 @@
-  <a class="navbar-brand" href="<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>"><img src="<?php if($_SESSION['page'] == "home"){echo "imagens/logo_intermedio.png";}else{echo "../imagens/logo_intermedio.png";}?>" width="50" height="50"> Qualitas</a>
+<!-- Elementros navBar -->
+<a class="navbar-brand" href="<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>"><img src="<?php if($_SESSION['page'] == "home"){echo "imagens/logo_intermedio.png";}else{echo "../imagens/logo_intermedio.png";}?>" width="50" height="50"> Qualitas</a>
   <!-- Add hamburguer menu -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -6,6 +7,10 @@
   <!-- Navbar itens -->
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
+      <!-- Home page -->
+      <li class="nav-item">
+        <a class="nav-link <?php if($_SESSION['page'] == "home"){echo "active";}?>" href="<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>">Home</a>
+      </li>
       <!--Pagina com lista de imoveis e opção para adicionar, dentro de cada imóvel opção para excluir ou alterar-->
       <li class="nav-item">
         <a class="nav-link <?php if($_SESSION['page'] == "imoveis"){echo "active";}?>" href="<?php if($_SESSION['page'] == "home"){echo "pages/imoveis.php";}else{echo "../pages/imoveis.php";}?>">Imóveis</a>
@@ -29,3 +34,9 @@
       </li>
     </ul>
   </div>
+  <form class="form-inline">
+    <div class="input-group">
+      <input type="email" class="form-control" aria-describedby="loginSpan" placeholder="E-mail">
+      <input type="password" class="form-control" aria-describedby="loginSpan" placeholder="Senha">
+    </div>
+  </form>
