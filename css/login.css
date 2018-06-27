@@ -1,0 +1,46 @@
+a{
+  color: grey;
+}
+a:hover{
+  color: rgb(52, 58, 64);
+}
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+  .block{
+    padding: 10% 0
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .block{
+    padding: 10% 25%
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .block{
+    padding: 10% 30%
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .block{
+    padding: 10% 35%
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+  .block{
+    padding: 10% 35%
+  }
+}
