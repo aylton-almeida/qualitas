@@ -11,7 +11,7 @@ $("#btnCadastro").click(() => {
           firebase.auth().currentUser.updateProfile({
             displayName: $("#nomeInput").val(),
           }).then(function() {
-            mensagemSuc("Usuário criado com sucesso!");
+            window.location.href = "../index.php";
           }).catch(function(error) {
             mensagemErr("Erro ao cadastrar usuário!")
           });

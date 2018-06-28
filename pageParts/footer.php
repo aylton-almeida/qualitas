@@ -26,6 +26,7 @@
 </script>
 <!-- Login navbar -->
 <script type="text/javascript">
+//Esconder formulário
 $("#formNav").hide();
   //Button cadastro navBar
   $("#btnCadastroNav").click(() => {
@@ -33,12 +34,17 @@ $("#formNav").hide();
   })
   // Button login navBar
   $("#btnLoginNav").click(() => {
+    //Validar fomulário
     if ($("#formNav")[0].checkValidity()) {
+      //Fazer login
       firebase.auth().signInWithEmailAndPassword($("#emailInputNav").val(), $("#passInputNav").val())
       .then(()=>{
-        window.location.href = "<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>"
+        //Caso o login seja um sucesso
+        $("#formNav").hide();
+        window.location.href = "#"
       })
       .catch(function(error) {
+        //Caso ocorra algum erro no login
         console.log(error.message);
         mensagemErr("Email ou senha incorretos!");
         $("#msgCross").click(()=>{
@@ -46,12 +52,15 @@ $("#formNav").hide();
         })
       });
     } else {
+      //Caso o forulário esteja preenchido incorretamente
       mensagemErr("Preencha todos os campos corretamente!");
       $("#msgCross").click(()=>{
         window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/login.php";}else{echo "../pages/login.php";}?>";
       })
     }
   })
+
+  //Conferir se um usuário está logado e caso esteja colocar seu nome na navbar
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
       console.log("Logged in");
@@ -62,6 +71,7 @@ $("#formNav").hide();
     }
   })
 
+  //Funções de mensagem
   function mensagemErr(msg){
     $('#msg').html('<div class="alert alert-danger fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
   }
