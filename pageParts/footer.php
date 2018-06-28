@@ -65,6 +65,14 @@ $("#formNav").hide();
     if(user){
       console.log("Logged in");
       $("#bemVindo").html("Bem vindo " + user.displayName);
+      //Hover e out span bemvindo
+      $("#bemVindo")
+      .mouseover(()=>{
+        $("#bemVindo").html("Sair");
+      })
+      .mouseout(()=>{
+        $("#bemVindo").html("Bem vindo " + user.displayName);
+      })
     }else{
       console.log("Not logged in");
       $("#formNav").show();
