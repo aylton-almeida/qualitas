@@ -24,12 +24,12 @@
   };
   firebase.initializeApp(config);
 </script>
-<!-- Add firebase js -->
+<!-- Login navbar -->
 <script type="text/javascript">
 $("#formNav").hide();
   //Button cadastro navBar
   $("#btnCadastroNav").click(() => {
-    window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/login.php";}else{echo "../pages/login.php";}?>";
+    window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/cadastro.php";}else{echo "../pages/cadastro.php";}?>";
   })
   // Button login navBar
   $("#btnLoginNav").click(() => {
@@ -40,12 +40,16 @@ $("#formNav").hide();
       })
       .catch(function(error) {
         console.log(error.message);
-        alert("Email ou senha incorretos");
-        window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/login.php";}else{echo "../pages/login.php";}?>";
+        mensagemErr("Email ou senha incorretos!");
+        $("#msgCross").click(()=>{
+          window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/login.php";}else{echo "../pages/login.php";}?>";
+        })
       });
     } else {
-      alert("Email ou senha incorretos");
-      window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/login.php";}else{echo "../pages/login.php";}?>";
+      mensagemErr("Preencha todos os campos corretamente!");
+      $("#msgCross").click(()=>{
+        window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/login.php";}else{echo "../pages/login.php";}?>";
+      })
     }
   })
   firebase.auth().onAuthStateChanged(function(user) {
@@ -57,5 +61,12 @@ $("#formNav").hide();
       $("#formNav").show();
     }
   })
+
+  function mensagemErr(msg){
+    $('#msg').html('<div class="alert alert-danger fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
+  }
+  function mensagemSuc(msg){
+    $('#msg').html('<div class="alert alert-success fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
+  }
 
 </script>

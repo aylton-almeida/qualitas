@@ -24,6 +24,10 @@
      ?>
   </nav>
   <main>
+    <div class="container-fluid">
+      <div id="msg" role="alert">
+      </div>
+    </div>
     <div class="container">
       <div class="row menu">
         <!-- Cadastrar imóvel -->

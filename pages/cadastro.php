@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt_br">
-
 <head>
-  <title>Login</title>
+  <title>Cadastro</title>
   <!--Add icon-->
   <link rel="icon" type="image/png" href="../imagens/icon.png" sizes="32X32">
   <meta charset="utf-8">
@@ -12,27 +11,34 @@
   <!-- Add cropie -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.css" />
   <!--Add css-->
-  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/cadastro.css">
 </head>
-
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <?php
     session_start();
-    $_SESSION['page']="login";
+    $_SESSION['page']="cadastro";
     include("../pageParts/nav.php");
     ?>
   </nav>
   <main>
     <div id="msg" role="alert">
+
     </div>
     <div class="block">
       <div class="card">
         <div class="card-header bg-dark text-light">
-          <h1>Login</h1>
+          <h1>Cadastro</h1>
         </div>
         <div class="card-body">
           <form id="form">
+            <div class="form-group">
+              <label for="nomeInput">Nome</label>
+              <div class="input-group">
+                <input type="text" name="nome" class="form-control" id="nomeInput" placeholder="Nome..." required>
+                <input type="text" name="sobrenome" class="form-control" id="sobrenomeInput" placeholder="Sobrenome..." required>
+              </div>
+            </div>
             <div class="form-group">
               <label for="emailInput">Email</label>
               <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email..." required>
@@ -41,17 +47,16 @@
               <label for="passInput">Senha</label>
               <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha..." required>
             </div>
-            <div class="form-group form-check">
-              <input type="checkbox" name="check" class="form-check-input" id="checkInput">
-              <label for="checkInput">Mantenha-me conectado</label>
+            <div class="form-group">
+              <label for="confPassInput">Confirmar senha</label>
+              <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha..." required>
+              <small id="smallConfsenha"></small>
             </div>
-            <button type="button" class="btn btn-dark" id="btnLogin">Login</button>
+            <button type="button" class="btn btn-dark" id="btnCadastro">Cadastre-se</button>
           </form>
         </div>
         <div class="card-footer bg-dark">
-          <a href="cadastro.php" class="card-link">Novo por aqui? Cadastre-se</a>
-          <br>
-          <a href="#" class="card-link">Esqueceu sua senha?</a>
+          <a href="login.php" class="card-link">Ja possui uma conta? Faça seu login</a>
         </div>
       </div>
     </div>
@@ -61,7 +66,6 @@
     include("../pageParts/footer.php");
     ?>
   </footer>
-  <script type="text/javascript" src="../js/login.js"></script>
+  <script type="text/javascript" src="../js/cadastro.js"></script>
 </body>
-
 </html>

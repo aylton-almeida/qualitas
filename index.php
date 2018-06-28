@@ -24,6 +24,10 @@
     ?>
 </nav>
     <main>
+      <div class="container-fluid bg-dark">
+        <div id="msg" role="alert">
+        </div>
+      </div>
       <!--Bloco 1-->
       <div class="block1 bg-dark">
           <img id="img" class="img-fluid" width="100%" src="imagens/logo_texto.png" alt="Qualitas Imobiliária e Construtora">
