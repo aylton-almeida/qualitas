@@ -45,7 +45,6 @@
       </div>
     </form>
     ';}?>
-    <span class="navbar-text">
-      <a href="<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>" id="bemVindo" style="text-decoration: none"></a>
+    <span class="navbar-text" id="bemVindo" style="cursor: pointer">
     </span>
 </div>

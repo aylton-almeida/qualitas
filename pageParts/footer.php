@@ -63,17 +63,24 @@ $("#formNav").hide();
   //Conferir se um usuário está logado e caso esteja colocar seu nome na navbar
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
+      //Usuário conectado
       console.log("Logged in");
       $("#bemVindo").html("Bem vindo " + user.displayName);
-      //Hover e out span bemvindo
+      //over e out span bemvindo
       $("#bemVindo")
       .mouseover(()=>{
         $("#bemVindo").html("Sair");
+        //Função do click no sair
+        $("#bemVindo").click(()=>{
+          $("#bemVindo").hide();
+          firebase.auth().signOut();
+        })
       })
       .mouseout(()=>{
         $("#bemVindo").html("Bem vindo " + user.displayName);
       })
     }else{
+      //Usuário desconectado
       console.log("Not logged in");
       $("#formNav").show();
     }
