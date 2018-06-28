@@ -10,6 +10,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-functions.js"></script>
 <!-- Iniciar Firebase -->
@@ -23,9 +24,7 @@
     messagingSenderId: "347582656373"
   };
   firebase.initializeApp(config);
-</script>
-<!-- Login navbar -->
-<script type="text/javascript">
+
 //Esconder formulário
 $("#formNav").hide();
   //Button cadastro navBar
