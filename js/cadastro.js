@@ -6,9 +6,9 @@ $("#btnCadastro").click(() => {
     if ($("#confPassInput").val() == $("#passInput").val()) {
       //Método de criação de função
       firebase.auth().createUserWithEmailAndPassword($("#emailInput").val(), $("#passInput").val())
-        .then(function() {
+        .then(function(user) {
           //Alteração do nome do usuário recem criado
-          firebase.auth().currentUser.updateProfile({
+          user.updateProfile({
             displayName: $("#nomeInput").val(),
           }).then(function() {
             window.location.href = "../index.php";

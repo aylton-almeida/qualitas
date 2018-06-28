@@ -74,6 +74,7 @@ $("#formNav").hide();
         $("#bemVindo").click(()=>{
           $("#bemVindo").hide();
           firebase.auth().signOut();
+          window.location.href = "<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>";
         })
       })
       .mouseout(()=>{

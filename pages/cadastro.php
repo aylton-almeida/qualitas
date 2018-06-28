@@ -40,6 +40,19 @@
               </div>
             </div>
             <div class="form-group">
+              <label for="imobiliariaInput">Imobiliária</label>
+              <select class="custom-select" id="imobiliariaInput" name="selectImobiliaria">
+                <option selected>Escolha sua imobiliária...</option>
+                <option value="1">Conceito Empreendimentos Imobiliarias LTDA</option>
+                <option value="2">FAI Consultoria de imoveis LTDA</option>
+                <option value="3">Invest Administradiora e Corretora de Imóveis LTDA</option>
+                <option value="4">J. Fróes Imóveis LTDA</option>
+                <option value="5">Qualitas Imobiliária e Construtora LTDA</option>
+                <option value="6">União Corretora de Imóvel LTDA</option>
+                <option value="7">Vivar Imóveis LTDA</option>
+              </select>
+            </div>
+            <div class="form-group">
               <label for="emailInput">Email</label>
               <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email..." required>
             </div>
