@@ -1,6 +1,8 @@
 // Pegar imagem
 $("#inputImagem").change(() => {
+  //Conferir existencia de uma imagem
   if (inputImagem.files[0]) {
+    //Definir tamanho do croppie
     let uploadImg = $("#croppieDiv").croppie({
       viewport: {
         width: 400,
@@ -80,7 +82,9 @@ function limpaForm() {
 
   // Pegar imagem
   $("#inputImagem").change(() => {
+    //Conferir existencia de uma imagem
     if (inputImagem.files[0]) {
+      //Definir tamanho do croppie
       let uploadImg = $("#croppieDiv").croppie({
         viewport: {
           width: 400,
@@ -125,6 +129,7 @@ function limpaForm() {
     }
   })
 }
+
 //Button Cancelar
 $("#btnCancelar").click(() => {
   limpaForm();
@@ -132,36 +137,37 @@ $("#btnCancelar").click(() => {
 
 //Button Salvar
 $("#btnSalvar").click(() => {
+  //Conferir validade do formulário
   if ($("#cadastrarImovel")[0].checkValidity()) {
     //Fechar modalBody
     $('#modalCadastrarImovel').modal('hide');
-    //Enviar form por ajax
-    var data = JSON.stringify({
-      nome: $('#nomeInput').val(),
-      rua: $('#ruaInput').val(),
-      numero: $('#numeroInput').val(),
-      bairro: $('#bairroInput').val(),
-      complemento: $('#complementoInput').val(),
-      estado: $('#estadoInput').val(),
-      cidade: $('#cidadeInput').val(),
-      preco: $('#precoInput').val(),
-      imobiliaria: $('#imobiliariaInput').val(),
-      imagem: imgBlob
-    });
-    $.ajax({
-      url: '../php/cadastrarImoveis.php',
-      type: "POST",
-      data: {
-        data: data
-      },
-      dataType: 'json'
-      // error: function (err){
-      //   console.log(err);
-      // }
-    })
+    //Cadastrar imovel no db
+    firebase.firestore().collection("imoveis").doc($("#nomeInput").val()).set({
+        nome: $('#nomeInput').val(),
+        endereco: {
+          rua: $('#ruaInput').val(),
+          numero: $('#numeroInput').val(),
+          bairro: $('#bairroInput').val(),
+          complemento: $('#complementoInput').val(),
+          estado: $('#estadoInput').val(),
+          cidade: $('#cidadeInput').val(),
+        },
+        preco: $('#precoInput').val(),
+        imobiliaria: $('#imobiliariaInput').val()
+      })
+      .then(function() {
+        //Sucesso ao adicionar imovel ao firestore
+        mensagemSuc("Imóvel cadastrado com sucesso!");
+        setTimeout(()=>{window.location.href = "imoveis.php";}, 3000);
+      })
+      .catch(function(error) {
+        //Erro ao adicionar usuário ao firestore
+        console.log(error);
+        mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.");
+      });
     //limpar form
     limpaForm();
   } else {
-    $('#msg').html('<div class="alert alert-danger fade show">Preencha todos os campos corretamente!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+    mensagemModErr("Preencha todos os campos corretamente!");
   }
 })
