@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
               <label for="imobiliariaInput">Imobiliária</label>
-              <select class="custom-select" id="imobiliariaInput" name="selectImobiliaria">
+              <select class="custom-select" id="imobiliariaInput" name="selectImobiliaria" required>
                 <option selected>Escolha sua imobiliária...</option>
                 <option value="1">Conceito Empreendimentos Imobiliarias LTDA</option>
                 <option value="2">FAI Consultoria de imoveis LTDA</option>

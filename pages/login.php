@@ -51,7 +51,7 @@
         <div class="card-footer bg-dark">
           <a href="cadastro.php" class="card-link">Novo por aqui? Cadastre-se</a>
           <br>
-          <a href="#" class="card-link">Esqueceu sua senha?</a>
+          <a href="#" class="card-link" id="redefSenha">Esqueceu sua senha?</a>
         </div>
       </div>
     </div>

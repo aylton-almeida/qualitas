@@ -11,9 +11,24 @@ $("#btnCadastro").click(() => {
           user.updateProfile({
             displayName: $("#nomeInput").val(),
           }).then(function() {
-            window.location.href = "../index.php";
+            //Salvar imobiliaria no firestore
+            firebase.firestore().collection("usuarios").doc(user.uid).set({
+              sobrenome: $("#sobrenomeInput").val(),
+              imobiliaria: $("#imobiliariaInput").val()
+              })
+              .then(function() {
+                //Sucesso ao adicionar usuário ao firestore
+                window.location.href = "../index.php";
+              })
+              .catch(function(error) {
+                //Erro ao adicionar usuário ao firestore
+                console.log(error);
+                mensagemErr("Erro ao cadastrar usuário! Tente novamente mais tarde.");
+              });
           }).catch(function(error) {
-            mensagemErr("Erro ao cadastrar usuário!")
+            //Erro ao alterar nome do usuário
+            console.log(error.message);
+            mensagemErr("Erro ao cadastrar usuário! Tente novamente mais tarde.")
           });
         })
         .catch(function(error) {

@@ -60,3 +60,19 @@ function login() {
       }
     })
 }
+
+//Email de redefinição de Senha
+$("#redefSenha").click(()=>{
+  //Validar campo de email
+  if($("#emailInput")[0].checkValidity()){
+    //Enviar email
+    firebase.auth().sendPasswordResetEmail($("#emailInput").val())
+    .then(function() {
+      mensagemSuc("Email enviado com sucesso!");
+    }).catch(function(error) {
+      mensagemErr("Erro ao enviar email!");
+    });
+  }else{
+    mensagemErr("Digite seu email!");
+  }
+})
