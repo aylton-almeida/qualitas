@@ -33,14 +33,13 @@
       </div>
     </li>
   </ul>
-  <?php if($_SESSION['page'] != "login" && $_SESSION['page'] != "cadastro"){echo
+  <?php if($_SESSION['page'] != "login" && $_SESSION['page'] != "cadastro" && $_SESSION['page'] != "admin"){echo
     '<form class="form-inline" id="formNav">
       <div class="input-group">
         <input id="emailInputNav" type="email" class="form-control" aria-describedby="loginSpan" placeholder="E-mail" required>
         <input id="passInputNav" type="password" class="form-control" aria-describedby="loginSpan" placeholder="Senha" required>
         <div class="input-group-append">
           <button id="btnLoginNav" class="btn btn-outline-secondary" type="button">Login</button>
-          <button id="btnCadastroNav" class="btn btn-outline-secondary" type="button">Cadastro</button>
         </div>
       </div>
     </form>

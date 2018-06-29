@@ -62,23 +62,46 @@ $("#formNav").hide();
   //Conferir se um usuário está logado e caso esteja colocar seu nome na navbar
   firebase.auth().onAuthStateChanged(function(user) {
     if(user){
+      firebase.firestore().collection("usuarios").doc(user.uid).get().then((doc) => {
       //Usuário conectado
       console.log("Logged in");
       $("#bemVindo").html("Bem vindo " + user.displayName);
       //over e out span bemvindo
       $("#bemVindo")
       .mouseover(()=>{
-        $("#bemVindo").html("Sair");
-        //Função do click no sair
-        $("#bemVindo").click(()=>{
-          $("#bemVindo").hide();
-          firebase.auth().signOut();
-          window.location.href = "<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>";
-        })
-      })
+            //Pegar imobiliaria do usuário
+            if (doc.data().imobiliaria == "Qualitas Imobiliária e Construtora LTDA") {
+              if(<?php if($_SESSION['page'] == "admin"){echo "true";}else{echo "false";}?>){
+                //Caso o usuário esteja na pagina de admin
+                $("#bemVindo").html("Sair");
+                //Função do click no sair
+                $("#bemVindo").click(()=>{
+                  $("#bemVindo").hide();
+                  firebase.auth().signOut();
+                  window.location.href = "<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>";
+                })
+              }else{
+                $("#bemVindo").html("Administrador");
+                //Função do click no admin
+                $("#bemVindo").click(()=>{
+                  //Enviar para pagina de administrador
+                  window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/admin.php";}else{echo "../pages.admin.php";}?>";
+                })
+              }
+            } else {
+              $("#bemVindo").html("Sair");
+              //Função do click no sair
+              $("#bemVindo").click(()=>{
+                $("#bemVindo").hide();
+                firebase.auth().signOut();
+                window.location.href = "<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>";
+              })
+            }
+          })
       .mouseout(()=>{
         $("#bemVindo").html("Bem vindo " + user.displayName);
       })
+    })
     }else{
       //Usuário desconectado
       console.log("Not logged in");

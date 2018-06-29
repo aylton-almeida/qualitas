@@ -2,7 +2,7 @@
 <html lang="pt_br">
 
 <head>
-  <title>Login</title>
+  <title>Administrador</title>
   <!--Add icon-->
   <link rel="icon" type="image/png" href="../imagens/icon.png" sizes="32X32">
   <meta charset="utf-8">
@@ -12,14 +12,14 @@
   <!-- Add cropie -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.css" />
   <!--Add css-->
-  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/admin.css">
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <?php
     session_start();
-    $_SESSION['page']="login";
+    $_SESSION['page']="admin";
     include("../pageParts/nav.php");
     ?>
   </nav>
@@ -29,24 +29,17 @@
     <div class="block">
       <div class="card">
         <div class="card-header bg-dark text-light">
-          <h1>Login</h1>
+          <h1>Administrador</h1>
         </div>
         <div class="card-body">
-          <form id="form">
-            <div class="form-group">
-              <label for="emailInput">Email</label>
-              <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email..." required>
+          <div class="container">
+            <div class="row">
+              <button class="col-12 btn btn-dark">Cadastrar usuário</button>
             </div>
-            <div class="form-group">
-              <label for="passInput">Senha</label>
-              <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha..." required>
+            <div class="row">
+              <button class="col-12 btn btn-dark">Cadastrar imóvel</button>
             </div>
-            <div class="form-group form-check">
-              <input type="checkbox" name="check" class="form-check-input" id="checkInput">
-              <label for="checkInput">Mantenha-me conectado</label>
-            </div>
-            <button type="button" class="btn btn-dark" id="btnLogin">Login</button>
-          </form>
+          </div>
         </div>
         <div class="card-footer bg-dark">
           <a href="#" class="card-link" id="redefSenha">Esqueceu sua senha?</a>
@@ -59,7 +52,7 @@
     include("../pageParts/footer.php");
     ?>
   </footer>
-  <script type="text/javascript" src="../js/login.js"></script>
+  <script type="text/javascript" src="../js/admin.js"></script>
 </body>
 
 </html>

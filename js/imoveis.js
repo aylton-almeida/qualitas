@@ -1,4 +1,4 @@
-//Pegar usuário atual
+//Pegar usuário atual e testar imobiliaria
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     //Pegar usuário no firestore
