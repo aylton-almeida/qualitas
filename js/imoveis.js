@@ -143,7 +143,7 @@ $("#btnSalvar").click(() => {
   if ($("#cadastrarImovel")[0].checkValidity()) {
     //Cadastrar imagem no storage
     firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val()).put(imgBlob)
-    .then((snapshot) => {
+      .then((snapshot) => {
         //Cadastrar imovel no db
         firebase.firestore().collection("imoveis").doc($("#nomeInput").val()).set({
             nome: $('#nomeInput').val(),
@@ -153,11 +153,11 @@ $("#btnSalvar").click(() => {
               bairro: $('#bairroInput').val(),
               complemento: $('#complementoInput').val(),
               estado: $('#estadoInput').val(),
-              cidade: $('#cidadeInput').val(),
-              imagem: "imagensImoveis/" + $("#nomeInput").val()
+              cidade: $('#cidadeInput').val()
             },
             preco: $('#precoInput').val(),
-            imobiliaria: $('#imobiliariaInput').val()
+            imobiliaria: $('#imobiliariaInput').val(),
+            imagem: "imagensImoveis/" + $("#nomeInput").val()
           })
           .then(() => {
             //Sucesso ao adicionar imovel ao firestore
@@ -167,7 +167,7 @@ $("#btnSalvar").click(() => {
             limpaForm();
             setTimeout(() => {
               window.location.href = "imoveis.php";
-            }, 3000);
+            }, 2000);
           })
           .catch((error) => {
             //Erro ao adicionar usuário ao firestore
@@ -188,3 +188,52 @@ $("#btnSalvar").click(() => {
     mensagemModErr("Preencha todos os campos corretamente!");
   }
 })
+
+//Pegar imóveis
+firebase.firestore().collection("imoveis").get()
+  .then(function(querySnapshot) {
+    querySnapshot.forEach(function(imovel) {
+      //Para cada imóvel recuperado
+      console.log(imovel.id, " => ", imovel.data());
+      let col = document.createElement("div");
+      col.className = "col-md-4 d-flex align-items-stretch";
+      let card = document.createElement("div");
+      card.className = "card bg-dark text-light";
+      let img = document.createElement("img");
+      firebase.storage().ref().child(imovel.data().imagem).getDownloadURL()
+        .then(function(url) {
+          img.className = "card-img-top";
+          img.src = url;
+          img.style.width = "100%"
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+      let cardBody = document.createElement("div");
+      cardBody.className = "card-body";
+      let title = document.createElement("h5");
+      title.className = "card-title";
+      title.innerHTML = imovel.data().nome;
+      let endereco = document.createElement("p");
+      endereco.className = "card-text";
+      endereco.innerHTML = imovel.data().endereco.rua + ", " + imovel.data().endereco.numero + "<br>" + imovel.data().endereco.complemento;
+      let imobiliaria = document.createElement("p");
+      imobiliaria.className = "card-text";
+      imobiliaria.innerHTML = imovel.data().imobiliaria;
+      let preco = document.createElement("p");
+      preco.className = "card-text";
+      preco.innerHTML = "R$" + imovel.data().preco + ",00";
+      $("#corpo").append(col);
+      col.appendChild(card);
+      card.appendChild(img);
+      card.appendChild(cardBody);
+      cardBody.appendChild(title);
+      cardBody.appendChild(endereco);
+      cardBody.appendChild(imobiliaria);
+      cardBody.appendChild(preco);
+    });
+  })
+  .catch(function(error) {
+    console.log(error);
+    mensagemErr("Nenhum imóvel cadastrado encontrado!");
+  })

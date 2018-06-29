@@ -24,14 +24,16 @@
      ?>
   </nav>
   <main>
-    <div class="container-fluid">
-      <div id="msg" role="alert">
+    <div class="container-fluid msg">
+      <div class="row">
+        <div class="col" id="msg" role="alert">
+        </div>
       </div>
     </div>
     <div class="container">
       <div class="row menu">
         <!-- Cadastrar imóvel -->
-        <button type="button" class="btn btn-dark col-md-3 offset-sm-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar Imóvel</button>
+        <button type="button" class="btn btn-dark col-md-3 offset-md-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar Imóvel</button>
         <!-- Modal -->
         <div class="modal fade" id="modalCadastrarImovel" tabindex="-1" role="dialog" aria-labelledby="CadastrarImovelLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -130,13 +132,13 @@
                     </div>
                     <select class="custom-select" id="imobiliariaInput" aria-describedby="imobiliariaSpan" name="imobiliaria">
                       <option selected>Escolha uma imobiliária...</option>
-                      <option value="1">Conceito Empreendimentos Imobiliarias LTDA</option>
-                      <option value="2">FAI Consultoria de imoveis LTDA</option>
-                      <option value="3">Invest Administradiora e Corretora de Imóveis LTDA</option>
-                      <option value="4">J. Fróes Imóveis LTDA</option>
-                      <option value="5">Qualitas Imobiliária e Construtora LTDA</option>
-                      <option value="6">União Corretora de Imóvel LTDA</option>
-                      <option value="7">Vivar Imóveis LTDA</option>
+                      <option value="Conceito Empreendimentos Imobiliarias LTDA">Conceito Empreendimentos Imobiliarias LTDA</option>
+                      <option value="FAI Consultoria de imoveis LTDA">FAI Consultoria de imoveis LTDA</option>
+                      <option value="Invest Administradiora e Corretora de Imóveis LTDA">Invest Administradiora e Corretora de Imóveis LTDA</option>
+                      <option value="J. Fróes Imóveis LTDA">J. Fróes Imóveis LTDA</option>
+                      <option value="Qualitas Imobiliária e Construtora LTDA">Qualitas Imobiliária e Construtora LTDA</option>
+                      <option value="União Corretora de Imóvel LTDA">União Corretora de Imóvel LTDA</option>
+                      <option value="Vivar Imóveis LTDA">Vivar Imóveis LTDA</option>
                     </select>
                   </div>
                   <!-- <input type="submit" id="jorge"> -->
@@ -153,7 +155,8 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="corpo">
+
       </div>
     </div>
   </main>
