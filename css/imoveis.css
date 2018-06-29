@@ -1,4 +1,12 @@
-main img {
+/* main img{
+  margin-bottom: 16px;
+} */
+
+#btnCadastrar{
+  display: none
+}
+
+.card{
   margin-bottom: 16px;
 }
 

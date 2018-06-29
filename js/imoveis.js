@@ -1,3 +1,26 @@
+//Pegar usuário atual
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    //Pegar usuário no firestore
+    firebase.firestore().collection("usuarios").doc(user.uid).get().then((doc) => {
+        //Pegar imobiliaria do usuário
+        if (doc.data().imobiliaria == "Qualitas Imobiliária e Construtora LTDA") {
+          $("#btnCadastrar").show();
+        } else {
+          //Caso a imobiliaria não seja qualitas
+          $("#btnCadastrar").hide();
+        }
+      })
+      .catch((error) => {
+        //Caso não encontre um usuario no firestore
+        $("#btnCadastrar").hide();
+      })
+  } else {
+    //Caso não tenha usuario cadastrado
+    $("#btnCadastrar").hide();
+  }
+});
+
 // Pegar imagem
 $("#inputImagem").change(() => {
   //Conferir existencia de uma imagem
@@ -194,7 +217,6 @@ firebase.firestore().collection("imoveis").get()
   .then(function(querySnapshot) {
     querySnapshot.forEach(function(imovel) {
       //Para cada imóvel recuperado
-      console.log(imovel.id, " => ", imovel.data());
       let col = document.createElement("div");
       col.className = "col-md-4 d-flex align-items-stretch";
       let card = document.createElement("div");
