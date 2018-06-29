@@ -45,7 +45,9 @@
               </div>
               <!-- Modal body -->
               <div class="modal-body" id="modalBody">
-                <form id="cadastrarImovel">
+                <div class="loaderDiv">
+                  <div class="loader" id="loader"></div>
+                  <form id="cadastrarImovel">
                   <!-- Form imagem -->
                   <div class="container">
                     <div class="row" id="croppieDiv">
@@ -129,16 +131,17 @@
                     <select class="custom-select" id="imobiliariaInput" aria-describedby="imobiliariaSpan" name="imobiliaria">
                       <option selected>Escolha uma imobiliária...</option>
                       <option value="1">Conceito Empreendimentos Imobiliarias LTDA</option>
-                      <option value="2">J. Fróes Imóveis LTDA</option>
-                      <option value="3">Vivar Imóveis LTDA</option>
-                      <option value="4">Invest Administradiora e Corretora de Imóveis LTDA</option>
-                      <option value="5">União Corretora de Imóvel LTDA</option>
-                      <option value="6">Qualitas Imobiliária e Construtora LTDA</option>
-                      <option value="7">Imobiliária Lopes LTDA</option>
+                      <option value="2">FAI Consultoria de imoveis LTDA</option>
+                      <option value="3">Invest Administradiora e Corretora de Imóveis LTDA</option>
+                      <option value="4">J. Fróes Imóveis LTDA</option>
+                      <option value="5">Qualitas Imobiliária e Construtora LTDA</option>
+                      <option value="6">União Corretora de Imóvel LTDA</option>
+                      <option value="7">Vivar Imóveis LTDA</option>
                     </select>
                   </div>
                   <!-- <input type="submit" id="jorge"> -->
                 </form>
+                </div>
                 <div id="msgMod" class="col-sm-10 offset-sm-1" role="alert"></div>
               </div>
               <!-- Modal footer -->

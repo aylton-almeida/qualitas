@@ -137,6 +137,8 @@ $("#btnCancelar").click(() => {
 
 //Button Salvar
 $("#btnSalvar").click(() => {
+  //Iniciar loader
+  showLoader();
   //Conferir validade do formulário
   if ($("#cadastrarImovel")[0].checkValidity()) {
     //Cadastrar imagem no storage
@@ -159,6 +161,7 @@ $("#btnSalvar").click(() => {
           })
           .then(() => {
             //Sucesso ao adicionar imovel ao firestore
+            hideLoader();
             mensagemModSuc("Imóvel cadastrado com sucesso!");
             //limpar form
             limpaForm();
@@ -168,16 +171,20 @@ $("#btnSalvar").click(() => {
           })
           .catch((error) => {
             //Erro ao adicionar usuário ao firestore
+            hideLoader();
             console.log(error);
             mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.");
           });
       })
       .catch((error) => {
         //Erro no upload da imagem
+        hideLoader();
         console.log(error);
         mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.");
       })
   } else {
+    //Formulario incompleto
+    hideLoader();
     mensagemModErr("Preencha todos os campos corretamente!");
   }
 })

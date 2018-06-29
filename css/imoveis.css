@@ -1,17 +1,59 @@
-main img{
+main img {
   margin-bottom: 16px;
 }
-.btnresult{
+
+.btnresult {
   margin-bottom: 16px;
 }
-.progress{
+
+.progress {
   margin-bottom: 16px
+}
+
+.loaderDiv{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  z-index: 5;
+  position: absolute;
+  border: 16px solid #343a40;
+  border-radius: 50%;
+  border-top: 16px solid yellow;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+  display: none
+}
+
+/* Safari */
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Extra small devices (phones, 600px and down) */
 
-@media only screen and (max-width: 600px) {
-}
+@media only screen and (max-width: 600px) {}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 

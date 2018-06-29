@@ -100,4 +100,12 @@ $("#formNav").hide();
     $('#msgMod').html('<div class="alert alert-success fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
   }
 
+  //Loader
+  function showLoader(){
+    $("#loader").show()
+  }
+  function hideLoader(){
+    $("#loader").hide()
+  }
+
 </script>
