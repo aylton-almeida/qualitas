@@ -34,15 +34,204 @@
         <div class="card-body">
           <div class="container">
             <div class="row">
-              <button class="col-12 btn btn-dark">Cadastrar usuário</button>
+              <button type="button" class="btn btn-dark col-12" name="Cadastro Usuário" data-toggle="modal" data-target="#modalCadastrarUsuario">Cadastrar usuário</button>
+              <!-- Modal Usuário -->
+              <div class="modal fade" id="modalCadastrarUsuario" tabindex="-1" role="dialog" aria-labelledby="CadastrarUsuarioLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <!-- Modal header -->
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="CadastrarUsuarioLabel">Cadastre um Usuário</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <!-- Form -->
+                      <form id="formUsuario">
+                        <!-- Nome -->
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="nomeSpan">Nome</span>
+                          </div>
+                            <input type="text" name="nome" class="form-control" id="nomeInput" placeholder="Nome..." aria-describedby="nomeSpan" required>
+                            <input type="text" name="sobrenome" class="form-control" id="sobrenomeInput" placeholder="Sobrenome..." aria-describedby="nomeSpan" required>
+                        </div>
+                        <!-- Imobiliária -->
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="imobiliariaSpan">Imobiliária</span>
+                          </div>
+                          <select class="custom-select" id="imobiliariaInput" name="selectImobiliaria" aria-describedby="nomeSpan" required>
+                            <option selected>Escolha sua imobiliária...</option>
+                            <option value="Conceito Empreendimentos Imobiliarias LTDA">Conceito Empreendimentos Imobiliarias LTDA</option>
+                            <option value="FAI Consultoria de imoveis LTDA">FAI Consultoria de imoveis LTDA</option>
+                            <option value="Invest Administradiora e Corretora de Imóveis LTDA">Invest Administradiora e Corretora de Imóveis LTDA</option>
+                            <option value="J. Fróes Imóveis LTDA">J. Fróes Imóveis LTDA</option>
+                            <option value="Qualitas Imobiliária e Construtora LTDA">Qualitas Imobiliária e Construtora LTDA</option>
+                            <option value="União Corretora de Imóvel LTDA">União Corretora de Imóvel LTDA</option>
+                            <option value="Vivar Imóveis LTDA">Vivar Imóveis LTDA</option>
+                          </select>
+                        </div>
+                        <!-- Loader -->
+                        <div class="loaderDiv">
+                          <div class="loader" id="loader"></div>
+                        </div>
+                        <!-- Email -->
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="emailSpan">Email</span>
+                          </div>
+                          <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email..." aria-describedby="nomeSpan" required>
+                        </div>
+                        <!-- Senha -->
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="senhaSpan">Senha</span>
+                          </div>
+                          <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha..." aria-describedby="senhaSpan" required>
+                          <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha..." aria-describedby="senhaSpan senhaSpan2" required>
+                          <div class="input-group-prepend">
+                            <i class="input-group-text material-icons" id="senhaSpan2">clear</i>
+                          </div>
+                        </div>
+                      </form>
+                      <div id="msgMod" class="col-sm-10 offset-sm-1" role="alert"></div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" id="btnCancelarUsuario" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-success" id="btnCadastro">Concluir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="row">
-              <button class="col-12 btn btn-dark">Cadastrar imóvel</button>
+              <button type="button" class="btn btn-dark col-12" name="Cadastro Imóvel" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar imóvel</button>
+              <!-- Modal Imóvel -->
+              <div class="modal fade" id="modalCadastrarImovel" tabindex="-1" role="dialog" aria-labelledby="CadastrarImovelLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <!-- Modal header -->
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="CadastrarImovelLabel">Cadastre um imóvel</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body" id="modalBody">
+                      <form id="cadastrarImovel">
+                        <!-- Form imagem -->
+                        <div class="container">
+                          <div class="row" id="croppieDiv">
+                            <div class="input-group mb-3">
+                              <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" id="inputImagem" name="imagem" required>
+                                <label class="custom-file-label" for="inputImagem">Escolha uma imagem</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Nome -->
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="nomeSpan">Nome</span>
+                          </div>
+                          <input id="nomeInput" class="form-control" placeholder="Digite um nome..." type="text" aria-describedby="nomeSpan" name="nome" required>
+                        </div>
+                        <!-- Rua -->
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="endereçoSpan">Endereço</span>
+                          </div>
+                          <input id="ruaInput" class="form-control" placeholder="Rua" type="text" aria-describedby="endereçoSpan" name="rua" required>
+                        </div>
+                        <!-- Número, bairro e complemento -->
+                        <div class="input-group mb-3">
+                          <input id="numeroInput" class="form-control" placeholder="Número" type="number" name="numero" required>
+                          <input id="bairroInput" class="form-control" placeholder="Bairro" type="text" name="bairro" required>
+                          <input id="complementoInput" class="form-control" placeholder="Complemento" type="text" name="complemento" required>
+                        </div>
+                        <!-- Loader -->
+                        <div class="loaderDiv">
+                          <div class="loader" id="loader"></div>
+                        </div>
+                        <!-- Estado e cidade -->
+                        <div class="input-group mb-3">
+                          <select class="custom-select" id="estadoInput" name="estado">
+                            <option selected>Estado...</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                          </select>
+                          <input id="cidadeInput" class="form-control" placeholder="Digite uma cidade..." type="text" name="cidade" required>
+                        </div>
+                        <!-- Valor aluguel -->
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="precoSpan">R$</span>
+                          </div>
+                          <input id="precoInput" class="form-control" placeholder="Preço aluguel" type="number" aria-describedby="precoSpan" name="preco" required>
+                          <div class="input-group-append">
+                            <span class="input-group-text" id="precoSpan">,00</span>
+                          </div>
+                        </div>
+                        <!-- Imobiliária -->
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="imobiliariaSpan">Imobiliária</span>
+                          </div>
+                          <select class="custom-select" id="imobiliariaInput" aria-describedby="imobiliariaSpan" name="imobiliaria">
+                            <option selected>Escolha uma imobiliária...</option>
+                            <option value="Conceito Empreendimentos Imobiliarias LTDA">Conceito Empreendimentos Imobiliarias LTDA</option>
+                            <option value="FAI Consultoria de imoveis LTDA">FAI Consultoria de imoveis LTDA</option>
+                            <option value="Invest Administradiora e Corretora de Imóveis LTDA">Invest Administradiora e Corretora de Imóveis LTDA</option>
+                            <option value="J. Fróes Imóveis LTDA">J. Fróes Imóveis LTDA</option>
+                            <option value="Qualitas Imobiliária e Construtora LTDA">Qualitas Imobiliária e Construtora LTDA</option>
+                            <option value="União Corretora de Imóvel LTDA">União Corretora de Imóvel LTDA</option>
+                            <option value="Vivar Imóveis LTDA">Vivar Imóveis LTDA</option>
+                          </select>
+                        </div>
+                      </form>
+                      <div id="msgMod" class="col-sm-10 offset-sm-1" role="alert"></div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" id="btnCancelar" data-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-success" id="btnSalvar">Salvar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card-footer bg-dark">
-          <a href="#" class="card-link" id="redefSenha">Esqueceu sua senha?</a>
         </div>
       </div>
     </div>

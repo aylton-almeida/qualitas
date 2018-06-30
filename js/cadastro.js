@@ -58,11 +58,11 @@ $("#btnCadastro").click(() => {
 //Confirmação de senha
 $("#confPassInput").change(() => {
   if ($("#confPassInput").val() != $("#passInput").val()) {
-    //Caso senhas coincidam
+    //Caso senhas não coincidam
     $("#smallConfsenha").html("Senhas não coincidem!");
     $("#smallConfsenha").attr("class", "text-danger");
   } else {
-    //Caso senhas não coincidam
+    //Caso senhas coincidam
     $("#smallConfsenha").html("Senhas coincidem!");
     $("#smallConfsenha").attr("class", "text-success");
   }

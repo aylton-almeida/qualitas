@@ -47,9 +47,7 @@
               </div>
               <!-- Modal body -->
               <div class="modal-body" id="modalBody">
-                <div class="loaderDiv">
-                  <div class="loader" id="loader"></div>
-                  <form id="cadastrarImovel">
+                <form id="cadastrarImovel">
                   <!-- Form imagem -->
                   <div class="container">
                     <div class="row" id="croppieDiv">
@@ -80,6 +78,9 @@
                     <input id="numeroInput" class="form-control" placeholder="Número" type="number" name="numero" required>
                     <input id="bairroInput" class="form-control" placeholder="Bairro" type="text" name="bairro" required>
                     <input id="complementoInput" class="form-control" placeholder="Complemento" type="text" name="complemento" required>
+                  </div>
+                  <div class="loaderDiv">
+                    <div class="loader" id="loader"></div>
                   </div>
                   <!-- Estado e cidade -->
                   <div class="input-group mb-3">
@@ -141,10 +142,8 @@
                       <option value="Vivar Imóveis LTDA">Vivar Imóveis LTDA</option>
                     </select>
                   </div>
-                  <!-- <input type="submit" id="jorge"> -->
                 </form>
-                </div>
-                <div id="msgMod" class="col-sm-10 offset-sm-1" role="alert"></div>
+              <div id="msgMod" class="col-sm-10 offset-sm-1" role="alert"></div>
               </div>
               <!-- Modal footer -->
               <div class="modal-footer">

@@ -90,6 +90,7 @@
       include("pageParts/footer.php");
       ?>
     </footer>
+    <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>

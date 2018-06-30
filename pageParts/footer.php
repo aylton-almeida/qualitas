@@ -13,6 +13,8 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-functions.js"></script>
+<!-- Add icons -->
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- Iniciar Firebase -->
 <script>
   var config = {
@@ -85,7 +87,7 @@ $("#formNav").hide();
                 //Função do click no admin
                 $("#bemVindo").click(()=>{
                   //Enviar para pagina de administrador
-                  window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/admin.php";}else{echo "../pages.admin.php";}?>";
+                  window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/admin.php";}else{echo "../pages/admin.php";}?>";
                 })
               }
             } else {
