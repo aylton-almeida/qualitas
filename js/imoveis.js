@@ -253,6 +253,12 @@ firebase.firestore().collection("imoveis").get()
       cardBody.appendChild(endereco);
       cardBody.appendChild(imobiliaria);
       cardBody.appendChild(preco);
+      console.log(imovel);
+      $(card).click(()=>{
+        let stringImovel = JSON.stringify(imovel.data())
+        window.sessionStorage.setItem("imovel", stringImovel);
+        window.location.href = "imovel.php";
+      })
     });
   })
   .catch(function(error) {
