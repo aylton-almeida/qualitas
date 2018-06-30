@@ -41,8 +41,20 @@ $("#formNav").hide();
       firebase.auth().signInWithEmailAndPassword($("#emailInputNav").val(), $("#passInputNav").val())
       .then(()=>{
         //Caso o login seja um sucesso
-        $("#formNav").hide();
-        window.location.href = "#"
+        firebase.auth().onAuthStateChanged(function(user) {
+          if(user){
+            if(user.emailVerified){
+              //Caso o email tenha sido verificado
+              $("#formNav").hide();
+              window.location.href = "#"
+            }else{
+              //Caso o email não esteja verificado
+              user.sendEmailVerification().then(()=>{
+                mensagemErr("Seu email ainda não foi verificado! Um email foi enviado para verifica-lo.");
+              })
+            }
+          }
+        })
       })
       .catch(function(error) {
         //Caso ocorra algum erro no login
