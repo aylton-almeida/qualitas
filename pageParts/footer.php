@@ -46,6 +46,7 @@ $("#formNav").hide();
             if(user.emailVerified){
               //Caso o email tenha sido verificado
               $("#formNav").hide();
+              mensagemSuc("Bem vindo" + user.displayName);
               window.location.href = "#"
             }else{
               //Caso o email não esteja verificado

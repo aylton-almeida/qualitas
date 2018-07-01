@@ -245,19 +245,33 @@ firebase.firestore().collection("imoveis").get()
       let preco = document.createElement("p");
       preco.className = "card-text";
       preco.innerHTML = "R$" + imovel.data().preco + ",00";
-      $("#corpo").append(col);
-      col.appendChild(card);
+      $("#modalImovelDetalhado").before(col);
+      col.appendChild(card)
       card.appendChild(img);
       card.appendChild(cardBody);
       cardBody.appendChild(title);
       cardBody.appendChild(endereco);
       cardBody.appendChild(imobiliaria);
       cardBody.appendChild(preco);
-      console.log(imovel);
       $(card).click(()=>{
-        let stringImovel = JSON.stringify(imovel.data())
-        window.sessionStorage.setItem("imovel", stringImovel);
-        window.location.href = "imovel.php";
+        //Definir titulo
+        $("#DetalheImovel").html(imovel.data().nome + ", " + imovel.data().endereco.complemento);
+        //Definir img
+        $("#imgDetalhado").attr('src', '');
+        firebase.storage().ref().child(imovel.data().imagem).getDownloadURL()
+          .then(function(url) {
+            $("#imgDetalhado").attr('src', url);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        $('#pRua').html(imovel.data().endereco.rua + ', ' + imovel.data().endereco.numero);
+        $('#pComplemento').html(imovel.data().endereco.complemento);
+        $('#pBairro').html('Bairro ' + imovel.data().endereco.bairro);
+        $('#pCidade').html(imovel.data().endereco.cidade + ' - ' + imovel.data().endereco.estado);
+        $('#pPreco').html('Preço do alguel: R$' + imovel.data().preco + ',00');
+        $('#pImobiliaria').html('Imobiliária responsável: ' + imovel.data().imobiliaria);
+        $("#modalImovelDetalhado").modal('toggle');
       })
     });
   })
