@@ -55,7 +55,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="nomeSpan">Nome</span>
                           </div>
-                            <input type="text" name="nome" class="form-control" id="nomeInput" placeholder="Nome..." aria-describedby="nomeSpan" required>
+                            <input type="text" name="nome" class="form-control" id="nomeInputUsuario" placeholder="Nome..." aria-describedby="nomeSpan" required>
                             <input type="text" name="sobrenome" class="form-control" id="sobrenomeInput" placeholder="Sobrenome..." aria-describedby="nomeSpan" required>
                         </div>
                         <!-- Imobiliária -->
@@ -63,7 +63,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="imobiliariaSpan">Imobiliária</span>
                           </div>
-                          <select class="custom-select" id="imobiliariaInput" name="selectImobiliaria" aria-describedby="nomeSpan" required>
+                          <select class="custom-select" id="imobiliariaInputUsuario" name="selectImobiliaria" aria-describedby="nomeSpan" required>
                             <option selected>Escolha sua imobiliária...</option>
                             <option value="Conceito Empreendimentos Imobiliarias LTDA">Conceito Empreendimentos Imobiliarias LTDA</option>
                             <option value="FAI Consultoria de imoveis LTDA">FAI Consultoria de imoveis LTDA</option>

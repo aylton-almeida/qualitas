@@ -14,7 +14,6 @@
   <!--Add css-->
   <link rel="stylesheet" href="../css/imoveis.css">
 </head>
-
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <?php
@@ -155,7 +154,34 @@
         </div>
       </div>
       <div class="row" id="corpo">
-        
+        <!-- Imóvel detalhado modal -->
+        <div class="modal fade" id="modalImovelDetalhado" tabindex="-1" role="dialog" aria-labelledby="DetalheImovel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <!-- Modal header -->
+              <div class="modal-header">
+                <h5 class="modal-title" id="DetalheImovel">Nome imóvel</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body" id="modalBody">
+                <img id="imgDetalhado" class="rounded img-fluid mx-auto d-block">
+                <!-- Carossel -->
+                <h6>Endereço:</h6>
+                <p id="pRua">Rua, Número</p>
+                <p id="pComplemento">Complemento</p>
+                <p id="pBairro">Bairro</p>
+                <p id="pCidade">Cidade - Estado</p>
+                <p id="pPreco">Preço do aluguel: R$2000,00</p>
+                <p id="pImobiliaria">Imobiliaria responsável: Imobiliaria</p>
+                <!-- Mapa com local -->
+                <div id="msgMod" class="col-sm-10 offset-sm-1" role="alert"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>

@@ -235,12 +235,12 @@ $("#btnCadastro").click(() => {
         .then(function(user) {
           //Alteração do nome do usuário recem criado
           user.updateProfile({
-            displayName: $("#nomeInput").val(),
+            displayName: $("#nomeInputUsuario").val(),
           }).then(function() {
             //Salvar imobiliaria no firestore
             firebase.firestore().collection("usuarios").doc(user.uid).set({
                 sobrenome: $("#sobrenomeInput").val(),
-                imobiliaria: $("#imobiliariaInput").val()
+                imobiliaria: $("#imobiliariaInputUsuario").val()
               })
               .then(function() {
                 //Sucesso ao adicionar usuário ao firestore
