@@ -24,7 +24,7 @@
     ?>
   </nav>
   <main>
-    <div id="msg" role="alert">
+    <div id="msg1" role="alert">
     </div>
     <div class="block">
       <div class="card">
@@ -76,7 +76,7 @@
                         </div>
                         <!-- Loader -->
                         <div class="loaderDiv">
-                          <div class="loader" id="loader"></div>
+                          <div class="loader" id="loader1"></div>
                         </div>
                         <!-- Email -->
                         <div class="input-group mb-3">
@@ -97,7 +97,7 @@
                           </div>
                         </div>
                       </form>
-                      <div id="msgMod" class="col-sm-10 offset-sm-1" role="alert"></div>
+                      <div id="msgMod1" class="col-sm-10 offset-sm-1" role="alert"></div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
@@ -157,7 +157,7 @@
                         </div>
                         <!-- Loader -->
                         <div class="loaderDiv">
-                          <div class="loader" id="loader"></div>
+                          <div class="loader" id="loader2"></div>
                         </div>
                         <!-- Estado e cidade -->
                         <div class="input-group mb-3">
@@ -220,7 +220,7 @@
                           </select>
                         </div>
                       </form>
-                      <div id="msgMod" class="col-sm-10 offset-sm-1" role="alert"></div>
+                      <div id="msgMod2" class="col-sm-10 offset-sm-1" role="alert"></div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">

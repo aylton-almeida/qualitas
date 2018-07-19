@@ -46,12 +46,12 @@ $("#formNav").hide();
             if(user.emailVerified){
               //Caso o email tenha sido verificado
               $("#formNav").hide();
-              mensagemSuc("Bem vindo" + user.displayName);
+              mensagemSuc("Bem vindo " + user.displayName + "!", 1);
               window.location.href = "#"
             }else{
               //Caso o email não esteja verificado
               user.sendEmailVerification().then(()=>{
-                mensagemErr("Seu email ainda não foi verificado! Um email foi enviado para verifica-lo.");
+                mensagemErr("Seu email ainda não foi verificado! Um email foi enviado para verifica-lo.", 1);
               })
             }
           }
@@ -60,14 +60,14 @@ $("#formNav").hide();
       .catch(function(error) {
         //Caso ocorra algum erro no login
         console.log(error.message);
-        mensagemErr("Email ou senha incorretos!");
+        mensagemErr("Email ou senha incorretos!", 1);
         $("#msgCross").click(()=>{
           window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/login.php";}else{echo "../pages/login.php";}?>";
         })
       });
     } else {
       //Caso o forulário esteja preenchido incorretamente
-      mensagemErr("Preencha todos os campos corretamente!");
+      mensagemErr("Preencha todos os campos corretamente!", 1);
       $("#msgCross").click(()=>{
         window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/login.php";}else{echo "../pages/login.php";}?>";
       })
@@ -125,25 +125,25 @@ $("#formNav").hide();
   })
 
   //Funções de mensagem
-  function mensagemErr(msg){
-    $('#msg').html('<div class="alert alert-danger fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
+  function mensagemErr(msg, num){
+    $('#msg' + num).html('<div class="alert alert-danger fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
   }
-  function mensagemSuc(msg){
+  function mensagemSuc(msg, num){
     $('#msg').html('<div class="alert alert-success fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
   }
-  function mensagemModErr(msg){
-    $('#msgMod').html('<div class="alert alert-danger fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
+  function mensagemModErr(msg, num){
+    $('#msgMod' + num).html('<div class="alert alert-danger fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
   }
-  function mensagemModSuc(msg){
-    $('#msgMod').html('<div class="alert alert-success fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
+  function mensagemModSuc(msg, num){
+    $('#msgMod' + num).html('<div class="alert alert-success fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
   }
 
-  //Loader
-  function showLoader(){
-    $("#loader").show()
+  //Loader1
+  function showLoader(num){
+    $("#loader" + num).show()
   }
-  function hideLoader(){
-    $("#loader").hide()
+  function hideLoader(num){
+    $("#loader" + num).hide()
   }
 
 </script>

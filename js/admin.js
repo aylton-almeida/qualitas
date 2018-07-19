@@ -155,17 +155,18 @@ function limpaForm() {
 
 //Button Cancelar
 $("#btnCancelar").click(() => {
+  hideLoader(1);
   limpaForm();
 })
 
-//Button Salvar
+//Button Salvar imóvel
 $("#btnSalvar").click(() => {
   //Iniciar loader
-  showLoader();
+  showLoader(1);
   //Conferir validade do formulário
   if ($("#cadastrarImovel")[0].checkValidity()) {
     //Cadastrar imagem no storage
-    firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val()).put(imgBlob)
+    firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val() + '/imagemCapa').put(imgBlob)
       .then((snapshot) => {
         //Cadastrar imovel no db
         firebase.firestore().collection("imoveis").doc($("#nomeInput").val()).set({
@@ -184,8 +185,8 @@ $("#btnSalvar").click(() => {
           })
           .then(() => {
             //Sucesso ao adicionar imovel ao firestore
-            hideLoader();
-            mensagemModSuc("Imóvel cadastrado com sucesso!");
+            hideLoader(1);
+            mensagemModSuc("Imóvel cadastrado com sucesso!", 2);
             //limpar form
             limpaForm();
             //Fechar modal
@@ -193,21 +194,21 @@ $("#btnSalvar").click(() => {
           })
           .catch((error) => {
             //Erro ao adicionar usuário ao firestore
-            hideLoader();
+            hideLoader(1);
             console.log(error);
-            mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.");
+            mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.", 2);
           });
       })
       .catch((error) => {
         //Erro no upload da imagem
-        hideLoader();
+        hideLoader(1);
         console.log(error);
-        mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.");
+        mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.", 2);
       })
   } else {
     //Formulario incompleto
-    hideLoader();
-    mensagemModErr("Preencha todos os campos corretamente!");
+    hideLoader(1);
+    mensagemModErr("Preencha todos os campos corretamente!", 2);
   }
 })
 
@@ -217,9 +218,9 @@ $("#btnCancelarUsuario").click(() => {
   $("#senhaSpan2").html("clear");
 })
 
-// Botao de cadastro
+// Botao de cadastro usuário
 $("#btnCadastro").click(() => {
-  showLoader();
+  showLoader(2);
   //Validação do formulário
   if ($("#formUsuario")[0].checkValidity()) {
     //Validação da igualdade das senhas
@@ -247,59 +248,59 @@ $("#btnCadastro").click(() => {
                 user.sendEmailVerification()
                   .then(function() {
                     // Email enviado
-                    hideLoader();
+                    hideLoader(2);
                     secondaryApp.auth().signOut();
                     //Limpar form
                     $("#formUsuario")[0].reset();
                     $("#senhaSpan2").html("clear");
                     //Fechar modal
                     $('#modalCadastrarUsuario').modal('hide');
-                    mensagemSuc("Usuário criado. Verifique seu email!");
+                    mensagemSuc("Usuário criado. Verifique seu email!", 1);
                   }).catch(function(error) {
                     //Erro no envio
-                    hideLoader();
-                    mensagemModErr("Erro ao criar usuário")
+                    hideLoader(2);
+                    mensagemModErr("Erro ao criar usuário", 1)
                   });
               })
               .catch(function(error) {
                 //Erro ao adicionar usuário ao firestore
-                hideLoader();
+                hideLoader(2);
                 console.log(error);
-                mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.");
+                mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.", 1);
               });
           }).catch(function(error) {
             //Erro ao alterar nome do usuário
-            hideLoader();
+            hideLoader(2);
             console.log(error.message);
-            mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.")
+            mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.", 1)
           });
         })
         .catch(function(error) {
           //Erro caso a senha seja pequena
           if (error.code == "auth/weak-password") {
-            hideLoader();
-            mensagemModErr("Sua senha deve ter ao menos 6 caracteres!");
+            hideLoader(2);
+            mensagemModErr("Sua senha deve ter ao menos 6 caracteres!", 1);
           } else {
             //Erro caso o email ja tenha sido cadastrado
             if (error.code == "auth/email-already-in-use") {
-              hideLoader();
-              mensagemModErr("Esse email já foi cadastrado!");
+              hideLoader(2);
+              mensagemModErr("Esse email já foi cadastrado!", 1);
             } else {
               //Erro geral
-              hideLoader();
-              mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.");
+              hideLoader(2);
+              mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.", 1);
             }
           }
         });
     } else {
       //Erro caso senhas não coincidam
-      hideLoader();
-      mensagemModErr("As senhas não coincidem!");
+      hideLoader(2);
+      mensagemModErr("As senhas não coincidem!", 1);
     }
   } else {
     //Erro caso campos estiverem vazios/preenchidos incorretamente
-    hideLoader();
-    mensagemModErr("Preencha todos os campos corretamente!");
+    hideLoader(2);
+    mensagemModErr("Preencha todos os campos corretamente!", 1);
   }
 })
 

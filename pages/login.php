@@ -24,7 +24,7 @@
     ?>
   </nav>
   <main>
-    <div id="msg" role="alert">
+    <div id="msg1" role="alert">
     </div>
     <div class="block">
       <div class="card">

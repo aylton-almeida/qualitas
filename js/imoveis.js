@@ -1,3 +1,4 @@
+var testeAdmin = false;
 //Pegar usuário atual e testar imobiliaria
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -5,6 +6,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     firebase.firestore().collection("usuarios").doc(user.uid).get().then((doc) => {
         //Pegar imobiliaria do usuário
         if (doc.data().imobiliaria == "Qualitas Imobiliária e Construtora LTDA") {
+          testeAdmin = true;
           $("#btnCadastrar").show();
         } else {
           //Caso a imobiliaria não seja qualitas
@@ -155,17 +157,18 @@ function limpaForm() {
 
 //Button Cancelar
 $("#btnCancelar").click(() => {
+  hideLoader(1);
   limpaForm();
 })
 
 //Button Salvar
 $("#btnSalvar").click(() => {
   //Iniciar loader
-  showLoader();
+  showLoader(1);
   //Conferir validade do formulário
   if ($("#cadastrarImovel")[0].checkValidity()) {
     //Cadastrar imagem no storage
-    firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val()).put(imgBlob)
+    firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val() + '/imagemCapa').put(imgBlob)
       .then((snapshot) => {
         //Cadastrar imovel no db
         firebase.firestore().collection("imoveis").doc($("#nomeInput").val()).set({
@@ -184,8 +187,8 @@ $("#btnSalvar").click(() => {
           })
           .then(() => {
             //Sucesso ao adicionar imovel ao firestore
-            hideLoader();
-            mensagemModSuc("Imóvel cadastrado com sucesso!");
+            hideLoader(1);
+            mensagemModSuc("Imóvel cadastrado com sucesso!", 1);
             //limpar form
             limpaForm();
             setTimeout(() => {
@@ -194,21 +197,21 @@ $("#btnSalvar").click(() => {
           })
           .catch((error) => {
             //Erro ao adicionar usuário ao firestore
-            hideLoader();
+            hideLoader(1);
             console.log(error);
-            mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.");
+            mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.", 1);
           });
       })
       .catch((error) => {
         //Erro no upload da imagem
-        hideLoader();
+        hideLoader(1);
         console.log(error);
-        mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.");
+        mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.", 1);
       })
   } else {
     //Formulario incompleto
-    hideLoader();
-    mensagemModErr("Preencha todos os campos corretamente!");
+    hideLoader(1);
+    mensagemModErr("Preencha todos os campos corretamente!", 1);
   }
 })
 
@@ -222,11 +225,12 @@ firebase.firestore().collection("imoveis").get()
       let card = document.createElement("div");
       card.className = "card bg-dark text-light";
       let img = document.createElement("img");
-      firebase.storage().ref().child(imovel.data().imagem).getDownloadURL()
+      firebase.storage().ref().child(imovel.data().imagem + '/imagemCapa').getDownloadURL()
         .then(function(url) {
           img.className = "card-img-top";
           img.src = url;
-          img.style.width = "100%"
+          img.style.width = "100%";
+          imgUrl = url;
         })
         .catch(function(error) {
           console.log(error);
@@ -253,18 +257,12 @@ firebase.firestore().collection("imoveis").get()
       cardBody.appendChild(endereco);
       cardBody.appendChild(imobiliaria);
       cardBody.appendChild(preco);
-      $(card).click(()=>{
-        //Definir titulo
+      // Click no card
+      $(card).click(() => {
+        //Definir atributos do imovel
         $("#DetalheImovel").html(imovel.data().nome + ", " + imovel.data().endereco.complemento);
-        //Definir img
         $("#imgDetalhado").attr('src', '');
-        firebase.storage().ref().child(imovel.data().imagem).getDownloadURL()
-          .then(function(url) {
-            $("#imgDetalhado").attr('src', url);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
+        $("#imgDetalhado").attr('src', imgUrl);
         $('#pRua').html(imovel.data().endereco.rua + ', ' + imovel.data().endereco.numero);
         $('#pComplemento').html(imovel.data().endereco.complemento);
         $('#pBairro').html('Bairro ' + imovel.data().endereco.bairro);
@@ -272,10 +270,43 @@ firebase.firestore().collection("imoveis").get()
         $('#pPreco').html('Preço do alguel: R$' + imovel.data().preco + ',00');
         $('#pImobiliaria').html('Imobiliária responsável: ' + imovel.data().imobiliaria);
         $("#modalImovelDetalhado").modal('toggle');
+        if (!testeAdmin) {
+          $('#modalFooter').hide();
+        }
+        // Button Alterar
+        $('#btnAlterar').click(() => {
+          // while ($('#croppieDiv').children().length > 0) {
+          //     $('#croppieDiv').children().remove();
+          // }
+          // let img = document.createElement("img");
+          // img.className = "rounded img-fluid mx-auto d-block";
+          // $(img).attr('src', imgUrl);
+          // $('#croppieDiv').append(img);
+        })
+        // Button Excluir
+        $('#btnExcluir').click(() => {
+          showLoader(2);
+          //Apagar firestore
+          firebase.firestore().collection("imoveis").doc(imovel.data().nome).delete().then(function() {
+            //Apagar imagens
+            firebase.storage().ref(imovel.data().imagem + '/imagemCapa').delete().then(function() {
+              // File deleted successfully
+              hideLoader(2);
+              mensagemModSuc('Imóvel apagado com sucesso', 2);
+              setTimeout(() => {
+                window.location.href = "imoveis.php";
+              }, 2000);
+            }).catch(function(error) {
+              // Uh-oh, an error occurred!
+            });
+          }).catch(function(error) {
+            console.error("Error removing document: ", error);
+          });
+        })
       })
     });
   })
   .catch(function(error) {
+    console.log('Nenhum imóvel cadastrado encontrado');
     console.log(error);
-    mensagemErr("Nenhum imóvel cadastrado encontrado!");
   })

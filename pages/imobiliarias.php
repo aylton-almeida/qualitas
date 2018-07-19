@@ -33,7 +33,7 @@
       <div class="row menu">
         <!-- Cadastrar imóvel -->
         <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar Imóvel</button>
-        <!-- Modal cadastro imovel -->
+        <!-- Modal -->
         <div class="modal fade" id="modalCadastrarImovel" tabindex="-1" role="dialog" aria-labelledby="CadastrarImovelLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -72,14 +72,14 @@
                     </div>
                     <input id="ruaInput" class="form-control" placeholder="Rua" type="text" aria-describedby="endereçoSpan" name="rua" required>
                   </div>
-                  <div class="loaderDiv">
-                    <div class="loader" id="loader1"></div>
-                  </div>
                   <!-- Número, bairro e complemento -->
                   <div class="input-group mb-3">
                     <input id="numeroInput" class="form-control" placeholder="Número" type="number" name="numero" required>
                     <input id="bairroInput" class="form-control" placeholder="Bairro" type="text" name="bairro" required>
                     <input id="complementoInput" class="form-control" placeholder="Complemento" type="text" name="complemento" required>
+                  </div>
+                  <div class="loaderDiv">
+                    <div class="loader" id="loader"></div>
                   </div>
                   <!-- Estado e cidade -->
                   <div class="input-group mb-3">
@@ -169,9 +169,6 @@
               <div class="modal-body" id="modalBody">
                 <img id="imgDetalhado" class="rounded img-fluid mx-auto d-block">
                 <!-- Carossel -->
-                <div class="loaderDiv">
-                  <div class="loader" id="loader2"></div>
-                </div>
                 <h6>Endereço:</h6>
                 <p id="pRua">Rua, Número</p>
                 <p id="pComplemento">Complemento</p>
@@ -184,7 +181,7 @@
               </div>
               <!-- Modal footer -->
               <div class="modal-footer" id="modalFooter">
-                <button type="button" class="btn btn-warning" id="btnAlterar" data-dismiss="modal" data-toggle="modal" data-target="#modalCadastrarImovel">Alterar</button>
+                <button type="button" class="btn btn-warning" id="btnAlterar" disabled>Alterar</button>
                 <button type="button" class="btn btn-danger" id="btnExcluir">Excluir</button>
               </div>
             </div>

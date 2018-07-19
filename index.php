@@ -25,7 +25,7 @@
 </nav>
     <main>
       <div class="container-fluid bg-dark">
-        <div id="msg" role="alert">
+        <div id="msg1" role="alert">
         </div>
       </div>
       <!--Bloco 1-->
