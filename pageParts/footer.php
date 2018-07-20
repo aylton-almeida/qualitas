@@ -27,6 +27,19 @@
   };
   firebase.initializeApp(config);
 
+  //Pegar e mostrar mensagens existentes
+  var msg = window.sessionStorage.getItem("msg");
+  var msgType = window.sessionStorage.getItem("msgType");
+  if(msg){
+    if(msgType == 'err'){
+      mensagemErr(msg, 1);
+    }
+    if(msgType == 'suc'){
+      mensagemSuc(msg, 1);
+    }
+    sessionStorage.clear();
+  }
+
 //Esconder formulário
 $("#formNav").hide();
   //Button cadastro navBar
@@ -45,13 +58,15 @@ $("#formNav").hide();
           if(user){
             if(user.emailVerified){
               //Caso o email tenha sido verificado
-              $("#formNav").hide();
-              mensagemSuc("Bem vindo " + user.displayName + "!", 1);
-              window.location.href = "#"
+              $("#formNav").hide
+              window.sessionStorage.setItem('msg', 'Bem vindo ' + user.displayName + '!');
+              window.sessionStorage.setItem('msgType', 'suc');
+              window.location.reload();
             }else{
               //Caso o email não esteja verificado
               user.sendEmailVerification().then(()=>{
-                mensagemErr("Seu email ainda não foi verificado! Um email foi enviado para verifica-lo.", 1);
+                window.sessionStorage.setItem('msg',"Seu email ainda não foi verificado! Um email foi enviado para verifica-lo.");
+                window.sessionStorage.setItem('msgType', 'err');
               })
             }
           }
@@ -129,7 +144,7 @@ $("#formNav").hide();
     $('#msg' + num).html('<div class="alert alert-danger fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
   }
   function mensagemSuc(msg, num){
-    $('#msg').html('<div class="alert alert-success fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
+    $('#msg' + num).html('<div class="alert alert-success fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
   }
   function mensagemModErr(msg, num){
     $('#msgMod' + num).html('<div class="alert alert-danger fade show">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="msgCross"><span aria-hidden="true">&times;</span></button></div>');
@@ -140,10 +155,10 @@ $("#formNav").hide();
 
   //Loader1
   function showLoader(num){
-    $("#loader" + num).show()
+    $("#loader" + num).show();
   }
   function hideLoader(num){
-    $("#loader" + num).hide()
+    $("#loader" + num).hide();
   }
 
 </script>

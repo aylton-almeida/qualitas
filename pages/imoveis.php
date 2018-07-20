@@ -72,7 +72,7 @@
                     </div>
                     <input id="ruaInput" class="form-control" placeholder="Rua" type="text" aria-describedby="endereçoSpan" name="rua" required>
                   </div>
-                  <div class="loaderDiv">
+                  <div class="loaderDiv" id="loaderDiv">
                     <div class="loader" id="loader1"></div>
                   </div>
                   <!-- Número, bairro e complemento -->
@@ -184,7 +184,7 @@
               </div>
               <!-- Modal footer -->
               <div class="modal-footer" id="modalFooter">
-                <button type="button" class="btn btn-warning" id="btnAlterar" data-dismiss="modal" data-toggle="modal" data-target="#modalCadastrarImovel">Alterar</button>
+                <button type="button" class="btn btn-warning" id="btnAlterar">Alterar</button>
                 <button type="button" class="btn btn-danger" id="btnExcluir">Excluir</button>
               </div>
             </div>

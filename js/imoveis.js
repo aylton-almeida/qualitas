@@ -282,6 +282,15 @@ firebase.firestore().collection("imoveis").get()
           // img.className = "rounded img-fluid mx-auto d-block";
           // $(img).attr('src', imgUrl);
           // $('#croppieDiv').append(img);
+          $('#modalCadastrarImovel').on('show.bs.modal', function() {
+            $('#modalImovelDetalhado').modal('hide');
+          })
+          $('#modalCadastrarImovel').modal('toggle')
+          $('#modalCadastrarImovel').modal({
+            focus: true
+          })
+
+
         })
         // Button Excluir
         $('#btnExcluir').click(() => {
@@ -290,23 +299,26 @@ firebase.firestore().collection("imoveis").get()
           firebase.firestore().collection("imoveis").doc(imovel.data().nome).delete().then(function() {
             //Apagar imagens
             firebase.storage().ref(imovel.data().imagem + '/imagemCapa').delete().then(function() {
-              // File deleted successfully
+              // Imagem apagada
               hideLoader(2);
               mensagemModSuc('Imóvel apagado com sucesso', 2);
               setTimeout(() => {
                 window.location.href = "imoveis.php";
               }, 2000);
             }).catch(function(error) {
-              // Uh-oh, an error occurred!
+              // Erro ao apagar imagem
+              console.log(error);
             });
           }).catch(function(error) {
-            console.error("Error removing document: ", error);
+            //Erro removendo documento
+            console.error("Error ao remover documento: ", error);
           });
         })
       })
     });
   })
   .catch(function(error) {
+    //Nenhumm imóvel encontrado
     console.log('Nenhum imóvel cadastrado encontrado');
     console.log(error);
   })
