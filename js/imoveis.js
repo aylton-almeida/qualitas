@@ -225,6 +225,7 @@ firebase.firestore().collection("imoveis").get()
       let card = document.createElement("div");
       card.className = "card bg-dark text-light";
       let img = document.createElement("img");
+      let imgUrl;
       firebase.storage().ref().child(imovel.data().imagem + '/imagemCapa').getDownloadURL()
         .then(function(url) {
           img.className = "card-img-top";
@@ -269,6 +270,39 @@ firebase.firestore().collection("imoveis").get()
         $('#pCidade').html(imovel.data().endereco.cidade + ' - ' + imovel.data().endereco.estado);
         $('#pPreco').html('Preço do alguel: R$' + imovel.data().preco + ',00');
         $('#pImobiliaria').html('Imobiliária responsável: ' + imovel.data().imobiliaria);
+        //Maps
+        var map;
+
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+              lat: -34.397,
+              lng: 150.644
+            },
+            zoom: 16
+          });
+          geocoder = new google.maps.Geocoder();
+          codeAddress(geocoder, map);
+        }
+
+        function codeAddress(geocoder, map) {
+          geocoder.geocode({
+            'address': imovel.data().endereco.rua + ', ' + imovel.data().endereco.numero
+          }, function(results, status) {
+            if (status === 'OK') {
+              map.setCenter(results[0].geometry.location);
+              var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+              });
+            } else {
+              console.log('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+        }
+
+        initMap();
+
         $("#modalImovelDetalhado").modal('toggle');
         if (!testeAdmin) {
           $('#modalFooter').hide();
@@ -282,15 +316,13 @@ firebase.firestore().collection("imoveis").get()
           // img.className = "rounded img-fluid mx-auto d-block";
           // $(img).attr('src', imgUrl);
           // $('#croppieDiv').append(img);
-          $('#modalCadastrarImovel').on('show.bs.modal', function() {
-            $('#modalImovelDetalhado').modal('hide');
-          })
-          $('#modalCadastrarImovel').modal('toggle')
-          $('#modalCadastrarImovel').modal({
-            focus: true
-          })
-
-
+          // $('#modalCadastrarImovel').on('show.bs.modal', function() {
+          //   $('#modalImovelDetalhado').modal('hide');
+          // })
+          // $('#modalCadastrarImovel').modal('toggle')
+          // $('#modalCadastrarImovel').modal({
+          //   focus: true
+          // })
         })
         // Button Excluir
         $('#btnExcluir').click(() => {
@@ -301,7 +333,7 @@ firebase.firestore().collection("imoveis").get()
             firebase.storage().ref(imovel.data().imagem + '/imagemCapa').delete().then(function() {
               // Imagem apagada
               hideLoader(2);
-              mensagemModSuc('Imóvel apagado com sucesso', 2);
+              mensagemModSuc('Imóvel excluido com sucesso', 2);
               setTimeout(() => {
                 window.location.href = "imoveis.php";
               }, 2000);
@@ -318,7 +350,7 @@ firebase.firestore().collection("imoveis").get()
     });
   })
   .catch(function(error) {
-    //Nenhumm imóvel encontrado
+    //Nenhum imóvel encontrado
     console.log('Nenhum imóvel cadastrado encontrado');
     console.log(error);
   })

@@ -15,6 +15,8 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-functions.js"></script>
 <!-- Add icons -->
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Add maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_XmxvW05XB7WrV_lwhfYn-fzTAgfAYZ4" async defer></script>
 <!-- Iniciar Firebase -->
 <script>
   var config = {

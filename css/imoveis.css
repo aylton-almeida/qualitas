@@ -1,17 +1,17 @@
-.modal img{
+.modal img {
   margin-bottom: 16px;
 }
 
-#btnCadastrar{
+#btnCadastrar {
   display: none
 }
 
-.card{
+.card {
   margin-bottom: 16px;
   cursor: pointer;
 }
 
-.loaderDiv{
+.loaderDiv {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -23,7 +23,7 @@
   position: absolute;
   border: 6px solid #343a40;
   border-radius: 50%;
-  border-top: 6px solid rgba(0,0,0,0);
+  border-top: 6px solid rgba(0, 0, 0, 0);
   width: 100px;
   height: 100px;
   -webkit-animation: spin 2s linear infinite;
@@ -52,19 +52,23 @@
   }
 }
 
-ul{
+ul {
   list-style: none
 }
 
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 600px) {
-  .msg{
+  .msg {
     background-color: #343a40;
     margin: 0 !important
   }
-  #corpo{
+  #corpo {
     margin-top: 10px
+  }
+  #map {
+    height: 200px;
+    margin-bottom: 16px;
   }
 }
 
@@ -74,10 +78,14 @@ ul{
   main {
     padding: 15px 0;
   }
-  #corpo{
+  #corpo {
     margin-top: 10px
   }
   .btnresult {
+    margin-bottom: 16px;
+  }
+  #map {
+    height: 300px;
     margin-bottom: 16px;
   }
 }
@@ -88,10 +96,14 @@ ul{
   main {
     padding: 15px 0;
   }
-  #corpo{
+  #corpo {
     margin-top: 30px
   }
   .btnresult {
+    margin-bottom: 16px;
+  }
+  #map {
+    height: 300px;
     margin-bottom: 16px;
   }
 }
@@ -102,10 +114,14 @@ ul{
   main {
     padding: 15px 0;
   }
-  #corpo{
+  #corpo {
     margin-top: 50px
   }
   .btnresult {
+    margin-bottom: 16px;
+  }
+  #map {
+    height: 300px;
     margin-bottom: 16px;
   }
 }
@@ -116,10 +132,14 @@ ul{
   main {
     padding: 15px 0;
   }
-  #corpo{
+  #corpo {
     margin-top: 50px
   }
   .btnresult {
+    margin-bottom: 16px;
+  }
+  #map {
+    height: 300px;
     margin-bottom: 16px;
   }
 }

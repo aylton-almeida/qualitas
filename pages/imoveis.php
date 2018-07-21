@@ -180,6 +180,7 @@
                 <p id="pPreco">Preço do aluguel: R$2000,00</p>
                 <p id="pImobiliaria">Imobiliaria responsável: Imobiliaria</p>
                 <!-- Mapa com local -->
+                <div id="map"></div>
                 <div id="msgMod2" class="col-sm-10 offset-sm-1" role="alert"></div>
               </div>
               <!-- Modal footer -->
