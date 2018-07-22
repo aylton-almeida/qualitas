@@ -32,6 +32,16 @@
   display: none
 }
 
+.titulo-interno-texto{
+  display: inline-block;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+}
+hr{
+  margin: 0;
+  margin-bottom: 16px;
+}
 /* Safari */
 
 @-webkit-keyframes spin {

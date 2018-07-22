@@ -172,20 +172,38 @@
                 <div class="loaderDiv">
                   <div class="loader" id="loader2"></div>
                 </div>
-                <h6>Endereço:</h6>
+                <!-- Endereço -->
+                <div class="titulo-interno">
+                  <div class="titulo-interno-texto">
+                    <h5>Endereço</h5>
+                  </div>
+                  <hr>
+                </div>
                 <p id="pRua">Rua, Número</p>
                 <p id="pComplemento">Complemento</p>
                 <p id="pBairro">Bairro</p>
                 <p id="pCidade">Cidade - Estado</p>
+                <div class="titulo-interno">
+                  <div class="titulo-interno-texto">
+                    <h5>Informações adicionais</h5>
+                  </div>
+                  <hr>
+                </div>
                 <p id="pPreco">Preço do aluguel: R$2000,00</p>
                 <p id="pImobiliaria">Imobiliaria responsável: Imobiliaria</p>
+                <div class="titulo-interno">
+                  <div class="titulo-interno-texto">
+                    <h5>Localização</h5>
+                  </div>
+                  <hr>
+                </div>
                 <!-- Mapa com local -->
                 <div id="map"></div>
                 <div id="msgMod2" class="col-sm-10 offset-sm-1" role="alert"></div>
               </div>
               <!-- Modal footer -->
               <div class="modal-footer" id="modalFooter">
-                <button type="button" class="btn btn-warning" id="btnAlterar">Alterar</button>
+                <button type="button" id="btnAlterar" class="btn btn-warning" disabled>Alterar</button>
                 <button type="button" class="btn btn-danger" id="btnExcluir">Excluir</button>
               </div>
             </div>
