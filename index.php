@@ -28,11 +28,11 @@
         <div id="msg1" role="alert">
         </div>
       </div>
-      <!--Bloco 1-->
+      <!--Bloco 1: Logo/Pesquisa-->
       <div class="block1 bg-dark">
           <img id="img" class="img-fluid" width="100%" src="imagens/logo_texto.png" alt="Qualitas Imobiliária e Construtora">
       </div>
-      <!--Bloco 2-->
+      <!--Bloco 2: Acesso Rápido-->
       <div class="block2 bg-light">
         <div class="container">
           <div class="row acesso">
@@ -84,6 +84,9 @@
           </div>
         </div>
       </div>
+      <!--Bloco 3: Imóveis recentes -->
+      <!--Bloco 4: Imobiliárias primárias -->
+      <!--Bloco 5: Contato -->
     </main>
     <footer>
       <?php
