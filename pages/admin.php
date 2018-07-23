@@ -4,7 +4,7 @@
 <head>
   <title>Administrador</title>
   <!--Add icon-->
-  <link rel="icon" type="image/png" href="../imagens/icon.png" sizes="32X32">
+  <link rel="icon" type="image/png" href="https://firebasestorage.googleapis.com/v0/b/qualitas-24b79.appspot.com/o/Logo%2Ficon.png?alt=media&token=8884afeb-1c37-49e1-95bd-84d8c9d35f0a" sizes="32X32">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" shrink-to-fit=no>
   <!--Add Bootstrap-->
@@ -90,10 +90,10 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="senhaSpan">Senha</span>
                           </div>
-                          <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha..." aria-describedby="senhaSpan" required>
-                          <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha..." aria-describedby="senhaSpan senhaSpan2" required>
+                          <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha..." aria-describedby="senhaSpan">
+                          <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha..." aria-describedby="senhaSpan senhaSpan2">
                           <div class="input-group-prepend">
-                            <i class="input-group-text material-icons" id="senhaSpan2">clear</i>
+                            <i class="input-group-text material-icons" id="senhaSpan2">remove</i>
                           </div>
                         </div>
                       </form>

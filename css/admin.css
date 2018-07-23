@@ -1,16 +1,18 @@
-.modal img{
+.modal img {
   margin-bottom: 16px;
 }
 
-a{
+a {
   color: grey;
 }
-a:hover{
+
+a:hover {
   color: white;
 }
 
 /* Animação loader */
-.loaderDiv{
+
+.loaderDiv {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -22,7 +24,7 @@ a:hover{
   position: absolute;
   border: 6px solid #343a40;
   border-radius: 50%;
-  border-top: 6px solid rgba(0,0,0,0);
+  border-top: 6px solid rgba(0, 0, 0, 0);
   width: 100px;
   height: 100px;
   -webkit-animation: spin 2s linear infinite;
@@ -51,14 +53,18 @@ a:hover{
   }
 }
 
+#senhaSpan2 {
+  color: white;
+  background-color: #ffc107
+}
 
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 600px) {
-  .block{
+  .block {
     padding: 5% 0
   }
-  .row>button{
+  .row>button {
     margin-bottom: 20px
   }
 }
@@ -66,10 +72,10 @@ a:hover{
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
-  .block{
+  .block {
     padding: 10% 20%
   }
-  .row>button{
+  .row>button {
     margin-bottom: 20px
   }
 }
@@ -77,10 +83,10 @@ a:hover{
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-  .block{
+  .block {
     padding: 10% 25%
   }
-  .row>button{
+  .row>button {
     margin-bottom: 20px
   }
 }
@@ -88,10 +94,10 @@ a:hover{
 /* Large devices (laptops/desktops, 992px and up) */
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-  .block{
+  .block {
     padding: 10% 30%
   }
-  .row>button{
+  .row>button {
     margin-bottom: 20px
   }
 }
@@ -99,10 +105,10 @@ a:hover{
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
 @media only screen and (min-width: 1200px) {
-  .block{
+  .block {
     padding: 15% 35%
   }
-  .row>button{
+  .row>button {
     margin-bottom: 20px
   }
 }

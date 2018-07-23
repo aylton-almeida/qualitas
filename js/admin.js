@@ -311,9 +311,23 @@ $("#btnCadastro").click(() => {
 $("#confPassInput").change(() => {
   if ($("#confPassInput").val() != $("#passInput").val()) {
     //Caso senhas não coincidam
+    $("#senhaSpan2").css('background-color', 'red');
     $("#senhaSpan2").html("clear");
   } else {
     //Caso senhas coincidam
+    $("#senhaSpan2").css('background-color', 'green');
+    $("#senhaSpan2").html("check");
+  }
+})
+//Confirmação de senha
+$("#passInput").change(() => {
+  if ($("#confPassInput").val() != $("#passInput").val()) {
+    //Caso senhas não coincidam
+    $("#senhaSpan2").css('background-color', 'red');
+    $("#senhaSpan2").html("clear");
+  } else {
+    //Caso senhas coincidam
+    $("#senhaSpan2").css('background-color', 'green');
     $("#senhaSpan2").html("check");
   }
 })

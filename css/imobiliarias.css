@@ -32,16 +32,18 @@
   display: none
 }
 
-.titulo-interno-texto{
+.titulo-interno-texto {
   display: inline-block;
   border-bottom-color: black;
   border-bottom-style: solid;
   border-bottom-width: thin;
 }
-hr{
+
+hr {
   margin: 0;
   margin-bottom: 16px;
 }
+
 /* Safari */
 
 @-webkit-keyframes spin {
@@ -64,6 +66,11 @@ hr{
 
 ul {
   list-style: none
+}
+
+#senhaSpan2 {
+  color: white;
+  background-color: #ffc107
 }
 
 /* Extra small devices (phones, 600px and down) */

@@ -4,7 +4,7 @@
 <head>
   <title>Imobiliárias</title>
   <!--Add icon-->
-  <link rel="icon" type="image/png" href="../imagens/icon.png" sizes="32X32">
+  <link rel="icon" type="image/png" href="https://firebasestorage.googleapis.com/v0/b/qualitas-24b79.appspot.com/o/Logo%2Ficon.png?alt=media&token=8884afeb-1c37-49e1-95bd-84d8c9d35f0a" sizes="32X32">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" shrink-to-fit=no>
   <!--Add Bootstrap-->
@@ -32,7 +32,7 @@
     <div class="container">
       <div class="row menu">
         <!-- Cadastrar imóvel -->
-        <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImobiliaria">Cadastrar Imóvel</button>
+        <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImobiliaria">Cadastrar Imobiliária</button>
         <!-- Modal -->
         <div class="modal fade" id="modalCadastrarImobiliaria" tabindex="-1" role="dialog" aria-labelledby="CadastrarImobiliariasLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -47,7 +47,7 @@
               <!-- Modal body -->
               <div class="modal-body" id="modalBody">
                 <form id="cadastrarImobiliaria">
-                  <!-- Form imagem -->
+                  <!-- Form Logo -->
                   <div class="container">
                     <div class="row" id="croppieDiv">
                       <div class="input-group mb-3">
@@ -64,6 +64,13 @@
                       <span class="input-group-text" id="nomeSpan">Nome</span>
                     </div>
                     <input id="nomeInput" class="form-control" placeholder="Digite um nome..." type="text" aria-describedby="nomeSpan" name="nome" required>
+                  </div>
+                  <!-- Email -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="emailSpan">Email</span>
+                    </div>
+                    <input id="emailInput" class="form-control" placeholder="Email" type="email" required>
                   </div>
                   <!-- Rua -->
                   <div class="input-group mb-3">
@@ -115,32 +122,35 @@
                     </select>
                     <input id="cidadeInput" class="form-control" placeholder="Digite uma cidade..." type="text" name="cidade" required>
                   </div>
-                  <!-- Valor aluguel -->
+                  <!-- Número telefone -->
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text" id="precoSpan">R$</span>
+                      <span class="input-group-text" id="telSpan">Telefone</span>
                     </div>
-                    <input id="precoInput" class="form-control" placeholder="Preço aluguel" type="number" aria-describedby="precoSpan" name="preco" required>
-                    <div class="input-group-append">
-                      <span class="input-group-text" id="precoSpan">,00</span>
-                    </div>
+                    <input id="dddInput" class="form-control col-2" placeholder="DDD" type="tel" aria-describedby="telSpan" name="ddd" required>
+                    <input id="telInput" class="form-control col-10" placeholder="Telefone" type="tel" aria-describedby="telSpan" name="telefone" size="9" required>
                   </div>
-                  <!-- Imobiliária -->
+                  <!-- CNPJ -->
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text" id="imobiliariaSpan">Imobiliária</span>
+                      <span class="input-group-text" id="cnpjSpan">CNPJ</span>
                     </div>
-                    <select class="custom-select" id="imobiliariaInput" aria-describedby="imobiliariaSpan" name="imobiliaria">
-                      <option selected>Escolha uma imobiliária...</option>
-                      <option value="Conceito Empreendimentos Imobiliarias LTDA">Conceito Empreendimentos Imobiliarias LTDA</option>
-                      <option value="FAI Consultoria de imoveis LTDA">FAI Consultoria de imoveis LTDA</option>
-                      <option value="Invest Administradiora e Corretora de Imóveis LTDA">Invest Administradiora e Corretora de Imóveis LTDA</option>
-                      <option value="J. Fróes Imóveis LTDA">J. Fróes Imóveis LTDA</option>
-                      <option value="Qualitas Imobiliária e Construtora LTDA">Qualitas Imobiliária e Construtora LTDA</option>
-                      <option value="União Corretora de Imóvel LTDA">União Corretora de Imóvel LTDA</option>
-                      <option value="Vivar Imóveis LTDA">Vivar Imóveis LTDA</option>
-                    </select>
+                    <input id="cnpjInput" class="form-control" type="number" name="cnpj" placeholder="Insira apenas números" size="14" aria-describedby="cnpjSpan" required>
                   </div>
+                  <!-- Criar conta -->
+                  <h5 class="mb-3"></h5>
+                    <div class="input-group mb-3" id="SenhaForm">
+                      <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseSenha">Criar conta?</button>
+                      </div>
+                      <div id="collapseSenha" class="collapse">
+                        <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha..." aria-describedby="senhaSpan" required>
+                        <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha..." aria-describedby="senhaSpan senhaSpan2" required>
+                        <div class="input-group-prepend">
+                          <i class="input-group-text material-icons col-12" id="senhaSpan2">remove</i>
+                        </div>
+                      </div>
+                    </div>
                 </form>
               <div id="msgMod1" class="col-sm-10 offset-sm-1" role="alert"></div>
               </div>

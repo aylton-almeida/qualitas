@@ -4,7 +4,7 @@
 <head>
   <title>Imóveis</title>
   <!--Add icon-->
-  <link rel="icon" type="image/png" href="../imagens/icon.png" sizes="32X32">
+  <link rel="icon" type="image/png" href="https://firebasestorage.googleapis.com/v0/b/qualitas-24b79.appspot.com/o/Logo%2Ficon.png?alt=media&token=8884afeb-1c37-49e1-95bd-84d8c9d35f0a" sizes="32X32">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" shrink-to-fit=no>
   <!--Add Bootstrap-->
