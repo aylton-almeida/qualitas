@@ -63,7 +63,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="nomeSpan">Nome</span>
                     </div>
-                    <input id="nomeInput" class="form-control" placeholder="Digite um nome..." type="text" aria-describedby="nomeSpan" name="nome" required>
+                    <input id="nomeInput" class="form-control" placeholder="Digite um nome" type="text" aria-describedby="nomeSpan" name="nome" required>
                   </div>
                   <!-- Email -->
                   <div class="input-group mb-3">
@@ -91,7 +91,7 @@
                   <!-- Estado e cidade -->
                   <div class="input-group mb-3">
                     <select class="custom-select" id="estadoInput" name="estado">
-                      <option selected>Estado...</option>
+                      <option selected>Estado</option>
                       <option value="AC">AC</option>
                       <option value="AL">AL</option>
                       <option value="AP">AP</option>
@@ -120,15 +120,15 @@
                       <option value="SE">SE</option>
                       <option value="TO">TO</option>
                     </select>
-                    <input id="cidadeInput" class="form-control" placeholder="Digite uma cidade..." type="text" name="cidade" required>
+                    <input id="cidadeInput" class="form-control" placeholder="Digite uma cidade" type="text" name="cidade" required>
                   </div>
                   <!-- Número telefone -->
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="telSpan">Telefone</span>
                     </div>
-                    <input id="dddInput" class="form-control col-2" placeholder="DDD" type="tel" aria-describedby="telSpan" name="ddd" required>
-                    <input id="telInput" class="form-control col-10" placeholder="Telefone" type="tel" aria-describedby="telSpan" name="telefone" size="9" required>
+                    <input id="dddInput" class="form-control col-sm-2" placeholder="DDD" type="tel" aria-describedby="telSpan" name="ddd" required>
+                    <input id="telInput" class="form-control col-sm-10" placeholder="Telefone" type="tel" aria-describedby="telSpan" name="telefone" size="9" required>
                   </div>
                   <!-- CNPJ -->
                   <div class="input-group mb-3">
@@ -143,9 +143,10 @@
                       <div class="input-group-prepend">
                         <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseSenha">Criar conta?</button>
                       </div>
-                      <div id="collapseSenha" class="collapse">
-                        <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha..." aria-describedby="senhaSpan" required>
-                        <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha..." aria-describedby="senhaSpan senhaSpan2" required>
+                      <div id="collapseSenha" class="collapse col">
+                        <input type="text" class="form-control" id="usuarioInput" placeholder="Usuário" aria-describedby="senhaSpan">
+                        <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha" aria-describedby="senhaSpan" required>
+                        <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha" aria-describedby="senhaSpan senhaSpan2" required>
                         <div class="input-group-prepend">
                           <i class="input-group-text material-icons col-12" id="senhaSpan2">remove</i>
                         </div>

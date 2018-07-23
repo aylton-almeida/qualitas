@@ -55,8 +55,8 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="nomeSpan">Nome</span>
                           </div>
-                            <input type="text" name="nome" class="form-control" id="nomeInputUsuario" placeholder="Nome..." aria-describedby="nomeSpan" required>
-                            <input type="text" name="sobrenome" class="form-control" id="sobrenomeInput" placeholder="Sobrenome..." aria-describedby="nomeSpan" required>
+                            <input type="text" name="nome" class="form-control" id="nomeInputUsuario" placeholder="Nome" aria-describedby="nomeSpan" required>
+                            <input type="text" name="sobrenome" class="form-control" id="sobrenomeInput" placeholder="Sobrenome" aria-describedby="nomeSpan" required>
                         </div>
                         <!-- Imobiliária -->
                         <div class="input-group mb-3">
@@ -64,7 +64,7 @@
                             <span class="input-group-text" id="imobiliariaSpan">Imobiliária</span>
                           </div>
                           <select class="custom-select" id="imobiliariaInputUsuario" name="selectImobiliaria" aria-describedby="nomeSpan" required>
-                            <option selected>Escolha sua imobiliária...</option>
+                            <option selected>Escolha sua imobiliária</option>
                             <option value="Conceito Empreendimentos Imobiliarias LTDA">Conceito Empreendimentos Imobiliarias LTDA</option>
                             <option value="FAI Consultoria de imoveis LTDA">FAI Consultoria de imoveis LTDA</option>
                             <option value="Invest Administradiora e Corretora de Imóveis LTDA">Invest Administradiora e Corretora de Imóveis LTDA</option>
@@ -83,15 +83,15 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="emailSpan">Email</span>
                           </div>
-                          <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email..." aria-describedby="nomeSpan" required>
+                          <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email" aria-describedby="nomeSpan" required>
                         </div>
                         <!-- Senha -->
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="senhaSpan">Senha</span>
                           </div>
-                          <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha..." aria-describedby="senhaSpan">
-                          <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha..." aria-describedby="senhaSpan senhaSpan2">
+                          <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha" aria-describedby="senhaSpan">
+                          <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha" aria-describedby="senhaSpan senhaSpan2">
                           <div class="input-group-prepend">
                             <i class="input-group-text material-icons" id="senhaSpan2">remove</i>
                           </div>
@@ -140,7 +140,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="nomeSpan">Nome</span>
                           </div>
-                          <input id="nomeInput" class="form-control" placeholder="Digite um nome..." type="text" aria-describedby="nomeSpan" name="nome" required>
+                          <input id="nomeInput" class="form-control" placeholder="Digite um nome" type="text" aria-describedby="nomeSpan" name="nome" required>
                         </div>
                         <!-- Rua -->
                         <div class="input-group mb-3">
@@ -162,7 +162,7 @@
                         <!-- Estado e cidade -->
                         <div class="input-group mb-3">
                           <select class="custom-select" id="estadoInput" name="estado">
-                            <option selected>Estado...</option>
+                            <option selected>Estado</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
                             <option value="AP">AP</option>
@@ -191,7 +191,7 @@
                             <option value="SE">SE</option>
                             <option value="TO">TO</option>
                           </select>
-                          <input id="cidadeInput" class="form-control" placeholder="Digite uma cidade..." type="text" name="cidade" required>
+                          <input id="cidadeInput" class="form-control" placeholder="Digite uma cidade" type="text" name="cidade" required>
                         </div>
                         <!-- Valor aluguel -->
                         <div class="input-group mb-3">
@@ -209,7 +209,7 @@
                             <span class="input-group-text" id="imobiliariaSpan">Imobiliária</span>
                           </div>
                           <select class="custom-select" id="imobiliariaInput" aria-describedby="imobiliariaSpan" name="imobiliaria">
-                            <option selected>Escolha uma imobiliária...</option>
+                            <option selected>Escolha uma imobiliária</option>
                             <option value="Conceito Empreendimentos Imobiliarias LTDA">Conceito Empreendimentos Imobiliarias LTDA</option>
                             <option value="FAI Consultoria de imoveis LTDA">FAI Consultoria de imoveis LTDA</option>
                             <option value="Invest Administradiora e Corretora de Imóveis LTDA">Invest Administradiora e Corretora de Imóveis LTDA</option>

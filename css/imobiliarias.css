@@ -44,6 +44,10 @@ hr {
   margin-bottom: 16px;
 }
 
+.collapse, .collapsing{
+  padding: 0
+}
+
 /* Safari */
 
 @-webkit-keyframes spin {

@@ -35,11 +35,11 @@
           <form id="form">
             <div class="form-group">
               <label for="emailInput">Email</label>
-              <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email..." required>
+              <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email" required>
             </div>
             <div class="form-group">
               <label for="passInput">Senha</label>
-              <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha..." required>
+              <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha" required>
             </div>
             <div class="form-group form-check">
               <input type="checkbox" name="check" class="form-check-input" id="checkInput">

@@ -218,7 +218,8 @@ $("#btnSalvar").click(() => {
 //Cancelar modal usuario
 $("#btnCancelarUsuario").click(() => {
   $("#formUsuario")[0].reset();
-  $("#senhaSpan2").html("clear");
+  $("#senhaSpan2").css('background-color', '#ffc107');
+  $("#senhaSpan2").html("remove");
 })
 
 // Botao de cadastro usuário
@@ -307,27 +308,22 @@ $("#btnCadastro").click(() => {
   }
 })
 
-//Confirmação de senha
-$("#confPassInput").change(() => {
+// Confirmação senha
+function confSenha() {
   if ($("#confPassInput").val() != $("#passInput").val()) {
     //Caso senhas não coincidam
     $("#senhaSpan2").css('background-color', 'red');
     $("#senhaSpan2").html("clear");
   } else {
     //Caso senhas coincidam
-    $("#senhaSpan2").css('background-color', 'green');
-    $("#senhaSpan2").html("check");
+    if ($("#confPassInput").val() != "" && $("#passInput").val() != ""){
+      $("#senhaSpan2").css('background-color', 'green');
+      $("#senhaSpan2").html("check");
+    }else{
+      $("#senhaSpan2").css('background-color', '#ffc107');
+      $("#senhaSpan2").html("remove");
+    }
   }
-})
-//Confirmação de senha
-$("#passInput").change(() => {
-  if ($("#confPassInput").val() != $("#passInput").val()) {
-    //Caso senhas não coincidam
-    $("#senhaSpan2").css('background-color', 'red');
-    $("#senhaSpan2").html("clear");
-  } else {
-    //Caso senhas coincidam
-    $("#senhaSpan2").css('background-color', 'green');
-    $("#senhaSpan2").html("check");
-  }
-})
+}
+$("#confPassInput").change(confSenha)
+$("#passInput").change(confSenha)
