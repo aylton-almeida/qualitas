@@ -1,0 +1,155 @@
+.modal img {
+  margin-bottom: 16px;
+}
+
+#btnCadastrar {
+  display: none
+}
+
+.card {
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.loaderDiv {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  z-index: 5;
+  position: absolute;
+  border: 6px solid #343a40;
+  border-radius: 50%;
+  border-top: 6px solid rgba(0, 0, 0, 0);
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+  display: none
+}
+
+.titulo-interno-texto{
+  display: inline-block;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+}
+hr{
+  margin: 0;
+  margin-bottom: 16px;
+}
+/* Safari */
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+ul {
+  list-style: none
+}
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+  .msg {
+    background-color: #343a40;
+    margin: 0 !important
+  }
+  #corpo {
+    margin-top: 10px
+  }
+  #map {
+    height: 200px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  main {
+    padding: 15px 0;
+  }
+  #corpo {
+    margin-top: 10px
+  }
+  .btnresult {
+    margin-bottom: 16px;
+  }
+  #map {
+    height: 300px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  main {
+    padding: 15px 0;
+  }
+  #corpo {
+    margin-top: 30px
+  }
+  .btnresult {
+    margin-bottom: 16px;
+  }
+  #map {
+    height: 300px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  main {
+    padding: 15px 0;
+  }
+  #corpo {
+    margin-top: 50px
+  }
+  .btnresult {
+    margin-bottom: 16px;
+  }
+  #map {
+    height: 300px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+  main {
+    padding: 15px 0;
+  }
+  #corpo {
+    margin-top: 50px
+  }
+  .btnresult {
+    margin-bottom: 16px;
+  }
+  #map {
+    height: 300px;
+    margin-bottom: 16px;
+  }
+}

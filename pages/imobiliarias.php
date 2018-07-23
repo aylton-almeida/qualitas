@@ -2,7 +2,7 @@
 <html lang="pt_br">
 
 <head>
-  <title>Imóveis</title>
+  <title>Imobiliárias</title>
   <!--Add icon-->
   <link rel="icon" type="image/png" href="../imagens/icon.png" sizes="32X32">
   <meta charset="utf-8">
@@ -12,13 +12,13 @@
   <!-- Add cropie -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.css"/>
   <!--Add css-->
-  <link rel="stylesheet" href="../css/imoveis.css">
+  <link rel="stylesheet" href="../css/imobiliarias.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <?php
     session_start();
-    $_SESSION['page'] = "imoveis";
+    $_SESSION['page'] = "imobiliarias";
     include("../pageParts/nav.php")
      ?>
   </nav>
@@ -32,21 +32,21 @@
     <div class="container">
       <div class="row menu">
         <!-- Cadastrar imóvel -->
-        <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar Imóvel</button>
+        <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImobiliaria">Cadastrar Imóvel</button>
         <!-- Modal -->
-        <div class="modal fade" id="modalCadastrarImovel" tabindex="-1" role="dialog" aria-labelledby="CadastrarImovelLabel" aria-hidden="true">
+        <div class="modal fade" id="modalCadastrarImobiliaria" tabindex="-1" role="dialog" aria-labelledby="CadastrarImobiliariasLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <!-- Modal header -->
               <div class="modal-header">
-                <h5 class="modal-title" id="CadastrarImovelLabel">Cadastre um imóvel</h5>
+                <h5 class="modal-title" id="CadastrarImobiliariasLabel">Cadastre uma Imobiliaria</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <!-- Modal body -->
               <div class="modal-body" id="modalBody">
-                <form id="cadastrarImovel">
+                <form id="cadastrarImobiliaria">
                   <!-- Form imagem -->
                   <div class="container">
                     <div class="row" id="croppieDiv">
@@ -195,7 +195,7 @@
     include("../pageParts/footer.php")
      ?>
   </footer>
-  <script type="text/javascript" src="../js/imoveis.js"></script>
+  <script type="text/javascript" src="../js/imobiliarias.js"></script>
 </body>
 
 </html>
