@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.css"/>
   <!--Add css-->
   <link rel="stylesheet" href="../css/imoveis.css">
+  <link rel="stylesheet" href="../css/master.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

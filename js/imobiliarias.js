@@ -31,14 +31,14 @@ function confSenha() {
     $("#senhaSpan2").html("clear");
   } else {
     //Caso senhas coincidam
-    if ($("#confPassInput").val() != "" && $("#passInput").val() != ""){
+    if ($("#confPassInput").val() != "" && $("#passInput").val() != "") {
       $("#senhaSpan2").css('background-color', 'green');
       $("#senhaSpan2").html("check");
-    }else{
+    } else {
       $("#senhaSpan2").css('background-color', '#ffc107');
       $("#senhaSpan2").html("remove");
     }
   }
 }
-$("#confPassInput").change(confSenha)
-$("#passInput").change(confSenha)
+$("#confPassInput").on("change paste keyup", confSenha)
+$("#passInput").on("change paste keyup", confSenha)

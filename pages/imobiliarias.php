@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.css"/>
   <!--Add css-->
   <link rel="stylesheet" href="../css/imobiliarias.css">
+  <link rel="stylesheet" href="../css/master.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -141,7 +142,7 @@
                   <h5 class="mb-3"></h5>
                     <div class="input-group mb-3" id="SenhaForm">
                       <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseSenha">Criar conta?</button>
+                        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapseSenha">Criar conta?</button>
                       </div>
                       <div id="collapseSenha" class="collapse col">
                         <input type="text" class="form-control" id="usuarioInput" placeholder="Usuário" aria-describedby="senhaSpan">

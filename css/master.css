@@ -1,0 +1,54 @@
+/* Loader */
+
+.loaderDiv {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  z-index: 5;
+  position: absolute;
+  border: 6px solid #343a40;
+  border-radius: 50%;
+  border-top: 6px solid rgba(0, 0, 0, 0);
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+  display: none
+}
+
+/* Safari */
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Inputs */
+.input-group-text{
+  color: white;
+  background-color: #333333
+}
+
+.custom-file-label::after {
+  content: "Pesquisar";
+  color: white;
+  background-color: #333333
+}
