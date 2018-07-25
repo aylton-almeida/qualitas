@@ -256,7 +256,8 @@ $("#btnCadastro").click(() => {
                     secondaryApp.auth().signOut();
                     //Limpar form
                     $("#formUsuario")[0].reset();
-                    $("#senhaSpan2").html("clear");
+                    $("#senhaSpan2").css('background-color', '#ffc107');
+                    $("#senhaSpan2").html("remove");
                     //Fechar modal
                     $('#modalCadastrarUsuario').modal('hide');
                     mensagemSuc("Usuário criado. Um email foi enviado para verificar a conta!", 1);

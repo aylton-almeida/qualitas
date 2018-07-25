@@ -123,7 +123,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="telSpan">Telefone</span>
                     </div>
-                    <input id="telInput" class="form-control col-sm-10 phone_with_ddd" placeholder="Telefone" type="tel" aria-describedby="telSpan" name="telefone" size="9" required>
+                    <input id="telInput" class="form-control phone_with_ddd" placeholder="Telefone" type="tel" aria-describedby="telSpan" name="telefone" size="9" required>
                   </div>
                   <!-- CNPJ -->
                   <div class="input-group mb-3">
@@ -140,8 +140,8 @@
                       </div>
                       <div id="collapseSenha" class="collapse col">
                         <input type="text" class="form-control" id="usuarioInput" placeholder="Usuário" aria-describedby="senhaSpan">
-                        <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha" aria-describedby="senhaSpan" required>
-                        <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha" aria-describedby="senhaSpan senhaSpan2" required>
+                        <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha" aria-describedby="senhaSpan">
+                        <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha" aria-describedby="senhaSpan senhaSpan2">
                         <div class="input-group-prepend">
                           <i class="input-group-text material-icons col-12" id="senhaSpan2">remove</i>
                         </div>

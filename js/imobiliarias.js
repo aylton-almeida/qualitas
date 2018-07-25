@@ -1,5 +1,7 @@
-$(document).ready(()=>{
-  $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+$(document).ready(() => {
+  $('.cnpj').mask('00.000.000/0000-00', {
+    reverse: true
+  });
   $('.phone_with_ddd').mask('(00) 0000-0000');
 })
 var testeAdmin = false;
@@ -96,10 +98,19 @@ $("#inputImagem").change(() => {
   }
 })
 
-//Limpar formulário de cadastro de imóvel
+//Limpar formulário de cadastro de imobiliária
 function limpaForm() {
   //Limpar form
   $("#cadastrarImobiliaria")[0].reset();
+
+  //Definir required como falso para criar usuário
+  $('#usuarioInput').attr('required', false);
+  $('#passInput').attr('required', false);
+  $('#confPassInput').attr('required', false);
+
+  //Redefinir senha
+  $("#senhaSpan2").css('background-color', '#ffc107');
+  $("#senhaSpan2").html("remove");
 
   //Limpar div
   let divCroppie = document.getElementById("croppieDiv");
@@ -189,10 +200,13 @@ $("#btnCancelar").click(() => {
 $("#btnSalvar").click(() => {
   //Iniciar loader
   showLoader();
-  if($('#usuarioInput').val()!="" || $('#passInput').val()!="" || $('#confPassInput').val()!=""){
-    $('#usuarioInput').attr('required');
-    $('#passInput').attr('required');
-    $('#confPassInput').attr('required');
+  //Teste criar conta
+  let testeConta = false;
+  if ($('#usuarioInput').val() != "" || $('#passInput').val() != "" || $('#confPassInput').val() != "") {
+    $('#usuarioInput').attr('required', true);
+    $('#passInput').attr('required', true);
+    $('#confPassInput').attr('required', true);
+    testeConta = true;
   }
   //Conferir validade do formulário
   if ($("#cadastrarImobiliaria")[0].checkValidity()) {
@@ -202,6 +216,7 @@ $("#btnSalvar").click(() => {
         //Cadastrar imobiliaria no db
         firebase.firestore().collection("imobiliarias").doc($("#nomeInput").val()).set({
             nome: $('#nomeInput').val(),
+            email: $('#emailInput').val(),
             endereco: {
               rua: $('#ruaInput').val(),
               numero: $('#numeroInput').val(),
@@ -210,32 +225,107 @@ $("#btnSalvar").click(() => {
               estado: $('#estadoInput').val(),
               cidade: $('#cidadeInput').val()
             },
-            preco: $('#precoInput').val(),
-            imobiliaria: $('#imobiliariaInput').val(),
-            imagem: "imagensImoveis/" + $("#nomeInput").val() + "," + $('#complementoInput').val()
+            imagem: "imagensImobiliarias/" + $("#nomeInput").val(),
+            cnpj: $('#cnpjInput').val()
           })
           .then(() => {
-            //Sucesso ao adicionar imovel ao firestore
-            hideLoader();
-            mensagemModSuc("Imóvel cadastrado com sucesso!", 1);
-            //limpar form
-            limpaForm();
-            setTimeout(() => {
-              window.location.href = "imoveis.php";
-            }, 2000);
+            if (testeConta) {
+              if ($("#confPassInput").val() == $("#passInput").val()) {
+                //Método de criação de função
+                var config = {
+                  apiKey: "AIzaSyD_XmxvW05XB7WrV_lwhfYn-fzTAgfAYZ4",
+                  authDomain: "qualitas-24b79.firebaseapp.com",
+                  databaseURL: "https://qualitas-24b79.firebaseio.com"
+                };
+                var secondaryApp = firebase.initializeApp(config, "Secondary");
+                secondaryApp.auth().createUserWithEmailAndPassword($("#emailInput").val(), $("#passInput").val())
+                  .then(function(user) {
+                    //Alteração do nome do usuário recem criado
+                    user.updateProfile({
+                      displayName: $("#usuarioInput").val(),
+                    }).then(function() {
+                      //Salvar imobiliaria no firestore
+                      firebase.firestore().collection("usuarios").doc(user.uid).set({
+                          imobiliaria: $("#nomeInput").val()
+                        })
+                        .then(function() {
+                          //Sucesso ao adicionar usuário ao firestore
+                          user.sendEmailVerification()
+                            .then(function() {
+                              // Email enviado
+                              secondaryApp.auth().signOut();
+                              //Sucesso ao adicionar imobiliaria ao firestore
+                              hideLoader();
+                              mensagemSuc("Usuário criado e Imobiliária cadastrada com sucesso. Um email foi enviado para verificar a conta!", 1);
+                              //limpar form
+                              limpaForm();
+                              setTimeout(() => {
+                                window.location.reload();
+                              }, 2000);
+                            }).catch(function(error) {
+                              //Erro no envio
+                              hideLoader();
+                              mensagemModErr("Erro ao criar usuário", 1)
+                            });
+                        })
+                        .catch(function(error) {
+                          //Erro ao adicionar usuário ao firestore
+                          hideLoader();
+                          console.log(error);
+                          mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.", 1);
+                        });
+                    }).catch(function(error) {
+                      //Erro ao alterar nome do usuário
+                      hideLoader();
+                      console.log(error.message);
+                      mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.", 1)
+                    });
+                  })
+                  .catch(function(error) {
+                    //Erro caso a senha seja pequena
+                    if (error.code == "auth/weak-password") {
+                      hideLoader();
+                      mensagemModErr("Sua senha deve ter ao menos 6 caracteres!", 1);
+                    } else {
+                      //Erro caso o email ja tenha sido cadastrado
+                      if (error.code == "auth/email-already-in-use") {
+                        hideLoader();
+                        mensagemModErr("Esse email já foi cadastrado!", 1);
+                      } else {
+                        //Erro geral
+                        hideLoader();
+                        mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.", 1);
+                      }
+                    }
+                  });
+              } else {
+                //Erro caso senhas não coincidam
+                hideLoader();
+                mensagemModErr("As senhas não coincidem!", 1);
+              }
+            } else {
+              //Sucesso ao adicionar imobiliaria ao firestore
+              hideLoader();
+              mensagemModSuc("imobiliária cadastrado com sucesso!", 1);
+              //limpar form
+              limpaForm();
+              setTimeout(() => {
+                window.location.reload();
+              }, 2000);
+            }
           })
           .catch((error) => {
             //Erro ao adicionar usuário ao firestore
             hideLoader();
             console.log(error);
-            mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.", 1);
+            mensagemModErr("Erro ao cadastrar imobiliária! Tente novamente mais tarde.", 1);
           });
       })
       .catch((error) => {
         //Erro no upload da imagem
         hideLoader();
         console.log(error);
-        mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.", 1);
+        mensagemModErr("Erro ao cadastrar imobiliária! Tente novamente mais tarde.", 1);
       })
   } else {
     //Formulario incompleto
