@@ -158,21 +158,21 @@ function limpaForm() {
 
 //Button Cancelar
 $("#btnCancelar").click(() => {
-  hideLoader(1);
+  hideLoader();
   limpaForm();
 })
 
 //Button Salvar imóvel
 $("#btnSalvar").click(() => {
   //Iniciar loader
-  showLoader(1);
+  showLoader();
   //Conferir validade do formulário
   if ($("#cadastrarImovel")[0].checkValidity()) {
     //Cadastrar imagem no storage
-    firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val() + '/imagemCapa').put(imgBlob)
+    firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val() + "," + $('#complementoInput').val() + '/imagemCapa').put(imgBlob)
       .then((snapshot) => {
         //Cadastrar imovel no db
-        firebase.firestore().collection("imoveis").doc($("#nomeInput").val()).set({
+        firebase.firestore().collection("imoveis").doc($("#nomeInput").val() + "," + $('#complementoInput').val()).set({
             nome: $('#nomeInput').val(),
             endereco: {
               rua: $('#ruaInput').val(),
@@ -184,11 +184,11 @@ $("#btnSalvar").click(() => {
             },
             preco: $('#precoInput').val(),
             imobiliaria: $('#imobiliariaInput').val(),
-            imagem: "imagensImoveis/" + $("#nomeInput").val()
+            imagem: "imagensImoveis/" + $("#nomeInput").val() + "," + $('#complementoInput').val()
           })
           .then(() => {
             //Sucesso ao adicionar imovel ao firestore
-            hideLoader(1);
+            hideLoader();
             mensagemModSuc("Imóvel cadastrado com sucesso!", 2);
             //limpar form
             limpaForm();
@@ -197,20 +197,20 @@ $("#btnSalvar").click(() => {
           })
           .catch((error) => {
             //Erro ao adicionar usuário ao firestore
-            hideLoader(1);
+            hideLoader();
             console.log(error);
             mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.", 2);
           });
       })
       .catch((error) => {
         //Erro no upload da imagem
-        hideLoader(1);
+        hideLoader();
         console.log(error);
         mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.", 2);
       })
   } else {
     //Formulario incompleto
-    hideLoader(1);
+    hideLoader();
     mensagemModErr("Preencha todos os campos corretamente!", 2);
   }
 })
@@ -224,7 +224,7 @@ $("#btnCancelarUsuario").click(() => {
 
 // Botao de cadastro usuário
 $("#btnCadastro").click(() => {
-  showLoader(2);
+  showLoader();
   //Validação do formulário
   if ($("#formUsuario")[0].checkValidity()) {
     //Validação da igualdade das senhas
@@ -252,7 +252,7 @@ $("#btnCadastro").click(() => {
                 user.sendEmailVerification()
                   .then(function() {
                     // Email enviado
-                    hideLoader(2);
+                    hideLoader();
                     secondaryApp.auth().signOut();
                     //Limpar form
                     $("#formUsuario")[0].reset();
@@ -262,19 +262,19 @@ $("#btnCadastro").click(() => {
                     mensagemSuc("Usuário criado. Um email foi enviado para verificar a conta!", 1);
                   }).catch(function(error) {
                     //Erro no envio
-                    hideLoader(2);
+                    hideLoader();
                     mensagemModErr("Erro ao criar usuário", 1)
                   });
               })
               .catch(function(error) {
                 //Erro ao adicionar usuário ao firestore
-                hideLoader(2);
+                hideLoader();
                 console.log(error);
                 mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.", 1);
               });
           }).catch(function(error) {
             //Erro ao alterar nome do usuário
-            hideLoader(2);
+            hideLoader();
             console.log(error.message);
             mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.", 1)
           });
@@ -282,28 +282,28 @@ $("#btnCadastro").click(() => {
         .catch(function(error) {
           //Erro caso a senha seja pequena
           if (error.code == "auth/weak-password") {
-            hideLoader(2);
+            hideLoader();
             mensagemModErr("Sua senha deve ter ao menos 6 caracteres!", 1);
           } else {
             //Erro caso o email ja tenha sido cadastrado
             if (error.code == "auth/email-already-in-use") {
-              hideLoader(2);
+              hideLoader();
               mensagemModErr("Esse email já foi cadastrado!", 1);
             } else {
               //Erro geral
-              hideLoader(2);
+              hideLoader();
               mensagemModErr("Erro ao cadastrar usuário! Tente novamente mais tarde.", 1);
             }
           }
         });
     } else {
       //Erro caso senhas não coincidam
-      hideLoader(2);
+      hideLoader();
       mensagemModErr("As senhas não coincidem!", 1);
     }
   } else {
     //Erro caso campos estiverem vazios/preenchidos incorretamente
-    hideLoader(2);
+    hideLoader();
     mensagemModErr("Preencha todos os campos corretamente!", 1);
   }
 })

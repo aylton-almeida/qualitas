@@ -157,18 +157,18 @@ function limpaForm() {
 
 //Button Cancelar
 $("#btnCancelar").click(() => {
-  hideLoader(1);
+  hideLoader();
   limpaForm();
 })
 
 //Button Salvar
 $("#btnSalvar").click(() => {
   //Iniciar loader
-  showLoader(1);
+  showLoader();
   //Conferir validade do formulário
   if ($("#cadastrarImovel")[0].checkValidity()) {
     //Cadastrar imagem no storage
-    firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val() + '/imagemCapa').put(imgBlob)
+    firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val() + "," + $('#complementoInput').val() + '/imagemCapa').put(imgBlob)
       .then((snapshot) => {
         //Cadastrar imovel no db
         firebase.firestore().collection("imoveis").doc($("#nomeInput").val() + "," + $('#complementoInput').val()).set({
@@ -183,11 +183,11 @@ $("#btnSalvar").click(() => {
             },
             preco: $('#precoInput').val(),
             imobiliaria: $('#imobiliariaInput').val(),
-            imagem: "imagensImoveis/" + $("#nomeInput").val()
+            imagem: "imagensImoveis/" + $("#nomeInput").val() + "," + $('#complementoInput').val()
           })
           .then(() => {
             //Sucesso ao adicionar imovel ao firestore
-            hideLoader(1);
+            hideLoader();
             mensagemModSuc("Imóvel cadastrado com sucesso!", 1);
             //limpar form
             limpaForm();
@@ -197,20 +197,20 @@ $("#btnSalvar").click(() => {
           })
           .catch((error) => {
             //Erro ao adicionar usuário ao firestore
-            hideLoader(1);
+            hideLoader();
             console.log(error);
             mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.", 1);
           });
       })
       .catch((error) => {
         //Erro no upload da imagem
-        hideLoader(1);
+        hideLoader();
         console.log(error);
         mensagemModErr("Erro ao cadastrar imóvel! Tente novamente mais tarde.", 1);
       })
   } else {
     //Formulario incompleto
-    hideLoader(1);
+    hideLoader();
     mensagemModErr("Preencha todos os campos corretamente!", 1);
   }
 })
@@ -326,13 +326,13 @@ firebase.firestore().collection("imoveis").orderBy('nome').get()
         })
         // Button Excluir
         $('#btnExcluir').click(() => {
-          showLoader(2);
+          showLoader();
           //Apagar firestore
           firebase.firestore().collection("imoveis").doc(imovel.data().nome + "," + imovel.data().endereco.complemento).delete().then(function() {
             //Apagar imagens
             firebase.storage().ref(imovel.data().imagem + '/imagemCapa').delete().then(function() {
               // Imagem apagada
-              hideLoader(2);
+              hideLoader();
               mensagemModSuc('Imóvel excluido com sucesso', 2);
               setTimeout(() => {
                 window.location.href = "imoveis.php";
