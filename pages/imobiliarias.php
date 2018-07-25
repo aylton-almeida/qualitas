@@ -25,6 +25,9 @@
   </nav>
   <main>
     <div id="msg1" role="alert"></div>
+    <div class="loaderDiv" id="loaderDiv">
+      <div class="loader" id="loader"></div>
+    </div>
     <div class="container">
       <div class="row menu">
         <!-- Cadastrar imóvel -->
@@ -80,9 +83,6 @@
                     <input id="numeroInput" class="form-control" placeholder="Número" type="number" name="numero" required>
                     <input id="bairroInput" class="form-control" placeholder="Bairro" type="text" name="bairro" required>
                     <input id="complementoInput" class="form-control" placeholder="Complemento" type="text" name="complemento" required>
-                  </div>
-                  <div class="loaderDiv">
-                    <div class="loader" id="loader"></div>
                   </div>
                   <!-- Estado e cidade -->
                   <div class="input-group mb-3">

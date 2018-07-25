@@ -1,5 +1,6 @@
 // Button login
 $("#btnLogin").click(() => {
+  showLoader();
   //Conferir validade do formulário
   if ($("#form")[0].checkValidity()) {
     //Conferir se o checkbox está ou não marcado
@@ -10,6 +11,7 @@ $("#btnLogin").click(() => {
           return login();
         })
         .catch(function(error) {
+          hideLoader();
           console.log(error.code);
           console.log(error.message);
         });
@@ -20,6 +22,7 @@ $("#btnLogin").click(() => {
           return login();
         })
         .catch(function(error) {
+          hideLoader();
           console.log(error.code);
           console.log(error.message);
         });
@@ -39,11 +42,13 @@ function login() {
         if(user){
           if(user.emailVerified){
             //Caso o email tenha sido verificado
+            hideLoader();
             $("#formNav").hide();
             window.location.href = "../index.php";
           }else{
             //Caso o email não esteja verificado
             user.sendEmailVerification().then(()=>{
+              hideLoader();
               mensagemErr("Seu email ainda não foi verificado! Um email foi enviado para verifica-lo.", 1);
             })
           }

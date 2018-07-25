@@ -50,6 +50,7 @@ $("#formNav").hide();
   })
   // Button login navBar
   $("#btnLoginNav").click(() => {
+    showLoader();
     //Validar fomulário
     if ($("#formNav")[0].checkValidity()) {
       //Fazer login
@@ -60,6 +61,7 @@ $("#formNav").hide();
           if(user){
             if(user.emailVerified){
               //Caso o email tenha sido verificado
+              hideLoader();
               $("#formNav").hide
               window.sessionStorage.setItem('msg', 'Bem vindo ' + user.displayName + '!');
               window.sessionStorage.setItem('msgType', 'suc');
@@ -67,6 +69,7 @@ $("#formNav").hide();
             }else{
               //Caso o email não esteja verificado
               user.sendEmailVerification().then(()=>{
+                hideLoader();
                 window.sessionStorage.setItem('msg',"Seu email ainda não foi verificado! Um email foi enviado para verifica-lo.");
                 window.sessionStorage.setItem('msgType', 'err');
               })
@@ -76,6 +79,7 @@ $("#formNav").hide();
       })
       .catch(function(error) {
         //Caso ocorra algum erro no login
+        hideLoader();
         console.log(error.message);
         mensagemErr("Email ou senha incorretos!", 1);
         $("#msgCross").click(()=>{
@@ -84,6 +88,7 @@ $("#formNav").hide();
       });
     } else {
       //Caso o forulário esteja preenchido incorretamente
+      hideLoader();
       mensagemErr("Preencha todos os campos corretamente!", 1);
       $("#msgCross").click(()=>{
         window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/login.php";}else{echo "../pages/login.php";}?>";
@@ -156,11 +161,11 @@ $("#formNav").hide();
   }
 
   //Loader1
-  function showLoader(num){
-    $("#loader" + num).show();
+  function showLoader(){
+    $("#loaderDiv").css('display', 'flex');
   }
-  function hideLoader(num){
-    $("#loader" + num).hide();
+  function hideLoader(){
+    $("#loaderDiv").hide();
   }
 
 </script>

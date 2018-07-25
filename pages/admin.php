@@ -26,6 +26,9 @@
   </nav>
   <main>
     <div id="msg1" role="alert">
+      <div class="loaderDiv" id="loaderDiv">
+        <div class="loader" id="loader"></div>
+      </div>
     </div>
     <div class="block">
       <div class="card">
@@ -74,10 +77,6 @@
                             <option value="União Corretora de Imóvel LTDA">União Corretora de Imóvel LTDA</option>
                             <option value="Vivar Imóveis LTDA">Vivar Imóveis LTDA</option>
                           </select>
-                        </div>
-                        <!-- Loader -->
-                        <div class="loaderDiv">
-                          <div class="loader" id="loader1"></div>
                         </div>
                         <!-- Email -->
                         <div class="input-group mb-3">
@@ -155,10 +154,6 @@
                           <input id="numeroInput" class="form-control" placeholder="Número" type="number" name="numero" required>
                           <input id="bairroInput" class="form-control" placeholder="Bairro" type="text" name="bairro" required>
                           <input id="complementoInput" class="form-control" placeholder="Complemento" type="text" name="complemento" required>
-                        </div>
-                        <!-- Loader -->
-                        <div class="loaderDiv">
-                          <div class="loader" id="loader2"></div>
                         </div>
                         <!-- Estado e cidade -->
                         <div class="input-group mb-3">

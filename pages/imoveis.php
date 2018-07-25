@@ -25,6 +25,9 @@
   </nav>
   <main>
     <div id="msg1" role="alert"></div>
+    <div class="loaderDiv" id="loaderDiv">
+      <div class="loader" id="loader"></div>
+    </div>
     <div class="container">
       <div class="row menu">
         <!-- Cadastrar imóvel -->
@@ -67,9 +70,6 @@
                       <span class="input-group-text" id="endereçoSpan">Endereço</span>
                     </div>
                     <input id="ruaInput" class="form-control" placeholder="Rua" type="text" aria-describedby="endereçoSpan" name="rua" required>
-                  </div>
-                  <div class="loaderDiv" id="loaderDiv">
-                    <div class="loader" id="loader1"></div>
                   </div>
                   <!-- Número, bairro e complemento -->
                   <div class="input-group mb-3">
@@ -165,9 +165,6 @@
               <div class="modal-body" id="modalBody">
                 <img id="imgDetalhado" class="rounded img-fluid mx-auto d-block">
                 <!-- Carossel -->
-                <div class="loaderDiv">
-                  <div class="loader" id="loader2"></div>
-                </div>
                 <!-- Endereço -->
                 <div class="titulo-interno">
                   <div class="titulo-interno-texto">

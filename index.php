@@ -26,6 +26,9 @@
 </nav>
     <main>
       <div id="msg1" role="alert"></div>
+      <div class="loaderDiv" id="loaderDiv">
+        <div class="loader" id="loader"></div>
+      </div>
       <!--Bloco 1: Logo/Pesquisa-->
       <div class="block1 bg-dark">
           <img id="img" class="img-fluid" width="100%" src="imagens/logo_texto.png" alt="Qualitas Imobiliária e Construtora">

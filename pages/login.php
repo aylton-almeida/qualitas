@@ -26,6 +26,9 @@
   </nav>
   <main>
     <div id="msg1" role="alert">
+      <div class="loaderDiv" id="loaderDiv">
+        <div class="loader" id="loader"></div>
+      </div>
     </div>
     <div class="block">
       <div class="card">
