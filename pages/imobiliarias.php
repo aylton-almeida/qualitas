@@ -123,15 +123,14 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="telSpan">Telefone</span>
                     </div>
-                    <input id="dddInput" class="form-control col-sm-2" placeholder="DDD" type="tel" aria-describedby="telSpan" name="ddd" required>
-                    <input id="telInput" class="form-control col-sm-10" placeholder="Telefone" type="tel" aria-describedby="telSpan" name="telefone" size="9" required>
+                    <input id="telInput" class="form-control col-sm-10 phone_with_ddd" placeholder="Telefone" type="tel" aria-describedby="telSpan" name="telefone" size="9" required>
                   </div>
                   <!-- CNPJ -->
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="cnpjSpan">CNPJ</span>
                     </div>
-                    <input id="cnpjInput" class="form-control" type="number" name="cnpj" placeholder="Insira apenas números" size="14" aria-describedby="cnpjSpan" required>
+                    <input id="cnpjInput" class="form-control cnpj" type="text" name="cnpj" placeholder="Insira apenas números" size="14" aria-describedby="cnpjSpan" required>
                   </div>
                   <!-- Criar conta -->
                   <h5 class="mb-3"></h5>
