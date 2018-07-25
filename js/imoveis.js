@@ -171,7 +171,7 @@ $("#btnSalvar").click(() => {
     firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val() + '/imagemCapa').put(imgBlob)
       .then((snapshot) => {
         //Cadastrar imovel no db
-        firebase.firestore().collection("imoveis").doc($("#nomeInput").val()).set({
+        firebase.firestore().collection("imoveis").doc($("#nomeInput").val() + "," + $('#complementoInput').val()).set({
             nome: $('#nomeInput').val(),
             endereco: {
               rua: $('#ruaInput').val(),
@@ -216,12 +216,12 @@ $("#btnSalvar").click(() => {
 })
 
 //Pegar imóveis
-firebase.firestore().collection("imoveis").get()
+firebase.firestore().collection("imoveis").orderBy('nome').get()
   .then(function(querySnapshot) {
     querySnapshot.forEach(function(imovel) {
       //Para cada imóvel recuperado
       let col = document.createElement("div");
-      col.className = "col-md-4 d-flex align-items-stretch";
+      col.className = "col-md-4 col-sm-6 d-flex align-items-stretch";
       let card = document.createElement("div");
       card.className = "card bg-dark text-light";
       let img = document.createElement("img");
@@ -328,7 +328,7 @@ firebase.firestore().collection("imoveis").get()
         $('#btnExcluir').click(() => {
           showLoader(2);
           //Apagar firestore
-          firebase.firestore().collection("imoveis").doc(imovel.data().nome).delete().then(function() {
+          firebase.firestore().collection("imoveis").doc(imovel.data().nome + "," + imovel.data().endereco.complemento).delete().then(function() {
             //Apagar imagens
             firebase.storage().ref(imovel.data().imagem + '/imagemCapa').delete().then(function() {
               // Imagem apagada
