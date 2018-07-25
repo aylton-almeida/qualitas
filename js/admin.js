@@ -259,7 +259,7 @@ $("#btnCadastro").click(() => {
                     $("#senhaSpan2").html("clear");
                     //Fechar modal
                     $('#modalCadastrarUsuario').modal('hide');
-                    mensagemSuc("Usuário criado. Verifique seu email!", 1);
+                    mensagemSuc("Usuário criado. Um email foi enviado para verificar a conta!", 1);
                   }).catch(function(error) {
                     //Erro no envio
                     hideLoader(2);

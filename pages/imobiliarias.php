@@ -24,12 +24,7 @@
      ?>
   </nav>
   <main>
-    <div class="container-fluid msg">
-      <div class="row">
-        <div class="col" id="msg1" role="alert">
-        </div>
-      </div>
-    </div>
+    <div id="msg1" role="alert"></div>
     <div class="container">
       <div class="row menu">
         <!-- Cadastrar imóvel -->
@@ -154,7 +149,7 @@
                       </div>
                     </div>
                 </form>
-              <div id="msgMod1" class="col-sm-10 offset-sm-1" role="alert"></div>
+              <div id="msgMod1" role="alert"></div>
               </div>
               <!-- Modal footer -->
               <div class="modal-footer">
@@ -189,7 +184,7 @@
                 <p id="pPreco">Preço do aluguel: R$2000,00</p>
                 <p id="pImobiliaria">Imobiliaria responsável: Imobiliaria</p>
                 <!-- Mapa com local -->
-                <div id="msgMod2" class="col-sm-10 offset-sm-1" role="alert"></div>
+                <div id="msgMod2" role="alert"></div>
               </div>
               <!-- Modal footer -->
               <div class="modal-footer" id="modalFooter">

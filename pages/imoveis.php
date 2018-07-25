@@ -24,16 +24,11 @@
      ?>
   </nav>
   <main>
-    <div class="container-fluid msg">
-      <div class="row">
-        <div class="col" id="msg1" role="alert">
-        </div>
-      </div>
-    </div>
+    <div id="msg1" role="alert"></div>
     <div class="container">
       <div class="row menu">
         <!-- Cadastrar imóvel -->
-        <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar Imóvel</button>
+        <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9 mt-3" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar Imóvel</button>
         <!-- Modal cadastro imovel -->
         <div class="modal fade" id="modalCadastrarImovel" tabindex="-1" role="dialog" aria-labelledby="CadastrarImovelLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -143,7 +138,7 @@
                     </select>
                   </div>
                 </form>
-              <div id="msgMod1" class="col-sm-10 offset-sm-1" role="alert"></div>
+              <div id="msgMod1" role="alert"></div>
               </div>
               <!-- Modal footer -->
               <div class="modal-footer">
@@ -200,7 +195,7 @@
                 </div>
                 <!-- Mapa com local -->
                 <div id="map"></div>
-                <div id="msgMod2" class="col-sm-10 offset-sm-1" role="alert"></div>
+                <div id="msgMod2" role="alert"></div>
               </div>
               <!-- Modal footer -->
               <div class="modal-footer" id="modalFooter">

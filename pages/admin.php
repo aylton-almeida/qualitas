@@ -98,7 +98,7 @@
                           </div>
                         </div>
                       </form>
-                      <div id="msgMod1" class="col-sm-10 offset-sm-1" role="alert"></div>
+                      <div id="msgMod1" role="alert"></div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
@@ -221,7 +221,7 @@
                           </select>
                         </div>
                       </form>
-                      <div id="msgMod2" class="col-sm-10 offset-sm-1" role="alert"></div>
+                      <div id="msgMod2" role="alert"></div>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
