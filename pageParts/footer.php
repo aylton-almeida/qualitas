@@ -55,25 +55,45 @@ $("#formNav").hide();
     showLoader();
     //Validar fomulário
     if ($("#formNav")[0].checkValidity()) {
-      //Fazer login
-      firebase.auth().signInWithEmailAndPassword($("#emailInputNav").val(), $("#passInputNav").val())
+      //Fazer login com firebase secundário
+      var config = {
+        apiKey: "AIzaSyD_XmxvW05XB7WrV_lwhfYn-fzTAgfAYZ4",
+        authDomain: "qualitas-24b79.firebaseapp.com",
+        databaseURL: "https://qualitas-24b79.firebaseio.com"
+      };
+      var secondaryApp = firebase.initializeApp(config, "Secondary");
+      secondaryApp.auth().signInWithEmailAndPassword($("#emailInputNav").val(), $("#passInputNav").val())
       .then(()=>{
         //Caso o login seja um sucesso
-        firebase.auth().onAuthStateChanged(function(user) {
+        secondaryApp.auth().onAuthStateChanged(function(user) {
           if(user){
             if(user.emailVerified){
-              //Caso o email tenha sido verificado
-              hideLoader();
-              $("#formNav").hide
-              window.sessionStorage.setItem('msg', 'Bem vindo ' + user.displayName + '!');
-              window.sessionStorage.setItem('msgType', 'suc');
-              window.location.reload();
+              //Caso o email tenha sido verificado login com o firebase primario
+              firebase.auth().signInWithEmailAndPassword($("#emailInputNav").val(), $("#passInputNav").val())
+              .then(()=>{
+                hideLoader();
+                $("#formNav").hide();
+                window.sessionStorage.setItem('msg', 'Bem vindo ' + user.displayName + '!');
+                window.sessionStorage.setItem('msgType', 'suc');
+                secondaryApp.auth().signOut();
+                window.location.reload();
+              })
+              .catch((err)=>{
+                hideLoader();
+                console.log(err);
+                window.sessionStorage.setItem('msg', 'Erro ao fazer login. Tente novamente mais tarde.');
+                window.sessionStorage.setItem('msgType', 'err');
+                secondaryApp.auth().signOut();
+                window.location.reload();
+              })
             }else{
               //Caso o email não esteja verificado
               user.sendEmailVerification().then(()=>{
                 hideLoader();
                 window.sessionStorage.setItem('msg',"Seu email ainda não foi verificado! Um email foi enviado para verifica-lo.");
                 window.sessionStorage.setItem('msgType', 'err');
+                secondaryApp.auth().signOut();
+                window.location.reload();
               })
             }
           }

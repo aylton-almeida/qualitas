@@ -253,13 +253,12 @@ $("#btnSalvar").click(() => {
                           user.sendEmailVerification()
                             .then(function() {
                               // Email enviado
-                              secondaryApp.auth().signOut();
-                              //Sucesso ao adicionar imobiliaria ao firestore
                               hideLoader();
-                              mensagemSuc("Usuário criado e Imobiliária cadastrada com sucesso. Um email foi enviado para verificar a conta!", 1);
+                              mensagemModSuc("Usuário criado e Imobiliária cadastrada com sucesso. Um email foi enviado para verificar a conta!", 1);
                               //limpar form
                               limpaForm();
                               setTimeout(() => {
+                                secondaryApp.auth().signOut();
                                 window.location.reload();
                               }, 2000);
                             }).catch(function(error) {

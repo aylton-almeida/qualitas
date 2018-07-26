@@ -24,6 +24,21 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
+//Pegar imobiliárias e coloca-las nas opções
+firebase.firestore().collection("imobiliarias").orderBy('nome').get()
+  .then(function(querySnapshot) {
+    querySnapshot.forEach(function(imobiliaria) {
+      option = document.createElement('option');
+      $(option).val(imobiliaria.data().nome);
+      $(option).html(imobiliaria.data().nome);
+      option2 = document.createElement('option');
+      $(option2).val(imobiliaria.data().nome);
+      $(option2).html(imobiliaria.data().nome);
+      $('#imobiliariaInputUsuario').append(option);
+      $('#imobiliariaInput').append(option2);
+    });
+  });
+
 // Pegar imagem
 $("#inputImagem").change(() => {
   //Conferir existencia de uma imagem

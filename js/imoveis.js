@@ -23,6 +23,17 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
+//Pegar imobiliárias e coloca-las nas opções
+firebase.firestore().collection("imobiliarias").orderBy('nome').get()
+  .then(function(querySnapshot) {
+    querySnapshot.forEach(function(imobiliaria) {
+      option = document.createElement('option');
+      $(option).val(imobiliaria.data().nome);
+      $(option).html(imobiliaria.data().nome);
+      $('#imobiliariaInput').append(option);
+    });
+  });
+  
 // Pegar imagem
 $("#inputImagem").change(() => {
   //Conferir existencia de uma imagem
