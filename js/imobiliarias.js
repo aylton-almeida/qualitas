@@ -49,7 +49,7 @@ function confSenha() {
 $("#confPassInput").on("change paste keyup", confSenha)
 $("#passInput").on("change paste keyup", confSenha)
 
-// Pegar imagem
+// Pegar imagem croppie
 $("#inputImagem").change(() => {
   //Conferir existencia de uma imagem
   if (inputImagem.files[0]) {
@@ -226,6 +226,7 @@ $("#btnSalvar").click(() => {
               cidade: $('#cidadeInput').val()
             },
             imagem: "imagensImobiliarias/" + $("#nomeInput").val(),
+            telefone: $('#telInput').val(),
             cnpj: $('#cnpjInput').val()
           })
           .then(() => {
@@ -339,16 +340,17 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
     querySnapshot.forEach(function(imobiliaria) {
       //Para cada imobiliaria recuperado
       let col = document.createElement("div");
-      col.className = "col-md-4 col-sm-6 d-flex align-items-stretch";
+      col.className = "col-md-4 col-xl-3 col-sm-6 d-flex align-items-stretch";
       let card = document.createElement("div");
-      card.className = "card bg-dark text-light";
+      card.className = "card bg-dark text-light w-100";
+      let cardHead = document.createElement('div');
+      cardHead.className = "card-header";
       let img = document.createElement("img");
       let imgUrl;
       firebase.storage().ref().child(imobiliaria.data().imagem + '/Logo').getDownloadURL()
         .then(function(url) {
           img.className = "card-img-top";
           img.src = url;
-          img.style.width = "100%";
           imgUrl = url;
         })
         .catch(function(error) {
@@ -359,14 +361,23 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
       let title = document.createElement("h5");
       title.className = "card-title";
       title.innerHTML = imobiliaria.data().nome;
+      let email = document.createElement('p');
+      email.className = "card-text";
+      email.innerHTML = imobiliaria.data().email;
+      let tel = document.createElement('p');
+      tel.className = "card-text";
+      tel.innerHTML = imobiliaria.data().telefone;
       let endereco = document.createElement("p");
       endereco.className = "card-text";
       endereco.innerHTML = imobiliaria.data().endereco.rua + ", " + imobiliaria.data().endereco.numero + "<br>" + imobiliaria.data().endereco.complemento;
-      $("#modalImovelDetalhado").before(col);
+      $("#modalImobiliariaDetalhado").before(col);
       col.appendChild(card)
-      card.appendChild(img);
+      card.appendChild(cardHead);
+      cardHead.appendChild(img);
       card.appendChild(cardBody);
       cardBody.appendChild(title);
+      cardBody.appendChild(email);
+      cardBody.appendChild(tel);
       cardBody.appendChild(endereco);
       // Click no card
       /*$(card).click(() => {

@@ -29,9 +29,9 @@
       <div class="loader" id="loader"></div>
     </div>
     <div class="container">
-      <div class="row menu">
+      <div class="row menu mt-sm-3">
         <!-- Cadastrar imóvel -->
-        <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9 mt-3" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar Imóvel</button>
+        <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar Imóvel</button>
         <!-- Modal cadastro imovel -->
         <div class="modal fade" id="modalCadastrarImovel" tabindex="-1" role="dialog" aria-labelledby="CadastrarImovelLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -149,7 +149,7 @@
           </div>
         </div>
       </div>
-      <div class="row" id="corpo">
+      <div class="row mt-3" id="corpo">
         <!-- Imóvel detalhado modal -->
         <div class="modal fade" id="modalImovelDetalhado" tabindex="-1" role="dialog" aria-labelledby="DetalheImovel" aria-hidden="true">
           <div class="modal-dialog" role="document">

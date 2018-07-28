@@ -33,7 +33,7 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
       $('#imobiliariaInput').append(option);
     });
   });
-  
+
 // Pegar imagem
 $("#inputImagem").change(() => {
   //Conferir existencia de uma imagem
