@@ -174,7 +174,6 @@
               <!-- Modal body -->
               <div class="modal-body" id="modalBody">
                 <img id="imgDetalhado" class="rounded img-fluid mx-auto d-block">
-                <!-- Carossel -->
                 <h6>Endereço:</h6>
                 <p id="pRua">Rua, Número</p>
                 <p id="pComplemento">Complemento</p>
@@ -184,6 +183,8 @@
                 <p id="pImobiliaria">Imobiliaria responsável: Imobiliaria</p>
                 <!-- Mapa com local -->
                 <div id="msgMod2" role="alert"></div>
+                  <!-- Carossel com imoveis da imobiliaria -->
+
               </div>
               <!-- Modal footer -->
               <div class="modal-footer" id="modalFooter">

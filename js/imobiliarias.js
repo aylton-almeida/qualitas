@@ -380,7 +380,7 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
       cardBody.appendChild(tel);
       cardBody.appendChild(endereco);
       // Click no card
-      /*$(card).click(() => {
+      $(card).click(() => {
         //Definir atributos do imobiliaria
         $("#Detalheimobiliaria").html(imobiliaria.data().nome + ", " + imobiliaria.data().endereco.complemento);
         $("#imgDetalhado").attr('src', '');
@@ -467,7 +467,7 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
             console.error("Error ao remover documento: ", error);
           });
         })
-      })*/
+      })
     });
   })
   .catch(function(error) {
