@@ -203,23 +203,26 @@
                 </div>
                 <p id="pCnpj">CNPJ</p>
                 <!-- Carossel com imoveis da imobiliaria -->
-                <div class="titulo-interno">
+                <div class="titulo-interno" id="imoveis">
                   <div class="titulo-interno-texto">
                     <h5>Imóveis</h5>
                   </div>
                   <hr>
                 </div>
                 <div class="carousel slide" id="carouselImoveis" data-ride="carousel">
-                  <div class="carousel-inner">
-                    <a class="carousel-control-prev" href="carouselImoveis" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="carouselImoveis" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
+                  <ol class="carousel-indeicators" id="carouselIndicators">
+                  </ol>
+                  <div class="carousel-inner" id="carouselInner">
+
                   </div>
+                  <a class="carousel-control-prev" href="#carouselImoveis" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselImoveis" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
                 </div>
                 <!-- Mapa com local -->
                 <div class="titulo-interno">

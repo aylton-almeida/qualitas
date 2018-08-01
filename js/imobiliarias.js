@@ -339,7 +339,6 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
   .then(function(querySnapshot) {
     querySnapshot.forEach(function(imobiliaria) {
       //Para cada imobiliaria recuperado
-      console.log('ok');
       let col = document.createElement("div");
       col.className = "col-md-4 col-xl-3 col-sm-6 d-flex align-items-stretch";
       let card = document.createElement("div");
@@ -380,9 +379,45 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
       cardBody.appendChild(email);
       cardBody.appendChild(tel);
       cardBody.appendChild(endereco);
+
+      // Pegar imóveis
+      let testeActive = 0;
+      firebase.firestore().collection("imoveis").orderBy('nome').get()
+        .then(function(querySnapshot) {
+          querySnapshot.forEach(function(imovel) {
+            if (imovel.data().imobiliaria == imobiliaria.data().nome) {
+              $('#imoveis').css('display', 'inline')
+              let divCarousel = document.createElement('div');
+              let li = document.createElement('li');
+              if (!testeActive) {
+                divCarousel.className = "carousel-item active";
+                li.className = "active";
+                testeActive = 1;
+              } else {
+                divCarousel.className = "carousel-item";
+              }
+              let imgCarousel = document.createElement('img');
+              imgCarousel.className = "d-block w-100";
+              firebase.storage().ref().child(imovel.data().imagem + '/imagemCapa').getDownloadURL()
+                .then(function(url) {
+                  imgCarousel.src = url;
+                  $('#carouselInner').append(divCarousel);
+                  divCarousel.appendChild(imgCarousel);
+                })
+                .catch(function(error) {
+                  console.log(error);
+                })
+            }
+          })
+        })
+        .catch(function(error) {
+          //Nenhum imóvel encontrado
+          console.log('Nenhum imóvel cadastrado encontrado');
+          console.log(error);
+        })
+
       // Click no card
       $(card).click(() => {
-
         //Definir atributos do imobiliaria
         $("#Detalheimobiliaria").html(imobiliaria.data().nome);
         $("#imgDetalhado").attr('src', '');
@@ -395,39 +430,9 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
         $('#pCidade').html(imobiliaria.data().endereco.cidade + ' - ' + imobiliaria.data().endereco.estado);
         $('#pCnpj').html("CNPJ " + imobiliaria.data().cnpj);
 
-        // Pegar imóveis
-        let testeActive = 0;
-        firebase.firestore().collection("imoveis").orderBy('nome').get()
-          .then(function(querySnapshot) {
-            querySnapshot.forEach(function(imovel) {
-              let divCarousel = document.createElement('div');
-              if (!testeActive) {
-                div.className = "carousel-item active";
-              }else{
-                div.className = "carousel-item";
-              }
-              let imgCarousel = document.createElement('img');
-
-              firebase.storage().ref().child(imovel.data().imagem + '/imagemCapa').getDownloadURL()
-                .then(function(url) {
-                  img.className = "card-img-top";
-                  img.src = url;
-                  img.style.width = "100%";
-                  imgUrl = url;
-                })
-                .catch(function(error) {
-                  console.log(error);
-                })
-            })
-          })
-          .catch(function(error) {
-            //Nenhum imóvel encontrado
-            console.log('Nenhum imóvel cadastrado encontrado');
-            console.log(error);
-          })
-
         //Maps
         let map;
+
         function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {
             center: {
