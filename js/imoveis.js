@@ -281,8 +281,9 @@ firebase.firestore().collection("imoveis").orderBy('nome').get()
         $('#pCidade').html(imovel.data().endereco.cidade + ' - ' + imovel.data().endereco.estado);
         $('#pPreco').html('Preço do alguel: R$' + imovel.data().preco + ',00');
         $('#pImobiliaria').html('Imobiliária responsável: ' + imovel.data().imobiliaria);
+        
         //Maps
-        var map;
+        let map;
 
         function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {

@@ -216,14 +216,14 @@
                   </div>
                   <hr>
                 </div>
-                <!-- E -->
+                <div id="map"></div>
+                <!-- Enviar email -->
                 <div class="titulo-interno">
                   <div class="titulo-interno-texto">
                     <h5>Envie um email</h5>
                   </div>
                   <hr>
                 </div>
-                <div id="map"></div>
                 <div id="msgMod2" role="alert"></div>
               </div>
               <!-- Modal footer -->

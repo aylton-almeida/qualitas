@@ -149,7 +149,7 @@ function limpaForm() {
         viewport: {
           width: 250,
           height: 250,
-          type: 'square'
+          type: 'circle'
         },
         boundary: {
           width: 500,
@@ -382,6 +382,7 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
       cardBody.appendChild(endereco);
       // Click no card
       $(card).click(() => {
+
         //Definir atributos do imobiliaria
         $("#Detalheimobiliaria").html(imobiliaria.data().nome);
         $("#imgDetalhado").attr('src', '');
@@ -393,9 +394,31 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
         $('#pBairro').html('Bairro ' + imobiliaria.data().endereco.bairro);
         $('#pCidade').html(imobiliaria.data().endereco.cidade + ' - ' + imobiliaria.data().endereco.estado);
         $('#pCnpj').html("CNPJ " + imobiliaria.data().cnpj);
-        //Maps
-        var map;
 
+        // Pegar imóveis
+        firebase.firestore().collection("imoveis").orderBy('nome').get()
+          .then(function(querySnapshot) {
+            querySnapshot.forEach(function(imovel) {
+              firebase.storage().ref().child(imovel.data().imagem + '/imagemCapa').getDownloadURL()
+                .then(function(url) {
+                  img.className = "card-img-top";
+                  img.src = url;
+                  img.style.width = "100%";
+                  imgUrl = url;
+                })
+                .catch(function(error) {
+                  console.log(error);
+                })
+            })
+          })
+          .catch(function(error) {
+            //Nenhum imóvel encontrado
+            console.log('Nenhum imóvel cadastrado encontrado');
+            console.log(error);
+          })
+
+        //Maps
+        let map;
         function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {
             center: {
@@ -448,28 +471,28 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
         //   //   focus: true
         //   // })
         // })
-        // // Button Excluir
-        // $('#btnExcluir').click(() => {
-        //   showLoader();
-        //   //Apagar firestore
-        //   firebase.firestore().collection("imoveis").doc(imobiliaria.data().nome + "," + imobiliaria.data().endereco.complemento).delete().then(function() {
-        //     //Apagar imagens
-        //     firebase.storage().ref(imobiliaria.data().imagem + '/imagemCapa').delete().then(function() {
-        //       // Imagem apagada
-        //       hideLoader();
-        //       mensagemModSuc('Imóvel excluido com sucesso', 2);
-        //       setTimeout(() => {
-        //         window.location.href = "imoveis.php";
-        //       }, 2000);
-        //     }).catch(function(error) {
-        //       // Erro ao apagar imagem
-        //       console.log(error);
-        //     });
-        //   }).catch(function(error) {
-        //     //Erro removendo documento
-        //     console.error("Error ao remover documento: ", error);
-        //   });
-        // })
+        // Button Excluir
+        $('#btnExcluir').click(() => {
+          showLoader();
+          //Apagar firestore
+          firebase.firestore().collection("imobiliarias").doc(imobiliaria.data().nome).delete().then(function() {
+            //Apagar imagens
+            firebase.storage().ref(imobiliaria.data().imagem + '/Logo').delete().then(function() {
+              // Imagem apagada
+              hideLoader();
+              mensagemModSuc('Imobiliária excluida com sucesso', 2);
+              setTimeout(() => {
+                window.location.href = "imobiliarias.php";
+              }, 2000);
+            }).catch(function(error) {
+              // Erro ao apagar imagem
+              console.log(error);
+            });
+          }).catch(function(error) {
+            //Erro removendo documento
+            console.error("Error ao remover documento: ", error);
+          });
+        })
 
       })
     });
