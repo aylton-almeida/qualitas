@@ -396,9 +396,18 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
         $('#pCnpj').html("CNPJ " + imobiliaria.data().cnpj);
 
         // Pegar imóveis
+        let testeActive = 0;
         firebase.firestore().collection("imoveis").orderBy('nome').get()
           .then(function(querySnapshot) {
             querySnapshot.forEach(function(imovel) {
+              let divCarousel = document.createElement('div');
+              if (!testeActive) {
+                div.className = "carousel-item active";
+              }else{
+                div.className = "carousel-item";
+              }
+              let imgCarousel = document.createElement('img');
+
               firebase.storage().ref().child(imovel.data().imagem + '/imagemCapa').getDownloadURL()
                 .then(function(url) {
                   img.className = "card-img-top";

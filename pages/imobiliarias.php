@@ -209,6 +209,18 @@
                   </div>
                   <hr>
                 </div>
+                <div class="carousel slide" id="carouselImoveis" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <a class="carousel-control-prev" href="carouselImoveis" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="carouselImoveis" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>
                 <!-- Mapa com local -->
                 <div class="titulo-interno">
                   <div class="titulo-interno-texto">
