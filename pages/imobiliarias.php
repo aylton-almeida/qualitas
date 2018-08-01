@@ -30,7 +30,7 @@
     </div>
     <div class="container">
       <div class="row menu mt-sm-3">
-        <!-- Cadastrar imóvel -->
+        <!-- Cadastrar Imobiliária -->
         <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImobiliaria">Cadastrar Imobiliária</button>
         <!-- Modal -->
         <div class="modal fade" id="modalCadastrarImobiliaria" tabindex="-1" role="dialog" aria-labelledby="CadastrarImobiliariasLabel" aria-hidden="true">
@@ -160,13 +160,13 @@
         </div>
       </div>
       <div class="row mt-3" id="corpo">
-        <!-- Imóvel detalhado modal -->
-        <div class="modal fade" id="modalImobiliariaDetalhado" tabindex="-1" role="dialog" aria-labelledby="DetalheImovel" aria-hidden="true">
+        <!-- Imobiliária detalhada modal -->
+        <div class="modal fade" id="modalimobiliariaDetalhada" tabindex="-1" role="dialog" aria-labelledby="Detalheimobiliaria" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <!-- Modal header -->
               <div class="modal-header">
-                <h5 class="modal-title" id="DetalheImovel">Nome imóvel</h5>
+                <h5 class="modal-title" id="Detalheimobiliaria">Nome imobiliária</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -174,17 +174,57 @@
               <!-- Modal body -->
               <div class="modal-body" id="modalBody">
                 <img id="imgDetalhado" class="rounded img-fluid mx-auto d-block">
-                <h6>Endereço:</h6>
+                <!-- Informaçòes de contato -->
+                <div class="titulo-interno">
+                  <div class="titulo-interno-texto">
+                    <h5>Informaçòes de contato</h5>
+                  </div>
+                  <hr>
+                </div>
+                <p id="pEmail">Email</p>
+                <p id="pTelefone">Telefone</p>
+                <!-- Endereço -->
+                <div class="titulo-interno">
+                  <div class="titulo-interno-texto">
+                    <h5>Endereço</h5>
+                  </div>
+                  <hr>
+                </div>
                 <p id="pRua">Rua, Número</p>
                 <p id="pComplemento">Complemento</p>
                 <p id="pBairro">Bairro</p>
                 <p id="pCidade">Cidade - Estado</p>
-                <p id="pPreco">Preço do aluguel: R$2000,00</p>
-                <p id="pImobiliaria">Imobiliaria responsável: Imobiliaria</p>
+                <!-- Informaçòes adicionais -->
+                <div class="titulo-interno">
+                  <div class="titulo-interno-texto">
+                    <h5>Informaçòes adicionais</h5>
+                  </div>
+                  <hr>
+                </div>
+                <p id="pCnpj">CNPJ</p>
+                <!-- Carossel com imoveis da imobiliaria -->
+                <div class="titulo-interno">
+                  <div class="titulo-interno-texto">
+                    <h5>Imóveis</h5>
+                  </div>
+                  <hr>
+                </div>
                 <!-- Mapa com local -->
+                <div class="titulo-interno">
+                  <div class="titulo-interno-texto">
+                    <h5>Localização</h5>
+                  </div>
+                  <hr>
+                </div>
+                <!-- E -->
+                <div class="titulo-interno">
+                  <div class="titulo-interno-texto">
+                    <h5>Envie um email</h5>
+                  </div>
+                  <hr>
+                </div>
+                <div id="map"></div>
                 <div id="msgMod2" role="alert"></div>
-                  <!-- Carossel com imoveis da imobiliaria -->
-
               </div>
               <!-- Modal footer -->
               <div class="modal-footer" id="modalFooter">
