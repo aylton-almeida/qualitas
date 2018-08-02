@@ -477,8 +477,7 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
 
         //Enviar email
         $('#btnEnviarEmail').click(()=>{
-          showLoader();
-          if ($("#cadastrarImobiliaria").checkValidity()){
+          if ($("#enviarEmailImobiliaria")[0].checkValidity()) {
             $.ajax({
                 url: '../mail/mail.php',
                 type: "POST",
@@ -489,41 +488,39 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
                     comentario: $('#inputTextEmail').val()
                 }),
                 success: function () {
-                  mensagemSuc("Email enviado com sucesso");
+                  window.sessionStorage.setItem('msg', 'Email enviado com sucesso');
+                  window.sessionStorage.setItem('msgType', 'suc');
+                  window.location.reload()
                 },
                 error: function (event) {
-                  mensagemErr("Erro ao enviar email")
+                  window.sessionStorage.setItem('msg', 'Erro ao enviar email');
+                  window.sessionStorage.setItem('msgType', 'err');
                   console.log(event);
+                  window.location.reload();
                 }
             })
           }else{
-            hideLoader();
             mensagemModErr('Preencha o formulário corretamente', 2)
           }
         })
 
         $("#modalimobiliariaDetalhada").modal('toggle');
 
-        // if (!testeAdmin) {
-        //   $('#modalFooter').hide();
-        // }
+        if (!testeAdmin) {
+          $('#modalFooter').hide();
+        }
         // // Button Alterar
-        // $('#btnAlterar').click(() => {
-        //   // while ($('#croppieDiv').children().length > 0) {
-        //   //     $('#croppieDiv').children().remove();
-        //   // }
-        //   // let img = document.createElement("img");
-        //   // img.className = "rounded img-fluid mx-auto d-block";
-        //   // $(img).attr('src', imgUrl);
-        //   // $('#croppieDiv').append(img);
-        //   // $('#modalCadastrarimobiliaria').on('show.bs.modal', function() {
-        //   //   $('#modalimobiliariaDetalhado').modal('hide');
-        //   // })
-        //   // $('#modalCadastrarimobiliaria').modal('toggle')
-        //   // $('#modalCadastrarimobiliaria').modal({
-        //   //   focus: true
-        //   // })
-        // })
+        $('#btnAlterar').click(() => {
+          while ($('#croppieDiv').children().length > 0) {
+              $('#croppieDiv').children().remove();
+          }
+          let img = document.createElement("img");
+          img.className = "rounded img-fluid mx-auto d-block";
+          $(img).attr('src', imgUrl);
+          $('#croppieDiv').append(img);
+          $('#modalimobiliariaDetalhada').modal('toggle');
+          $('#modalCadastrarImobiliaria').modal('toggle');
+        })
         // Button Excluir
         $('#btnExcluir').click(() => {
           showLoader();

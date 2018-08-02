@@ -237,7 +237,7 @@
                   </div>
                   <hr>
                 </div>
-                <form id="cadastrarImobiliaria">
+                <form id="enviarEmailImobiliaria">
                   <div class="input-group mb-3">
                     <input id="inputNomeEmail" class="form-control" type="text" placeholder="Nome" required>
                     <input id="inputEmailEmail" class="form-control" type="email" placeholder="Email" required>
