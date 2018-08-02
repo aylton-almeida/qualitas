@@ -82,7 +82,7 @@
                   <div class="input-group mb-3">
                     <input id="numeroInput" class="form-control" placeholder="Número" type="number" name="numero" required>
                     <input id="bairroInput" class="form-control" placeholder="Bairro" type="text" name="bairro" required>
-                    <input id="complementoInput" class="form-control" placeholder="Complemento" type="text" name="complemento" required>
+                    <input id="complementoInput" class="form-control" placeholder="Complemento" type="text" name="complemento">
                   </div>
                   <!-- Estado e cidade -->
                   <div class="input-group mb-3">
@@ -210,8 +210,6 @@
                   <hr>
                 </div>
                 <div class="carousel slide" id="carouselImoveis" data-ride="carousel">
-                  <ol class="carousel-indeicators" id="carouselIndicators">
-                  </ol>
                   <div class="carousel-inner" id="carouselInner">
 
                   </div>
@@ -239,6 +237,16 @@
                   </div>
                   <hr>
                 </div>
+                <form id="cadastrarImobiliaria">
+                  <div class="input-group mb-3">
+                    <input id="inputNomeEmail" class="form-control" type="text" placeholder="Nome" required>
+                    <input id="inputEmailEmail" class="form-control" type="email" placeholder="Email" required>
+                  </div>
+                  <div class="input-group mb-3">
+                    <textarea id="inputTextEmail" class="form-control" rows="8" placeholder="Escreva sua mensagem" required></textarea>
+                  </div>
+                  <button id="btnEnviarEmail" class="btn btn-success w-100 mb-3" type="button">Enviar</button>
+                </form>
                 <div id="msgMod2" role="alert"></div>
               </div>
               <!-- Modal footer -->
