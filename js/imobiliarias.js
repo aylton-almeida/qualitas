@@ -478,6 +478,7 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
         //Enviar email
         $('#btnEnviarEmail').click(()=>{
           if ($("#enviarEmailImobiliaria")[0].checkValidity()) {
+            showLoader();
             $.ajax({
                 url: '../mail/mail.php',
                 type: "POST",
@@ -490,17 +491,19 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
                 success: function () {
                   window.sessionStorage.setItem('msg', 'Email enviado com sucesso');
                   window.sessionStorage.setItem('msgType', 'suc');
+                  hideLoader();
                   window.location.reload()
                 },
                 error: function (event) {
                   window.sessionStorage.setItem('msg', 'Erro ao enviar email');
                   window.sessionStorage.setItem('msgType', 'err');
                   console.log(event);
+                  hideLoader();
                   window.location.reload();
                 }
             })
           }else{
-            mensagemModErr('Preencha o formulário corretamente', 2)
+            mensagemModErr('Preencha o formulário corretamente', 2);
           }
         })
 
