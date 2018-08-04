@@ -19,6 +19,7 @@
     <li class="nav-item">
       <a class="nav-link <?php if($_SESSION['page'] == "imobiliarias"){echo "active";}?>" href="<?php if($_SESSION['page'] == "home"){echo "pages/imobiliarias.php";}else{echo "../pages/imobiliarias.php";}?>">Imobiliárias</a>
     </li>
+    <!-- Página para pagamentos -->
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle <?php if($_SESSION['page'] == "pagamentos"){echo "active";}?>" href="#" id="navbarDropdownPagamentos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Pagamentos
@@ -29,7 +30,25 @@
       </div>
     </li>
   </ul>
-  <?php if($_SESSION['page'] != "login" && $_SESSION['page'] != "cadastro" && $_SESSION['page'] != "admin"){echo
+    <!-- Dropdown login/admin -->
+  <div class="dropdown dropleft">
+    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownConta" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Conta</a>
+    <div class="dropdown-menu dropdown-login-nav" aria-labelledby = "dropdownConta">
+      <form id="formNav">
+        <div class="form-group">
+          <label for="emailInputNav">Endereço de email</label>
+          <input id="emailInputNav" type="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="passInputNav">Senha</label>
+          <input id="passInputNav" type="password" class="form-control" placeholder="Senha">
+        </div>
+        <button id="btnLoginNav" type="button" class="btn btn-success">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- <?php if($_SESSION['page'] != "login" && $_SESSION['page'] != "cadastro" && $_SESSION['page'] != "admin"){echo
     '<form class="form-inline" id="formNav">
       <div class="input-group">
         <input id="emailInputNav" type="email" class="form-control" aria-describedby="loginSpan" placeholder="E-mail" required>
@@ -38,8 +57,8 @@
           <button id="btnLoginNav" class="btn btn-outline-secondary" type="button">Login</button>
         </div>
       </div>
-    </form>
-    ';}?>
+    </form>';
+  }?>
     <span class="navbar-text" id="bemVindo" style="cursor: pointer">
-    </span>
+    </span> -->
 </div>
