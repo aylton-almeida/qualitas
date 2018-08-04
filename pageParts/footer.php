@@ -44,12 +44,6 @@
     sessionStorage.clear();
   }
 
-//Esconder formulário
-$("#formNav").hide();
-  //Button cadastro navBar
-  $("#btnCadastroNav").click(() => {
-    window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/cadastro.php";}else{echo "../pages/cadastro.php";}?>";
-  })
   // Button login navBar
   $("#btnLoginNav").click(() => {
     showLoader();
@@ -124,48 +118,38 @@ $("#formNav").hide();
       firebase.firestore().collection("usuarios").doc(user.uid).get().then((doc) => {
       //Usuário conectado
       console.log("Logged in");
-      $("#bemVindo").html("Bem vindo " + user.displayName);
-      //over e out span bemvindo
-      $("#bemVindo")
-      .mouseover(()=>{
-            //Pegar imobiliaria do usuário
-            if (doc.data().imobiliaria == "Qualitas Imobiliária e Construtora LTDA") {
-              if(<?php if($_SESSION['page'] == "admin"){echo "true";}else{echo "false";}?>){
-                //Caso o usuário esteja na pagina de admin
-                $("#bemVindo").html("Sair");
-                //Função do click no sair
-                $("#bemVindo").click(()=>{
-                  $("#bemVindo").hide();
-                  firebase.auth().signOut();
-                  window.location.href = "<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>";
-                })
-              }else{
-                $("#bemVindo").html("Administrador");
-                //Função do click no admin
-                $("#bemVindo").click(()=>{
-                  //Enviar para pagina de administrador
-                  window.location.href = "<?php if($_SESSION['page'] == "home"){echo "pages/admin.php";}else{echo "../pages/admin.php";}?>";
-                })
-              }
-            } else {
-              $("#bemVindo").html("Sair");
-              //Função do click no sair
-              $("#bemVindo").click(()=>{
-                $("#bemVindo").hide();
-                firebase.auth().signOut();
-                window.location.href = "<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>";
-              })
-            }
-          })
-      .mouseout(()=>{
-        $("#bemVindo").html("Bem vindo " + user.displayName);
-      })
+      $("#dropdownNavConta").html(user.displayName);
+      $('#bemVindoUsuario').html('Bem vindo ' + user.displayName);
+      $('#formNav').hide();
     })
     }else{
       //Usuário desconectado
       console.log("Not logged in");
       $("#formNav").show();
+      $('#divUsuario').hide();
     }
+  })
+
+  //Redefinir senha navbar
+  $("#redefSenhaNav").click(()=>{
+    //Validar campo de email
+    if($("#emailInputNav")[0].checkValidity()){
+      //Enviar email
+      firebase.auth().sendPasswordResetEmail($("#emailInputNav").val())
+      .then(function() {
+        mensagemSuc("Email enviado com sucesso!", 1);
+      }).catch(function(error) {
+        mensagemErr("Erro ao enviar email!", 1);
+      });
+    }else{
+      mensagemErr("Digite seu email!", 1);
+    }
+  })
+
+  //Função sair navBar
+  $('#btnSairNav').click(()=>{
+    firebase.auth().signOut();
+    window.location.reload();
   })
 
   //Funções de mensagem

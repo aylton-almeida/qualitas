@@ -1,3 +1,11 @@
+/* Links */
+a{
+  color: #333333;
+}
+a:hover{
+  color: black;
+}
+
 /* Loader */
 
 .loaderDiv {
@@ -49,7 +57,8 @@
 }
 
 /* Inputs */
-.input-group-text{
+
+.input-group-text {
   color: white;
   background-color: #333333
 }
@@ -60,7 +69,46 @@
   background-color: #333333
 }
 
-.dropdown-login-nav{
+#formNav {
   width: 300px;
-  height: 100px
+  height: 260px
 }
+
+.dropdown-nav-conta{
+  padding: 15px
+}
+
+#dropdownNavConta{
+  color: rgba(255,255,255,.5);
+  text-decoration: none
+}
+
+@media only screen and (max-width: 600px) {
+  .dropdown-nav-conta {
+    right: inherit;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .dropdown-nav-conta {
+    right: inherit;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .dropdown-nav-conta {
+    right: inherit;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {}

@@ -31,34 +31,28 @@
     </li>
   </ul>
     <!-- Dropdown login/admin -->
-  <div class="dropdown dropleft">
-    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownConta" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Conta</a>
-    <div class="dropdown-menu dropdown-login-nav" aria-labelledby = "dropdownConta">
+  <div class="dropdown">
+    <a class="dropdown-toggle" href="#" role="button" id="dropdownNavConta" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Conta</a>
+    <div class="dropdown-menu dropdown-nav-conta dropdown-menu-right">
       <form id="formNav">
-        <div class="form-group">
-          <label for="emailInputNav">Endereço de email</label>
-          <input id="emailInputNav" type="email" class="form-control" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label for="passInputNav">Senha</label>
-          <input id="passInputNav" type="password" class="form-control" placeholder="Senha">
-        </div>
-        <button id="btnLoginNav" type="button" class="btn btn-success">Login</button>
+          <div class="form-group">
+            <label for="emailInputNav">Endereço de email</label>
+            <input id="emailInputNav" type="email" class="form-control" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="passInputNav">Senha</label>
+            <input id="passInputNav" type="password" class="form-control" placeholder="Senha">
+          </div>
+          <button id="btnLoginNav" type="button" class="btn btn-dark">Login</button>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="card-link" id="redefSenhaNav">Esqueceu sua senha?</a>
       </form>
+      <div id="divUsuario">
+        <h5 id="bemVindoUsuario" class="dropdown-header">Bem vindo</h5>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Gerencie sua conta</a>
+        <a id="btnSairNav" class="dropdown-item" href="#">Sair</a>
+      </div>
     </div>
   </div>
-
-  <!-- <?php if($_SESSION['page'] != "login" && $_SESSION['page'] != "cadastro" && $_SESSION['page'] != "admin"){echo
-    '<form class="form-inline" id="formNav">
-      <div class="input-group">
-        <input id="emailInputNav" type="email" class="form-control" aria-describedby="loginSpan" placeholder="E-mail" required>
-        <input id="passInputNav" type="password" class="form-control" aria-describedby="loginSpan" placeholder="Senha" required>
-        <div class="input-group-append">
-          <button id="btnLoginNav" class="btn btn-outline-secondary" type="button">Login</button>
-        </div>
-      </div>
-    </form>';
-  }?>
-    <span class="navbar-text" id="bemVindo" style="cursor: pointer">
-    </span> -->
 </div>

@@ -94,3 +94,6 @@ $("#redefSenha").click(()=>{
     mensagemErr("Digite seu email!", 1);
   }
 })
+
+//Esconder contato
+$('#dropdownNavConta').hide();

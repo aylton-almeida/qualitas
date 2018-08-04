@@ -1,7 +1,7 @@
-a{
+.card-link{
   color: grey;
 }
-a:hover{
+.card-link:hover{
   color: white;
 }
 
