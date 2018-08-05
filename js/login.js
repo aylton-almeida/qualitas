@@ -95,5 +95,5 @@ $("#redefSenha").click(()=>{
   }
 })
 
-//Esconder contato
+//Esconder usuario
 $('#dropdownNavConta').hide();

@@ -1,9 +1,11 @@
+//Determinar masks
 $(document).ready(() => {
   $('.cnpj').mask('00.000.000/0000-00', {
     reverse: true
   });
   $('.phone_with_ddd').mask('(00) 0000-0000');
 })
+
 var testeAdmin = false;
 //Pegar usuário atual e testar imobiliaria
 firebase.auth().onAuthStateChanged(function(user) {

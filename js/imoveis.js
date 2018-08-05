@@ -239,7 +239,7 @@ firebase.firestore().collection("imoveis").orderBy('nome').get()
       let imgUrl;
       firebase.storage().ref().child(imovel.data().imagem + '/imagemCapa').getDownloadURL()
         .then(function(url) {
-          img.className = "card-img-top";
+          img.className = "card-img";
           img.src = url;
           img.style.width = "100%";
           imgUrl = url;
@@ -281,7 +281,7 @@ firebase.firestore().collection("imoveis").orderBy('nome').get()
         $('#pCidade').html(imovel.data().endereco.cidade + ' - ' + imovel.data().endereco.estado);
         $('#pPreco').html('Preço do alguel: R$' + imovel.data().preco + ',00');
         $('#pImobiliaria').html('Imobiliária responsável: ' + imovel.data().imobiliaria);
-        
+
         //Maps
         let map;
 

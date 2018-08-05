@@ -1,5 +1,5 @@
 <!-- Elementros navBar -->
-<a class="navbar-brand" href="<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>"><img src="<?php if($_SESSION['page'] == "home"){echo "imagens/logo_intermedio.png";}else{echo "../imagens/logo_intermedio.png";}?>" width="50" height="50"> Qualitas</a>
+<a class="navbar-brand" href="<?php if($_SESSION['page'] == "home"){echo "index.php";}else{echo "../index.php";}?>"><img src="https://firebasestorage.googleapis.com/v0/b/qualitas-24b79.appspot.com/o/Logo%2Flogo_intermedio.png?alt=media&token=b4bdbd6b-0469-4074-bde3-6aa3ea42407b" width="50" height="50"> Qualitas</a>
 <!-- Add hamburguer menu -->
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
       <div id="divUsuario">
         <h5 id="bemVindoUsuario" class="dropdown-header">Bem vindo</h5>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Gerencie sua conta</a>
+        <a class="dropdown-item" href="<?php if($_SESSION['page'] == "home"){echo "pages/admin.php";}else{echo "../pages/admin.php";}?>">Gerencie sua conta</a>
         <a id="btnSairNav" class="dropdown-item" href="#">Sair</a>
       </div>
     </div>

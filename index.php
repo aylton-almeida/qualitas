@@ -31,7 +31,7 @@
       </div>
       <!--Bloco 1: Logo/Pesquisa-->
       <div class="block1 bg-dark">
-          <img id="img" class="img-fluid" width="100%" src="imagens/logo_texto.png" alt="Qualitas Imobiliária e Construtora">
+          <img id="img" class="img-fluid" width="100%" src="https://firebasestorage.googleapis.com/v0/b/qualitas-24b79.appspot.com/o/Logo%2Flogo_texto.png?alt=media&token=f512f207-8215-4ec4-a9bc-e02fba3ad129" alt="Qualitas Imobiliária e Construtora">
       </div>
       <!--Bloco 2: Acesso Rápido-->
       <div class="block2 bg-light">

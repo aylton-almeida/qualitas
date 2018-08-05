@@ -25,12 +25,29 @@
     ?>
   </nav>
   <main>
-    <div id="msg1" role="alert">
-      <div class="loaderDiv" id="loaderDiv">
-        <div class="loader" id="loader"></div>
+    <div id="msg1" role="alert"></div>
+    <div class="loaderDiv" id="loaderDiv">
+      <div class="loader" id="loader"></div>
+    </div>
+    <div class="container-fluid bg-dark menu">
+      <div class="py-3 px-3 row">
+        <h3 id="bemVindoAdmin" class="col-lg-4 col-md-5 text-light">Bem vindo</h3>
+        <button id="btnSair" class="offset-lg-7 col-lg-1 offset-md-5 col-md-2 btn btn-outline-secondary" type="button">Sair</button>
       </div>
     </div>
-    <div class="block">
+    <div class="container py-3">
+      <div class="row">
+        <div class="col-4">
+          <div class="card text-white">
+            <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/qualitas-24b79.appspot.com/o/imagens%2Fcontrato.png?alt=media&token=a0b6154a-f6cc-4856-abba-70b5fc6144ed">
+            <div class="card-img-overlay">
+              <h3>Criar contrato</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="block">
       <div class="card">
         <div class="card-header bg-dark text-light">
           <h1>Administrador</h1>
@@ -39,22 +56,22 @@
           <div class="container">
             <div class="row">
               <button type="button" class="btn btn-dark col-12" name="Cadastro Usuário" data-toggle="modal" data-target="#modalCadastrarUsuario">Cadastrar usuário</button>
-              <!-- Modal Usuário -->
+
               <div class="modal fade" id="modalCadastrarUsuario" tabindex="-1" role="dialog" aria-labelledby="CadastrarUsuarioLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
-                    <!-- Modal header -->
+
                     <div class="modal-header">
                       <h5 class="modal-title" id="CadastrarUsuarioLabel">Cadastre um Usuário</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <!-- Modal body -->
+
                     <div class="modal-body">
-                      <!-- Form -->
+
                       <form id="formUsuario">
-                        <!-- Nome -->
+
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="nomeSpan">Nome</span>
@@ -62,7 +79,7 @@
                             <input type="text" name="nome" class="form-control" id="nomeInputUsuario" placeholder="Nome" aria-describedby="nomeSpan" required>
                             <input type="text" name="sobrenome" class="form-control" id="sobrenomeInput" placeholder="Sobrenome" aria-describedby="nomeSpan" required>
                         </div>
-                        <!-- Imobiliária -->
+
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="imobiliariaSpan">Imobiliária</span>
@@ -78,14 +95,14 @@
                             <option value="Vivar Imóveis LTDA">Vivar Imóveis LTDA</option>
                           </select>
                         </div>
-                        <!-- Email -->
+
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="emailSpan">Email</span>
                           </div>
                           <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email" aria-describedby="nomeSpan" required>
                         </div>
-                        <!-- Senha -->
+
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="senhaSpan">Senha</span>
@@ -99,7 +116,7 @@
                       </form>
                       <div id="msgMod1" role="alert"></div>
                     </div>
-                    <!-- Modal footer -->
+
                     <div class="modal-footer">
                       <button type="button" class="btn btn-danger" id="btnCancelarUsuario" data-dismiss="modal">Cancelar</button>
                       <button type="button" class="btn btn-success" id="btnCadastro">Concluir</button>
@@ -110,21 +127,21 @@
             </div>
             <div class="row">
               <button type="button" class="btn btn-dark col-12" name="Cadastro Imóvel" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar imóvel</button>
-              <!-- Modal Imóvel -->
+
               <div class="modal fade" id="modalCadastrarImovel" tabindex="-1" role="dialog" aria-labelledby="CadastrarImovelLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
-                    <!-- Modal header -->
+
                     <div class="modal-header">
                       <h5 class="modal-title" id="CadastrarImovelLabel">Cadastre um imóvel</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <!-- Modal body -->
+
                     <div class="modal-body" id="modalBody">
                       <form id="cadastrarImovel">
-                        <!-- Form imagem -->
+
                         <div class="container">
                           <div class="row" id="croppieDiv">
                             <div class="input-group mb-3">
@@ -135,27 +152,27 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Nome -->
+
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="nomeSpan">Nome</span>
                           </div>
                           <input id="nomeInput" class="form-control" placeholder="Digite um nome" type="text" aria-describedby="nomeSpan" name="nome" required>
                         </div>
-                        <!-- Rua -->
+
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="endereçoSpan">Endereço</span>
                           </div>
                           <input id="ruaInput" class="form-control" placeholder="Rua" type="text" aria-describedby="endereçoSpan" name="rua" required>
                         </div>
-                        <!-- Número, bairro e complemento -->
+
                         <div class="input-group mb-3">
                           <input id="numeroInput" class="form-control" placeholder="Número" type="number" name="numero" required>
                           <input id="bairroInput" class="form-control" placeholder="Bairro" type="text" name="bairro" required>
                           <input id="complementoInput" class="form-control" placeholder="Complemento" type="text" name="complemento">
                         </div>
-                        <!-- Estado e cidade -->
+
                         <div class="input-group mb-3">
                           <select class="custom-select" id="estadoInput" name="estado">
                             <option selected>Estado</option>
@@ -189,7 +206,7 @@
                           </select>
                           <input id="cidadeInput" class="form-control" placeholder="Digite uma cidade" type="text" name="cidade" required>
                         </div>
-                        <!-- Valor aluguel -->
+
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="precoSpan">R$</span>
@@ -199,7 +216,7 @@
                             <span class="input-group-text" id="precoSpan">,00</span>
                           </div>
                         </div>
-                        <!-- Imobiliária -->
+
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="imobiliariaSpan">Imobiliária</span>
@@ -218,7 +235,7 @@
                       </form>
                       <div id="msgMod2" role="alert"></div>
                     </div>
-                    <!-- Modal footer -->
+
                     <div class="modal-footer">
                       <button type="button" class="btn btn-danger" id="btnCancelar" data-dismiss="modal">Cancelar</button>
                       <button type="button" class="btn btn-success" id="btnSalvar">Salvar</button>
@@ -230,7 +247,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </main>
   <footer>
     <?php

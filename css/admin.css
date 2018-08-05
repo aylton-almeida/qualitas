@@ -1,71 +1,29 @@
-.modal img {
-  margin-bottom: 16px;
-}
-
-a {
-  color: grey;
-}
-
-a:hover {
-  color: white;
-}
-
-#senhaSpan2 {
-  color: white;
-  background-color: #ffc107
-}
-
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 600px) {
-  .block {
-    padding: 5% 0
-  }
-  .row>button {
-    margin-bottom: 20px
-  }
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
-  .block {
-    padding: 10% 20%
-  }
-  .row>button {
-    margin-bottom: 20px
-  }
+
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-  .block {
-    padding: 10% 25%
-  }
-  .row>button {
-    margin-bottom: 20px
-  }
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-  .block {
-    padding: 10% 30%
-  }
-  .row>button {
-    margin-bottom: 20px
-  }
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
 @media only screen and (min-width: 1200px) {
-  .block {
-    padding: 15% 35%
-  }
-  .row>button {
-    margin-bottom: 20px
-  }
+
 }

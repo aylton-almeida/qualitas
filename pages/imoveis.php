@@ -128,13 +128,6 @@
                     </div>
                     <select class="custom-select" id="imobiliariaInput" aria-describedby="imobiliariaSpan" name="imobiliaria">
                       <option selected>Escolha uma imobiliária</option>
-                      <option value="Conceito Empreendimentos Imobiliarias LTDA">Conceito Empreendimentos Imobiliarias LTDA</option>
-                      <option value="FAI Consultoria de imoveis LTDA">FAI Consultoria de imoveis LTDA</option>
-                      <option value="Invest Administradiora e Corretora de Imóveis LTDA">Invest Administradiora e Corretora de Imóveis LTDA</option>
-                      <option value="J. Fróes Imóveis LTDA">J. Fróes Imóveis LTDA</option>
-                      <option value="Qualitas Imobiliária e Construtora LTDA">Qualitas Imobiliária e Construtora LTDA</option>
-                      <option value="União Corretora de Imóvel LTDA">União Corretora de Imóvel LTDA</option>
-                      <option value="Vivar Imóveis LTDA">Vivar Imóveis LTDA</option>
                     </select>
                   </div>
                 </form>

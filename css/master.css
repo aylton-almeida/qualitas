@@ -83,6 +83,11 @@ a:hover{
   text-decoration: none
 }
 
+#divUsuario>.dropdown-item:focus{
+  background-color: #333333;
+  color: white
+}
+
 @media only screen and (max-width: 600px) {
   .dropdown-nav-conta {
     right: inherit;
