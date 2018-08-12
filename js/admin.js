@@ -17,7 +17,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 //Função sair
 $('#btnSair').click(()=>{
   firebase.auth().signOut();
-  window.location.reload();
 })
 
 // //Pegar imobiliárias e coloca-las nas opções

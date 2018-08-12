@@ -148,8 +148,9 @@
 
   //Função sair navBar
   $('#btnSairNav').click(()=>{
-    firebase.auth().signOut();
-    window.location.reload();
+    firebase.auth().signOut().then(()=>{
+      window.location.reload();
+    })
   })
 
   //Funções de mensagem
