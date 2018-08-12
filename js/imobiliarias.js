@@ -3,7 +3,7 @@ $(document).ready(() => {
   $('.cnpj').mask('00.000.000/0000-00', {
     reverse: true
   });
-  $('.phone_with_ddd').mask('(00) 0000-0000');
+  $('.phone_with_ddd').mask('(00) 00000-0000');
 })
 
 var testeAdmin = false;
@@ -461,7 +461,7 @@ firebase.firestore().collection("imobiliarias").orderBy('nome').get()
 
         function codeAddress(geocoder, map) {
           geocoder.geocode({
-            'address': imobiliaria.data().endereco.rua + ', ' + imobiliaria.data().endereco.numero
+            'address': imobiliaria.data().endereco.rua + ', ' + imobiliaria.data().endereco.numero + ', ' + imobiliaria.data().endereco.cidade
           }, function(results, status) {
             if (status === 'OK') {
               map.setCenter(results[0].geometry.location);
