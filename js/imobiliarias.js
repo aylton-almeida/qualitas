@@ -1,9 +1,15 @@
 //Determinar masks
 $(document).ready(() => {
+  $("#telInput").on("change", ()=>{
+    if($('#telInput').val().length == 14){
+      $('.phone_with_ddd').mask('(00) 0000-0000');
+    }else {
+      $('.phone_with_ddd').mask('(00) 00000-0000');
+    }
+  })
   $('.cnpj').mask('00.000.000/0000-00', {
     reverse: true
   });
-  $('.phone_with_ddd').mask('(00) 00000-0000');
 })
 
 var testeAdmin = false;
