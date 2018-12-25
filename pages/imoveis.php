@@ -121,6 +121,19 @@
                       <span class="input-group-text" id="precoSpan">,00</span>
                     </div>
                   </div>
+                  <!-- Estado de aluguel -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="isAlugadoSpan">Estado</span>
+                    </div>
+                    <select class="custom-select" id="isAlugadoInput" aria-describedby="isAlugadoSpan" name="isAlugado">
+                      <option selected>Escolha o estado do imóvel</option>
+                      <option value="Alugado">Alugado</option>
+                      <option value="Vago">Vago</option>
+                      <option value="Vendendo">Vendendo</option>
+                      <option value="Vendido">Vendido</option>
+                    </select>
+                  </div>
                   <!-- Imobiliária -->
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -176,6 +189,7 @@
                   <hr>
                 </div>
                 <p id="pPreco">Preço do aluguel: R$2000,00</p>
+                <p id="pIsAlugado">Vago</p>
                 <p id="pImobiliaria">Imobiliaria responsável: Imobiliaria</p>
                 <div class="titulo-interno">
                   <div class="titulo-interno-texto">

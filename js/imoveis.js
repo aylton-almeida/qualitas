@@ -190,8 +190,9 @@ $("#btnSalvar").click(() => {
               bairro: $('#bairroInput').val(),
               complemento: $('#complementoInput').val(),
               estado: $('#estadoInput').val(),
-              cidade: $('#cidadeInput').val()
+              cidade: $('#cidadeInput').val(),
             },
+            isAlugado: $('#isAlugadoInput').val(),
             preco: $('#precoInput').val(),
             imobiliaria: $('#imobiliariaInput').val(),
             imagem: "imagensImoveis/" + $("#nomeInput").val() + "," + $('#complementoInput').val()
@@ -251,7 +252,7 @@ firebase.firestore().collection("imoveis").orderBy('nome').get()
       cardBody.className = "card-body";
       let title = document.createElement("h5");
       title.className = "card-title";
-      title.innerHTML = imovel.data().nome;
+      title.innerHTML = imovel.data().nome + ' - ' + imovel.data().isAlugado;
       let endereco = document.createElement("p");
       endereco.className = "card-text";
       endereco.innerHTML = imovel.data().endereco.rua + ", " + imovel.data().endereco.numero + "<br>" + imovel.data().endereco.complemento;
@@ -281,7 +282,7 @@ firebase.firestore().collection("imoveis").orderBy('nome').get()
         $('#pCidade').html(imovel.data().endereco.cidade + ' - ' + imovel.data().endereco.estado);
         $('#pPreco').html('Preço do alguel: R$' + imovel.data().preco + ',00');
         $('#pImobiliaria').html('Imobiliária responsável: ' + imovel.data().imobiliaria);
-
+        $('#pIsAlugado').html('Estado do imóvel: ' + imovel.data().isAlugado);
         //Maps
         let map;
 
@@ -299,7 +300,7 @@ firebase.firestore().collection("imoveis").orderBy('nome').get()
 
         function codeAddress(geocoder, map) {
           geocoder.geocode({
-            'address': imovel.data().endereco.rua + ', ' + imovel.data().endereco.numero
+            'address': imovel.data().endereco.rua + ', ' + imovel.data().endereco.numero + ', ' + imovel.data().endereco.cidade
           }, function(results, status) {
             if (status === 'OK') {
               map.setCenter(results[0].geometry.location);
