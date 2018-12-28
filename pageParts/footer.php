@@ -1,12 +1,14 @@
 <!-- Add Jquery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/jquery/jquery.min.js";}else{echo "../bibliotecas/jquery/jquery.min.js";} ?>"></script>
 <!-- Add mask plugin -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
-<!-- Add bootstrap scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-<!-- Add croppie script -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.2/croppie.js"></script>
+<script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/jquery/mask.js";}else{echo "../bibliotecas/jquery/mask.js";} ?>"></script>
+<!-- Add bootstrap -->
+<script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/jquery/popper.js";}else{echo "../bibliotecas/jquery/popper.js";} ?>" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/bootstrap/bootstrap.min.js";}else{echo "../bibliotecas/bootstrap/bootstrap.min.js";} ?>" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/bootstrap/bootstrap.min.css";}else{echo "../bibliotecas/bootstrap/bootstrap.min.css";} ?>" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<!-- Add cropie -->
+<link rel="stylesheet" href="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/croppie/croppie.css";}else{echo "../bibliotecas/croppie/croppie.css";} ?>"/>
+<script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/croppie/croppie.js";}else{echo "../bibliotecas/croppie/croppie.js";} ?>"></script>
 <!-- Add funções do firebase -->
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
@@ -16,7 +18,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-functions.js"></script>
 <!-- Add icons -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/googleIcons/icon.css";}else{echo "../bibliotecas/googleIcons/icon.css";} ?>" rel="stylesheet">
 <!-- Add maps -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_XmxvW05XB7WrV_lwhfYn-fzTAgfAYZ4" async defer></script>
 <!-- Iniciar Firebase -->
