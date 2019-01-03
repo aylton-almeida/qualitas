@@ -1,13 +1,22 @@
 /* Links */
-a{
+a {
   color: #333333;
 }
-a:hover{
+
+a:hover {
   color: black;
+  text-decoration: none !important;
+}
+
+.alert {
+  margin: 0 !important;
+}
+
+.dropdown-nav-conta {
+  padding: 15px !important;
 }
 
 /* Loader */
-
 .loaderDiv {
   display: none;
   position: fixed;
@@ -37,11 +46,11 @@ a:hover{
 }
 
 /* Safari */
-
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
   }
@@ -51,13 +60,13 @@ a:hover{
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
 /* Inputs */
-
 .input-group-text {
   color: white;
   background-color: #333333
@@ -74,46 +83,42 @@ a:hover{
   height: 260px
 }
 
-.dropdown-nav-conta{
+.dropdown-nav-conta {
   padding: 15px
 }
 
-#dropdownNavConta{
-  color: rgba(255,255,255,.5);
+#dropdownNavConta {
+  color: rgba(255, 255, 255, .5);
   text-decoration: none
 }
 
-#divUsuario>.dropdown-item:focus{
+#divUsuario>.dropdown-item:focus {
   background-color: #333333;
   color: white
 }
 
 @media only screen and (max-width: 600px) {
   .dropdown-nav-conta {
-    right: inherit;
+    right: inherit !important;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-
 @media only screen and (min-width: 600px) and (max-width: 768px) {
   .dropdown-nav-conta {
-    right: inherit;
+    right: inherit !important;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .dropdown-nav-conta {
-    right: inherit;
+    right: inherit !important;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-
 @media only screen and (min-width: 992px) and (max-width: 1200px) {}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-
 @media only screen and (min-width: 1200px) {}

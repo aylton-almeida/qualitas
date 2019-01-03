@@ -3,8 +3,8 @@
 <!-- Add mask plugin -->
 <script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/jquery/mask.js";}else{echo "../bibliotecas/jquery/mask.js";} ?>"></script>
 <!-- Add bootstrap -->
-<script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/jquery/popper.js";}else{echo "../bibliotecas/jquery/popper.js";} ?>" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/bootstrap/bootstrap.min.js";}else{echo "../bibliotecas/bootstrap/bootstrap.min.js";} ?>" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/jquery/popper.js";}else{echo "../bibliotecas/jquery/popper.js";} ?>" crossorigin="anonymous"></script>
+<script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/bootstrap/bootstrap.min.js";}else{echo "../bibliotecas/bootstrap/bootstrap.min.js";} ?>" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/bootstrap/bootstrap.min.css";}else{echo "../bibliotecas/bootstrap/bootstrap.min.css";} ?>" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <!-- Add cropie -->
 <link rel="stylesheet" href="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/croppie/croppie.css";}else{echo "../bibliotecas/croppie/croppie.css";} ?>"/>

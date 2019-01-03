@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" shrink-to-fit=no>
     <!--Add css-->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="css/master.css">
 </head>
 
