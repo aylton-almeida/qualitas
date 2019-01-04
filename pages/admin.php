@@ -48,7 +48,7 @@
         <div class="row">
           <!-- Cadastro usuarios -->
           <div class="col-sm-6">
-            <button type="button" class="btn btn-dark btn-lg btn-block my-1">Cadastrar Usuário</button>
+            <button type="button" class="btn btn-dark btn-lg btn-block my-1"  data-toggle="modal" data-target="#modalCadastrarUsuario">Cadastrar Usuário</button>
           </div>
           <!-- Contratos -->
           <div class="col-sm-6">
@@ -57,6 +57,66 @@
               <div class="dropdown-menu btn-block my-0 bg-dark" aria-labelledby="dropdownPagamentos">
                 <button type="button" class="btn btn-dark btn-lg btn-block">Fazer pagamento</button>
                 <button type="button" class="btn btn-dark btn-lg btn-block">Ver pagamentos</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalCadastrarUsuario" tabindex="-1" role="dialog" aria-labelledby="CadastrarUsuarioLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <!-- Modal header -->
+              <div class="modal-header">
+                <h5 class="modal-title" id="CadastrarUsuarioLabel">Cadastre um Usuário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body" id="modalBody">
+                <form id="cadastrarUsuario">
+                  <!-- Nome -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="nomeSpan">Nome</span>
+                    </div>
+                    <input id="nomeInput" class="form-control" placeholder="Digite um nome" type="text" aria-describedby="nomeSpan" name="nome" required>
+                  </div>
+                  <!-- Email -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="emailSpan">Email</span>
+                    </div>
+                    <input id="emailInput" class="form-control" placeholder="Email" type="email" required>
+                  </div>
+                  <!-- Imobiliária -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="imobiliariaSpan">Imobiliária</span>
+                    </div>
+                    <select class="custom-select" id="imobiliariaInput" aria-describedby="imobiliariaSpan" name="imobiliaria">
+                      <option selected>Escolha uma imobiliária</option>
+                    </select>
+                  </div>
+                  <!-- Senha -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="senhaSpan">Senha</span>
+                    </div>
+                    <input type="password" name="password" class="form-control" id="passInput" placeholder="Senha" aria-describedby="senhaSpan" required>
+                    <input type="password" name="confPassword" class="form-control" id="confPassInput" placeholder="Confirmar senha" aria-describedby="senhaSpan senhaSpan2" required>
+                  </div>
+                  <!-- Sinal de senha igual -->
+                  <div class="input-group-prepend my-3">
+                    <i class="input-group-text material-icons col-12" id="senhaSpan2">remove</i>
+                  </div>
+                </form>
+              <div id="msgMod1" role="alert"></div>
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnCancelar" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" id="btnSalvar">Salvar</button>
               </div>
             </div>
           </div>
