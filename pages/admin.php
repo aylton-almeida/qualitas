@@ -51,8 +51,8 @@
             <div class="dropdown">
               <button type="button" class="btn btn-dark btn-lg btn-block my-1 dropdown-toggle" id="dropdownPagamentos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentos e Financeiro</button>
               <div class="dropdown-menu btn-block my-0 bg-dark" aria-labelledby="dropdownPagamentos">
-                <button type="button" class="btn btn-dark btn-lg btn-block">Documentos</button>
-                <button type="button" class="btn btn-dark btn-lg btn-block">Pagamentos</button>
+                <a href="./documentos.php"><button type="button" class="btn btn-dark btn-lg btn-block">Documentos</button></a>
+                <a href="./pagamentos.php"><button type="button" class="btn btn-dark btn-lg btn-block">Pagamentos</button></a>
               </div>
             </div>
           </div>

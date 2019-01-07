@@ -19,6 +19,20 @@
     <li class="nav-item">
       <a class="nav-link <?php if($_SESSION['page'] == "imobiliarias"){echo "active";}?>" href="<?php if($_SESSION['page'] == "home"){echo "pages/imobiliarias.php";}else{echo "../pages/imobiliarias.php";}?>">Imobiliárias</a>
     </li>
+    <!-- Pagina com documentos -->
+    <?php if ($_SESSION['page'] == "documentos") {
+      echo
+      "<li class='nav-item'>
+        <a class='nav-link active' href='#'>Documentos</a>
+      </li>";
+    }?>
+    <!-- Pagina com Pagamentos -->
+    <?php if ($_SESSION['page'] == "pagamentos") {
+      echo
+      "<li class='nav-item'>
+        <a class='nav-link active' href='#'>Pagamentos</a>
+      </li>";
+    }?>
   </ul>
     <!-- Dropdown login/admin -->
   <div class="dropdown">

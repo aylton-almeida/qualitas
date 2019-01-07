@@ -20,14 +20,21 @@
      ?>
   </nav>
   <main>
+    <!-- Alerta -->
     <div id="msg1" role="alert"></div>
     <div class="loaderDiv" id="loaderDiv">
       <div class="loader" id="loader"></div>
     </div>
+    <!-- TItulo da pagina -->
+    <div class="container-fluid bg-dark menu">
+      <div class="py-3 px-3 row">
+        <h3 id="bemVindoAdmin" class="col-lg-4 col-md-5 text-light">Imóveis</h3>
+        <button id="btnCadastrar" class="offset-lg-6 col-lg-2 offset-md-4 col-md-3 btn btn-outline-secondary" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImobiliaria">Cadastrar Imobiliária</button>
+      </div>
+    </div>
+    <!-- Página -->
     <div class="container">
       <div class="row menu mt-sm-3">
-        <!-- Cadastrar Imobiliária -->
-        <button id="btnCadastrar" type="button" class="btn btn-dark col-md-3 offset-md-9" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImobiliaria">Cadastrar Imobiliária</button>
         <!-- Modal -->
         <div class="modal fade" id="modalCadastrarImobiliaria" tabindex="-1" role="dialog" aria-labelledby="CadastrarImobiliariasLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
