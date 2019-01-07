@@ -120,7 +120,7 @@
                   <!-- Estado de aluguel -->
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text" id="isAlugadoSpan">Estado</span>
+                      <span class="input-group-text" id="isAlugadoSpan">Está Alugado?</span>
                     </div>
                     <select class="custom-select" id="isAlugadoInput" aria-describedby="isAlugadoSpan" name="isAlugado">
                       <option selected>Escolha o estado do imóvel</option>

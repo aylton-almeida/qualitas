@@ -46,19 +46,19 @@
           </div>
         </div>
         <div class="row">
-          <!-- Cadastro usuarios -->
-          <div class="col-sm-6">
-            <button type="button" class="btn btn-dark btn-lg btn-block my-1"  data-toggle="modal" data-target="#modalCadastrarUsuario">Cadastrar Usuário</button>
-          </div>
-          <!-- Contratos -->
-          <div class="col-sm-6">
+          <!-- Financeiro -->
+          <div class="col-sm">
             <div class="dropdown">
-              <button type="button" class="btn btn-dark btn-lg btn-block my-1 dropdown-toggle" id="dropdownPagamentos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pagamentos</button>
+              <button type="button" class="btn btn-dark btn-lg btn-block my-1 dropdown-toggle" id="dropdownPagamentos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Documentos e Financeiro</button>
               <div class="dropdown-menu btn-block my-0 bg-dark" aria-labelledby="dropdownPagamentos">
-                <button type="button" class="btn btn-dark btn-lg btn-block">Fazer pagamento</button>
-                <button type="button" class="btn btn-dark btn-lg btn-block">Ver pagamentos</button>
+                <button type="button" class="btn btn-dark btn-lg btn-block">Documentos</button>
+                <button type="button" class="btn btn-dark btn-lg btn-block">Pagamentos</button>
               </div>
             </div>
+          </div>
+          <!-- Cadastro usuarios -->
+          <div class="col-sm">
+            <button id="btnCadastrarUsuario" type="button" class="btn btn-dark btn-lg btn-block my-1"  data-toggle="modal" data-target="#modalCadastrarUsuario">Cadastrar Usuário</button>
           </div>
         </div>
         <!-- Modal -->

@@ -1,3 +1,28 @@
+var testeAdmin = false;
+//Pegar usuário atual e testar imobiliaria
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    //Pegar usuário no firestore
+    firebase.firestore().collection("usuarios").doc(user.uid).get().then((doc) => {
+        //Pegar imobiliaria do usuário
+        if (doc.data().imobiliaria == "Qualitas Imobiliária e Construtora LTDA") {
+          testeAdmin = true;
+          $("#btnCadastrarUsuario").show();
+        } else {
+          //Caso a imobiliaria não seja qualitas
+          $("#btnCadastrarUsuario").hide();
+        }
+      })
+      .catch((error) => {
+        //Caso não encontre um usuario no firestore
+        $("#btnCadastrarUsuario").hide();
+      })
+  } else {
+    //Caso não tenha usuario cadastrado
+    $("#btnCadastrarUsuario").hide();
+  }
+});
+
 //Esconder contato
 $('#dropdownNavConta').hide();
 
