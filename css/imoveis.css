@@ -1,3 +1,7 @@
+.custom-file-label::after{
+  content: url("https://material.io/tools/icons/static/icons/outline-add_photo_alternate-24px.svg") !important
+}
+
 .modal img {
   margin-bottom: 16px;
 }

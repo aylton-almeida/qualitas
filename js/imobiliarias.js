@@ -219,7 +219,7 @@ $("#btnSalvar").click(() => {
   //Conferir validade do formulário
   if ($("#cadastrarImobiliaria")[0].checkValidity()) {
     //Cadastrar imagem no storage
-    firebase.storage().ref().child("imagensImobiliarias/" + $("#nomeInput").val() + '/Logo').put(imgBlob)
+    firebase.storage().ref().child("imobiliarias/" + $("#nomeInput").val() + '/imagens/Logo').put(imgBlob)
       .then((snapshot) => {
         //Cadastrar imobiliaria no db
         firebase.firestore().collection("imobiliarias").doc($("#nomeInput").val()).set({
@@ -233,7 +233,7 @@ $("#btnSalvar").click(() => {
               estado: $('#estadoInput').val(),
               cidade: $('#cidadeInput').val()
             },
-            imagem: "imagensImobiliarias/" + $("#nomeInput").val(),
+            imagem: "imobiliarias/" + $("#nomeInput").val() + '/imagens',
             telefone: $('#telInput').val(),
             cnpj: $('#cnpjInput').val()
           })

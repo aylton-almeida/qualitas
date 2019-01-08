@@ -179,7 +179,7 @@ $("#btnSalvar").click(() => {
   //Conferir validade do formulário
   if ($("#cadastrarImovel")[0].checkValidity()) {
     //Cadastrar imagem no storage
-    firebase.storage().ref().child("imagensImoveis/" + $("#nomeInput").val() + "," + $('#complementoInput').val() + '/imagemCapa').put(imgBlob)
+    firebase.storage().ref().child("imoveis/" + $("#nomeInput").val() + "," + $('#complementoInput').val() + '/imagens/imagemCapa').put(imgBlob)
       .then((snapshot) => {
         //Cadastrar imovel no db
         firebase.firestore().collection("imoveis").doc($("#nomeInput").val() + "," + $('#complementoInput').val()).set({
@@ -195,7 +195,7 @@ $("#btnSalvar").click(() => {
             isAlugado: $('#isAlugadoInput').val(),
             preco: $('#precoInput').val(),
             imobiliaria: $('#imobiliariaInput').val(),
-            imagem: "imagensImoveis/" + $("#nomeInput").val() + "," + $('#complementoInput').val()
+            imagem: "imoveis/" + $("#nomeInput").val() + "," + $('#complementoInput').val() + '/imagens'
           })
           .then(() => {
             //Sucesso ao adicionar imovel ao firestore

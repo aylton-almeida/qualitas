@@ -33,7 +33,6 @@
         <button id="btnFazerPagamento" class="offset-lg-6 col-lg-2 offset-md-4 col-md-3 btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#modalFazerPagamento">Fazer Pagamento</button>
       </div>
     </div>
-    <!-- Página -->
     <!-- Tabela  -->
     <div class="container-fluid">
       <table class="table">
@@ -46,7 +45,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr data-toggle="modal" data-target="#modalPagamentoDetalhado">
             <th scope="row">21/02/2018</th>
             <td>Rua Tavares Bastos, 413/Apto 1001</td>
             <td>R$1800,00</td>
@@ -55,7 +54,7 @@
         </tbody>
       </table>
     </div>
-    <!-- Modal -->
+    <!-- Modal Formulario pagamento -->
     <div class="modal fade" id="modalFazerPagamento" tabindex="-1" role="dialog" aria-labelledby="fazerPagamentoLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -101,6 +100,30 @@
                 </div>
               </div>
             </form>
+          <div id="msgMod1" role="alert"></div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" id="btnCancelar" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-success" id="btnSalvar">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Mostrar detalhado -->
+    <div class="modal fade" id="modalPagamentoDetalhado" tabindex="-1" role="dialog" aria-labelledby="pagamentoDetalhadoLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- Modal header -->
+          <div class="modal-header">
+            <h5 class="modal-title" id="pagamentoDetalhadoLabel">Edificio Melbourne, Apto 901</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body" id="modalBody">
+
           <div id="msgMod1" role="alert"></div>
           </div>
           <!-- Modal footer -->

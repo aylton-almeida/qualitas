@@ -1,0 +1,7 @@
+.custom-file-label::after{
+  content: url("https://material.io/tools/icons/static/icons/outline-insert_drive_file-24px.svg") !important;
+}
+
+tr{
+  cursor: pointer;
+}
