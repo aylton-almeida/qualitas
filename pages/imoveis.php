@@ -29,7 +29,7 @@
     <div class="container-fluid bg-dark menu">
       <div class="py-3 px-3 row">
         <h3 id="bemVindoAdmin" class="col-lg-4 col-md-5 text-light">Imóveis</h3>
-        <button id="btnCadastrar" class="offset-lg-7 col-lg-1 offset-md-5 col-md-2 btn btn-outline-secondary" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar Imóvel</button>
+        <button id="btnCadastrar" class="offset-lg-6 col-lg-2 offset-md-4 col-md-3 btn btn-outline-secondary" name="Cadastro" data-toggle="modal" data-target="#modalCadastrarImovel">Cadastrar Imóvel</button>
       </div>
     </div>
     <!-- Pagina -->
@@ -182,7 +182,6 @@
                   <hr>
                 </div>
                 <p id="pRua">Rua, Número</p>
-                <p id="pComplemento">Complemento</p>
                 <p id="pBairro">Bairro</p>
                 <p id="pCidade">Cidade - Estado</p>
                 <div class="titulo-interno">

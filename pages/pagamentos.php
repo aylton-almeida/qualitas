@@ -30,7 +30,85 @@
     <div class="container-fluid bg-dark menu">
       <div class="py-3 px-3 row">
         <h3 id="bemVindoAdmin" class="col-lg-4 col-md-5 text-light">Pagamentos</h3>
-        <!-- <button id="btnSair" class="offset-lg-7 col-lg-1 offset-md-5 col-md-2 btn btn-outline-secondary" type="button">Sair</button> -->
+        <button id="btnFazerPagamento" class="offset-lg-6 col-lg-2 offset-md-4 col-md-3 btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#modalFazerPagamento">Fazer Pagamento</button>
+      </div>
+    </div>
+    <!-- Página -->
+    <!-- Tabela  -->
+    <div class="container-fluid">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Upload</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">21/02/2018</th>
+            <td>Rua Tavares Bastos, 413/Apto 1001</td>
+            <td>R$1800,00</td>
+            <td>Sim</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalFazerPagamento" tabindex="-1" role="dialog" aria-labelledby="fazerPagamentoLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- Modal header -->
+          <div class="modal-header">
+            <h5 class="modal-title" id="fazerPagamentoLabel">Fazer um Pagamento</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body" id="modalBody">
+            <form id="formFazerPagamento">
+              <!-- Imóvel -->
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="imoveisSpan">Imóveis</span>
+                </div>
+                <select class="custom-select" id="imoveisInput" aria-describedby="imoveisSpan" name="imoveis">
+                  <option selected>Escolha um imóvel</option>
+                </select>
+              </div>
+              <!-- Valor pago -->
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="valorPagoSpan">R$</span>
+                </div>
+                <input type="number" name="valorPago" class="form-control" id="valorPago" placeholder="Digite o valor pago" aria-describedby="valorPagoSpan" required>
+              </div>
+              <!-- Data -->
+              <div class="input-group mb-3">
+                <input name="data" id="datepicker" class="form-control" placeholder="Escolha a data" type="text" aria-describedby="dataSpan" required>
+              </div>
+              <!-- Upload comprovante -->
+              <div class="container">
+                <div class="row" id="comprovanteDiv">
+                  <div class="input-group mb-3">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputComprovante" name="comprovante" required>
+                      <label id="labelComprovante" class="custom-file-label" for="inputComprovante">Envie seu comprovante</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          <div id="msgMod1" role="alert"></div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" id="btnCancelar" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-success" id="btnSalvar">Salvar</button>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -39,6 +117,8 @@
     include("../pageParts/footer.php");
     ?>
   </footer>
+  <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="../js/pagamentos.js"></script>
 </body>
 

@@ -252,10 +252,10 @@ firebase.firestore().collection("imoveis").orderBy('nome').get()
       cardBody.className = "card-body";
       let title = document.createElement("h5");
       title.className = "card-title";
-      title.innerHTML = imovel.data().nome + ' - ' + imovel.data().isAlugado;
+      title.innerHTML = imovel.data().nome + ', ' + imovel.data().endereco.complemento + ' - ' + imovel.data().isAlugado;
       let endereco = document.createElement("p");
       endereco.className = "card-text";
-      endereco.innerHTML = imovel.data().endereco.rua + ", " + imovel.data().endereco.numero + "<br>" + imovel.data().endereco.complemento;
+      endereco.innerHTML = imovel.data().endereco.rua + ", " + imovel.data().endereco.numero;
       let imobiliaria = document.createElement("p");
       imobiliaria.className = "card-text";
       imobiliaria.innerHTML = imovel.data().imobiliaria;
@@ -277,7 +277,6 @@ firebase.firestore().collection("imoveis").orderBy('nome').get()
         $("#imgDetalhado").attr('src', '');
         $("#imgDetalhado").attr('src', imgUrl);
         $('#pRua').html(imovel.data().endereco.rua + ', ' + imovel.data().endereco.numero);
-        $('#pComplemento').html(imovel.data().endereco.complemento);
         $('#pBairro').html('Bairro ' + imovel.data().endereco.bairro);
         $('#pCidade').html(imovel.data().endereco.cidade + ' - ' + imovel.data().endereco.estado);
         $('#pPreco').html('Preço do alguel: R$' + imovel.data().preco + ',00');
