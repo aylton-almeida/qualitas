@@ -177,4 +177,45 @@
     $("#loaderDiv").hide();
   }
 
+  // Inverter data
+  function dataRevert(data){
+    let splitString = data.replace('/', '').replace('/', '').split("");
+    let dia = new Array(2);
+    dia[0] = splitString[0];
+    dia[1] = splitString[1];
+    let mes = new Array(2);
+    mes[0] = splitString[2];
+    mes[1] = splitString[3];
+    let ano = new Array(4);
+    ano[0] = splitString[4];
+    ano[1] = splitString[5];
+    ano[2] = splitString[6];
+    ano[3] = splitString[7];
+    let anoString = ano.join('');
+    let mesString = mes.join('');
+    let diaString = dia.join('');
+    let dataFinal = anoString + mesString + diaString;
+    return dataFinal;
+  }
+
+  //inverter data invertida
+  function dataRerevert(data){
+    let splitString = data.replace('/', '').replace('/', '').split("");
+    let dia = new Array(2);
+    dia[0] = splitString[6];
+    dia[1] = splitString[7];
+    let mes = new Array(2);
+    mes[0] = splitString[4];
+    mes[1] = splitString[5];
+    let ano = new Array(4);
+    ano[0] = splitString[0];
+    ano[1] = splitString[1];
+    ano[2] = splitString[2];
+    ano[3] = splitString[3];
+    let anoString = ano.join('');
+    let mesString = mes.join('');
+    let diaString = dia.join('');
+    let dataFinal = diaString + '/' + mesString + '/' + anoString;
+    return dataFinal;
+  }
 </script>

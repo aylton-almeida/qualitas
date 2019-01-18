@@ -44,7 +44,7 @@
             <th scope="col">Upload</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="tbody">
           <tr data-toggle="modal" data-target="#modalPagamentoDetalhado">
             <th scope="row">21/02/2018</th>
             <td>Rua Tavares Bastos, 413/Apto 1001</td>
@@ -93,7 +93,7 @@
                 <div class="row" id="comprovanteDiv">
                   <div class="input-group mb-3">
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="inputComprovante" name="comprovante" required>
+                      <input type="file" accept="image/*" class="custom-file-input" id="inputComprovante" name="comprovante" required>
                       <label id="labelComprovante" class="custom-file-label" for="inputComprovante">Envie seu comprovante</label>
                     </div>
                   </div>
