@@ -202,11 +202,11 @@
   function dataRerevert(data){
     let splitString = data.replace('/', '').replace('/', '').split("");
     let dia = new Array(2);
-    dia[0] = splitString[6];
-    dia[1] = splitString[7];
+    dia[0] = splitString[4];
+    dia[1] = splitString[5];
     let mes = new Array(2);
-    mes[0] = splitString[4];
-    mes[1] = splitString[5];
+    mes[0] = splitString[6];
+    mes[1] = splitString[7];
     let ano = new Array(4);
     ano[0] = splitString[0];
     ano[1] = splitString[1];

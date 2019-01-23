@@ -41,16 +41,10 @@
             <th scope="col">Data</th>
             <th scope="col">Endereço</th>
             <th scope="col">Valor</th>
-            <th scope="col">Upload</th>
+            <th scope="col">Comprovante</th>
           </tr>
         </thead>
         <tbody id="tbody">
-          <tr data-toggle="modal" data-target="#modalPagamentoDetalhado">
-            <th scope="row">21/02/2018</th>
-            <td>Rua Tavares Bastos, 413/Apto 1001</td>
-            <td>R$1800,00</td>
-            <td>Sim</td>
-          </tr>
         </tbody>
       </table>
     </div>
