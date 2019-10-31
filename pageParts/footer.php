@@ -5,7 +5,7 @@
 <!-- Add bootstrap -->
 <script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/jquery/popper.js";}else{echo "../bibliotecas/jquery/popper.js";} ?>" crossorigin="anonymous"></script>
 <script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/bootstrap/bootstrap.min.js";}else{echo "../bibliotecas/bootstrap/bootstrap.min.js";} ?>" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/bootstrap/bootstrap.min.css";}else{echo "../bibliotecas/bootstrap/bootstrap.min.css";} ?>" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link rel="stylesheet" href="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/bootstrap/bootstrap.min.css";}else{echo "../bibliotecas/bootstrap/bootstrap.min.css";} ?>">
 <!-- Add cropie -->
 <link rel="stylesheet" href="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/croppie/croppie.css";}else{echo "../bibliotecas/croppie/croppie.css";} ?>"/>
 <script src="<?php if($_SESSION['page'] == "home"){echo "./bibliotecas/croppie/croppie.js";}else{echo "../bibliotecas/croppie/croppie.js";} ?>"></script>
